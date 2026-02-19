@@ -1,0 +1,26 @@
+{
+  "name": "livepeer-docs-tests",
+  "version": "1.0.0",
+  "description": "Test suite for Livepeer documentation",
+  "scripts": {
+    "test": "node run-all.js",
+    "test:style": "node unit/style-guide.test.js",
+    "test:mdx": "node unit/mdx.test.js",
+    "test:spell": "node unit/spelling.test.js",
+    "test:quality": "node unit/quality.test.js",
+    "test:links": "node unit/links-imports.test.js",
+    "test:pages-index": "node ../tools/scripts/generate-pages-index.js",
+    "test:pages-index:write": "node ../tools/scripts/generate-pages-index.js --write",
+    "test:pages-index:rebuild": "node ../tools/scripts/generate-pages-index.js --write --rebuild-indexes",
+    "test:scripts": "node unit/script-docs.test.js",
+    "test:browser": "node integration/browser.test.js",
+    "test:domain": "node integration/domain-pages-audit.js",
+    "test:domain:v1": "node integration/domain-pages-audit.js --version v1",
+    "test:domain:v2": "node integration/domain-pages-audit.js --version v2",
+    "test:domain:both": "node integration/domain-pages-audit.js --version both"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "puppeteer": "^21.0.0"
+  }
+}

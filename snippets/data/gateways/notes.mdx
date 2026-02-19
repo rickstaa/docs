@@ -1,0 +1,229 @@
+# Docker Off-Chain vs On-Chain Gateway Differences
+
+## Quick Summary
+
+| Aspect | Off-Chain Gateway | On-Chain Gateway |
+|--------|------------------|------------------|
+| **Ethereum** | No RPC needed | Requires `-ethUrl` and wallet |
+| **Network** | Default: offchain | Specify network (e.g., arbitrum-one-mainnet) |
+| **Payments** | No blockchain payments | Ticket-based micropayments |
+| **Verification** | Disabled by default | Enabled by default |
+
+---
+
+## Installation Differences
+
+### Docker Image
+Both use the same Docker image:
+```bash
+docker pull livepeer/go-livepeer:master
+```
+
+### Configuration Files
+
+**Off-chain** - Minimal configuration:
+```yaml
+command: '-gateway
+          -orchAddr=<ORCHESTRATOR_ADDRESSES>'
+```
+
+**On-chain** - Requires Ethereum configuration [1](#44-0) :
+```yaml
+command: '-gateway
+          -network arbitrum-one-mainnet
+          -ethUrl=https://arb1.arbitrum.io/rpc
+          -ethKeystorePath=/root/.lpData/keystore
+          -ethPassword=/root/.lpData/keystore/password
+          -orchAddr=<ORCHESTRATOR_ADDRESSES>'
+```
+
+---
+
+## Running Differences
+
+### Off-Chain Gateway
+- Skips all Ethereum initialization [2](#44-1) 
+- No wallet or keystore needed
+- Local verification disabled by default [3](#44-2) 
+
+### On-Chain Gateway
+- Initializes Ethereum client and contracts
+- Requires valid ETH account and keystore [4](#44-3) 
+- Local verification enabled by default [5](#44-4) 
+- Handles ticket-based payments
+
+### Auto-Creation Behavior
+On-chain gateways can auto-create accounts if `-ethKeystorePath` and `-ethPassword` are omitted [6](#44-5) .
+
+---
+
+## Testing Differences
+
+### Common Tests (Both Modes)
+```bash
+# Check gateway status
+curl http://localhost:5935/status
+
+# Check available orchestrators
+curl http://localhost:5935/getOrchestrators
+
+# Test RTMP ingest
+ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key
+```
+
+### Off-Chain Specific Tests
+- No payment validation needed
+- Simpler setup for development/testing
+- Tests run faster without blockchain overhead
+
+### On-Chain Specific Tests
+- Payment ticket validation
+- Requires ETH for transactions
+- Tests include verification workflows [7](#44-6) 
+- Must check gas prices and transaction confirmations
+
+### AI Testing Differences
+**Off-chain AI gateway**:
+```yaml
+command: '-gateway
+          -httpIngest
+          -orchAddr=<ORCHESTRATOR_ADDRESSES>'
+```
+
+**On-chain AI gateway** - requires `-aiServiceRegistry` [8](#44-7) :
+```yaml
+command: '-gateway
+          -httpIngest
+          -aiServiceRegistry
+          -network arbitrum-one-mainnet
+          -ethUrl=https://arb1.arbitrum.io/rpc
+          -orchAddr=<ORCHESTRATOR_ADDRESSES>'
+```
+
+---
+
+## Development vs Production
+
+### Development Examples
+The VS Code launch configurations show both modes [9](#44-8) :
+- Off-chain: Simpler, no blockchain dependencies
+- On-chain: Full protocol integration with payments
+
+### Production Considerations
+- **Off-chain**: Good for private video processing, no gas costs
+- **On-chain**: Required for public network participation, economic incentives
+
+## Notes
+
+- The Docker image is the same for both modes; differences are in configuration flags
+- Off-chain mode is explicitly checked and skips Ethereum setup [2](#44-1) 
+- Test suite validates both modes separately with different requirements [10](#44-9) 
+- On-chain mode fails without `-ethUrl` [1](#44-0) 
+
+Wiki pages you might want to explore:
+- [Overview (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1)
+
+### Citations
+
+**File:** test_args.sh (L40-52)
+```shellscript
+run_lp -gateway
+[ -d "$DEFAULT_DATADIR"/offchain ]
+kill $pid
+
+# sanity check that custom datadir does not exist
+[ ! -d "$CUSTOM_DATADIR" ]
+
+# check custom datadir without a network (offchain)
+run_lp -gateway -dataDir "$CUSTOM_DATADIR"
+[ -d "$CUSTOM_DATADIR" ]
+[ ! -d "$CUSTOM_DATADIR"/offchain ] # sanity check that network isn't included
+kill $pid
+
+```
+
+**File:** test_args.sh (L90-93)
+```shellscript
+  # Exit early if -ethUrl is missing
+  res=0
+  $TMPDIR/livepeer -gateway -network mainnet $ETH_ARGS || res=$?
+  [ $res -ne 0 ]
+```
+
+**File:** test_args.sh (L161-165)
+```shellscript
+  # Check that local verification is enabled by default in on-chain mode
+  $TMPDIR/livepeer -gateway -transcodingOptions invalid -network rinkeby $ETH_ARGS 2>&1 | grep "Local verification enabled"
+
+  # Check that local verification is disabled via -localVerify in on-chain mode
+  $TMPDIR/livepeer -gateway -transcodingOptions invalid -localVerify=false -network rinkeby $ETH_ARGS 2>&1 | grep -v "Local verification enabled"
+```
+
+**File:** test_args.sh (L294-295)
+```shellscript
+# Check that local verification is disabled by default in off-chain mode
+$TMPDIR/livepeer -gateway -transcodingOptions invalid 2>&1 | grep -v "Local verification enabled"
+```
+
+**File:** doc/development.md (L44-102)
+```markdown
+      "name": "Launch O/T (off-chain)",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "cmd/livepeer",
+      "buildFlags": "-ldflags=-extldflags=-lm", // Fix missing symbol error.
+      "args": [
+        "-orchestrator",
+        "-transcoder",
+        "-serviceAddr=0.0.0.0:8935",
+        "-v=6",
+        "-nvidia=all"
+      ]
+    },
+    {
+      "name": "Launch O (off-chain)",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "cmd/livepeer",
+      "buildFlags": "-ldflags=-extldflags=-lm", // Fix missing symbol error.
+      "args": [
+        "-orchestrator",
+        "-orchSecret=orchSecret",
+        "-serviceAddr=0.0.0.0:8935",
+        "-v=6"
+      ]
+    },
+    {
+      "name": "Launch T (off-chain)",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "cmd/livepeer",
+      "buildFlags": "-ldflags=-extldflags=-lm", // Fix missing symbol error.
+      "args": [
+        "-transcoder",
+        "-orchSecret=orchSecret",
+        "-orchAddr=0.0.0.0:8935",
+        "-v=6",
+        "-nvidia=all"
+      ]
+    },
+    {
+      "name": "Launch G (off-chain)",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "cmd/livepeer",
+      "buildFlags": "-ldflags=-extldflags=-lm", // Fix missing symbol error.
+      "args": [
+        "-gateway",
+        "-transcodingOptions=${env:HOME}/.lpData/offchain/transcodingOptions.json",
+        "-orchAddr=0.0.0.0:8935",
+        "-httpAddr=0.0.0.0:9935",
+        "-v",
+        "6"
+      ]
+    },
+```

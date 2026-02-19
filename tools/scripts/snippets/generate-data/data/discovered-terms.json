@@ -1,0 +1,3765 @@
+{
+  "generatedAt": "2026-01-26T03:57:16.758Z",
+  "minOccurrences": 20,
+  "llmEvaluated": true,
+  "totalTerms": 69,
+  "terms": [
+    {
+      "term": "AI",
+      "totalOccurrences": 1167,
+      "pageCount": 147,
+      "pages": [
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 81
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 55
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 48
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/codemap.mdx",
+          "occurrences": 39
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 37
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 32
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 32
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "occurrences": 29
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 24
+        },
+        {
+          "path": "v1/ai/orchestrators/ai-worker.mdx",
+          "occurrences": 24
+        }
+      ],
+      "category": "AI / Machine Learning",
+      "definition": "Artificial Intelligence refers to the simulation of human intelligence processes by computer systems, often used in Livepeer for tasks like video understanding and content moderation.",
+      "tags": [
+        "artificial intelligence",
+        "machine learning",
+        "video analysis"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Livepeer",
+      "totalOccurrences": 835,
+      "pageCount": 245,
+      "pages": [
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 40
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 28
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 21
+        },
+        {
+          "path": "v2/pages/00_home/introduction/why-livepeer.mdx",
+          "occurrences": 19
+        },
+        {
+          "path": "v2/home/home/primer.mdx",
+          "occurrences": 18
+        },
+        {
+          "path": "v2/pages/00_home/introduction/vision.mdx",
+          "occurrences": 18
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 16
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 16
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 15
+        },
+        {
+          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "occurrences": 14
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Livepeer is a decentralized video transcoding and streaming network built on blockchain technology, allowing developers to access affordable and scalable video infrastructure.",
+      "tags": [
+        "decentralized video",
+        "video transcoding",
+        "web3 infrastructure"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "API",
+      "totalOccurrences": 513,
+      "pageCount": 149,
+      "pages": [
+        {
+          "path": "v2/pages/07_resources/changelog/changelog.mdx",
+          "occurrences": 57
+        },
+        {
+          "path": "v1/developers/guides/get-engagement-analytics-via-api.mdx",
+          "occurrences": 27
+        },
+        {
+          "path": "v1/api-reference/overview/authentication.mdx",
+          "occurrences": 15
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/developers/guides/transcode-video-storj.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/developers/guides/clip-a-livestream.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/ai/pipelines/llm.mdx",
+          "occurrences": 8
+        }
+      ],
+      "category": "Technical",
+      "definition": "API (Application Programming Interface) defines how different software components or systems communicate with each other, enabling developers to integrate Livepeer's features into their applications.",
+      "tags": [
+        "application programming interface",
+        "integration",
+        "developer tools"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Gateway",
+      "totalOccurrences": 379,
+      "pageCount": 90,
+      "pages": [
+        {
+          "path": "v1/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 55
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 55
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 13
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/gateways/guides/fund-gateway.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 7
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A Gateway is a node within the Livepeer network that accepts incoming video streams from broadcasters and distributes them to the broader internet.",
+      "tags": [
+        "broadcasting",
+        "streaming",
+        "video distribution"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Orchestrator",
+      "totalOccurrences": 261,
+      "pageCount": 61,
+      "pages": [
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 31
+        },
+        {
+          "path": "v1/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 27
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 27
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 15
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 14
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 14
+        },
+        {
+          "path": "v1/ai/orchestrators/ai-worker.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/test/test-gateway.mdx",
+          "occurrences": 6
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "An Orchestrator is a key component of the Livepeer network responsible for managing the transcoding pipeline, selecting miners, and ensuring efficient video processing.",
+      "tags": [
+        "transcoding",
+        "miner selection",
+        "pipeline management"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "GPU",
+      "totalOccurrences": 259,
+      "pageCount": 84,
+      "pages": [
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 17
+        },
+        {
+          "path": "v1/orchestrators/guides/dual-mine.mdx",
+          "occurrences": 16
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v1/ai/orchestrators/benchmarking.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/05_orchestrators/about-orchestrators/overview.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/orchestrators/guides/install-go-livepeer.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/home/home/primer.mdx",
+          "occurrences": 5
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "GPU (Graphics Processing Unit) is a specialized electronic circuit designed to rapidly manipulate and render images, crucial for the computationally intensive task of video transcoding in Livepeer.",
+      "tags": [
+        "graphics processing unit",
+        "video encoding",
+        "transcoding hardware"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "ETH",
+      "totalOccurrences": 168,
+      "pageCount": 42,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "occurrences": 19
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/gateways/guides/fund-gateway.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/delegators/guides/yield-calculation.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/orchestrators/guides/get-started.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/orchestrators/guides/configure-reward-calling.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 5
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "ETH (Ether) is the native cryptocurrency of the Ethereum blockchain, used within Livepeer for payments, staking, and governance.",
+      "tags": [
+        "ethereum",
+        "cryptocurrency",
+        "payment"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "LPT",
+      "totalOccurrences": 168,
+      "pageCount": 44,
+      "pages": [
+        {
+          "path": "v1/delegators/guides/bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 14
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 14
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/delegators/guides/yield-calculation.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/06_delegators/token-portal.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/orchestrators/guides/get-started.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/orchestrators/guides/configure-reward-calling.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "occurrences": 5
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "LPT (Livepeer Token) is the governance token of the Livepeer protocol, used for staking, voting on protocol changes, and incentivizing network participants.",
+      "tags": [
+        "governance token",
+        "staking",
+        "protocol governance"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Gateways",
+      "totalOccurrences": 145,
+      "pageCount": 54,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/why.mdx",
+          "occurrences": 22
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/gateways-portal.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/layouts.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx",
+          "occurrences": 4
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Gateways are the entry and exit points for video streams on the Livepeer network, responsible for receiving broadcasts and distributing the resulting streams.",
+      "tags": [
+        "broadcasting",
+        "streaming",
+        "video distribution"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Orchestrators",
+      "totalOccurrences": 142,
+      "pageCount": 68,
+      "pages": [
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/developers/core-concepts/livepeer-network/orchestrators.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/orchestrators/guides/troubleshoot.mdx",
+          "occurrences": 4
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Orchestrators manage the video transcoding process on Livepeer, selecting miners and ensuring efficient and reliable stream delivery.",
+      "tags": [
+        "transcoding",
+        "miner selection",
+        "pipeline management"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Ethereum",
+      "totalOccurrences": 127,
+      "pageCount": 45,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 19
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/orchestrators/guides/migrate-to-arbitrum.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/06_delegators/token-resources/lpt-exchanges.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/delegators/guides/bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/gateways/guides/docker-install.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Ethereum is a decentralized, open-source blockchain system that serves as the foundation for the Livepeer protocol, providing security and transparency.",
+      "tags": [
+        "blockchain",
+        "smart contracts",
+        "decentralization"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "HLS",
+      "totalOccurrences": 124,
+      "pageCount": 39,
+      "pages": [
+        {
+          "path": "v1/developers/guides/optimize-latency-of-a-livestream.mdx",
+          "occurrences": 16
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 14
+        },
+        {
+          "path": "v1/developers/guides/playback-a-livestream.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v1/developers/guides/playback-an-asset.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/sdks/react/player/Root.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/guides/clip-a-livestream.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/guides/transcode-video-storj.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/references/api-support-matrix.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "HLS (HTTP Live Streaming) is an adaptive bitrate streaming protocol commonly used for delivering video over the internet, and a common output format from Livepeer transcoding.",
+      "tags": [
+        "http live streaming",
+        "adaptive bitrate",
+        "video protocol"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Livepeer Studio",
+      "totalOccurrences": 122,
+      "pageCount": 58,
+      "pages": [
+        {
+          "path": "v1/developers/guides/optimize-latency-of-a-livestream.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/guides/setup-and-listen-to-webhooks.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/tutorials/token-gate-videos-with-lit.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/delegators/introduction.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/developers/introduction.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/gateways/introduction.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/orchestrators/introduction.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/self-hosting/overview.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/guides/listen-to-asset-events.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Livepeer Studio is a user-friendly web application built on top of the Livepeer protocol, allowing users to easily stream and manage live video broadcasts.",
+      "tags": [
+        "streaming platform",
+        "live broadcasting",
+        "web application"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "SDK",
+      "totalOccurrences": 94,
+      "pageCount": 38,
+      "pages": [
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/guides/get-engagement-analytics-via-api.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/tutorials/token-gate-videos-with-lit.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/sdks/go.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/sdks/javascript.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/sdks/python.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/sdks/go.mdx",
+          "occurrences": 4
+        }
+      ],
+      "category": "Technical",
+      "definition": "SDK stands for Software Development Kit. It's a collection of tools and libraries that allow developers to build applications that interact with a specific platform or service, like Livepeer.",
+      "tags": [
+        "development",
+        "integration",
+        "libraries"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "on-chain",
+      "totalOccurrences": 91,
+      "pageCount": 40,
+      "pages": [
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Refers to data or processes that are executed and recorded directly on a blockchain network, like Ethereum or Arbitrum, ensuring transparency and immutability.",
+      "tags": [
+        "blockchain",
+        "ethereum",
+        "smart contracts"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Arbitrum",
+      "totalOccurrences": 90,
+      "pageCount": 24,
+      "pages": [
+        {
+          "path": "v1/orchestrators/guides/migrate-to-arbitrum.mdx",
+          "occurrences": 20
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/delegators/guides/migrate-stake-to-arbitrum.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/delegators/guides/bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/orchestrators/guides/connect-to-arbitrum.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/gateways/guides/fund-gateway.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/orchestrators/guides/get-started.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Arbitrum is a Layer-2 scaling solution for Ethereum, designed to make transactions faster and cheaper while maintaining Ethereum's security.",
+      "tags": [
+        "layer2",
+        "ethereum",
+        "scaling"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Player",
+      "totalOccurrences": 86,
+      "pageCount": 34,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 29
+        },
+        {
+          "path": "v1/sdks/react/player/Root.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/sdks/react/player/useMediaContext.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/guides/playback-a-livestream.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/sdks/react/migration/migration-4.x.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/developers/core-concepts/player/overview.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Broadcast.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/guides/get-engagement-analytics-via-api.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/guides/playback-an-asset.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/knowledge-base/playback.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "In the context of Livepeer, a Player is a component that consumes and displays a video stream delivered by the Livepeer network.",
+      "tags": [
+        "playback",
+        "streaming",
+        "video"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "BYOC",
+      "totalOccurrences": 84,
+      "pageCount": 21,
+      "pages": [
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 41
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/gateways-vs-orchestrators.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-portal.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/layouts.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "BYOC stands for Bring Your Own Capacity. It allows users to connect their own infrastructure (like servers) to the Livepeer network to contribute transcoding resources.",
+      "tags": [
+        "transcoding",
+        "infrastructure",
+        "capacity"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "CLI",
+      "totalOccurrences": 75,
+      "pageCount": 39,
+      "pages": [
+        {
+          "path": "v2/pages/07_resources/changelog/changelog.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/gateways/guides/fund-gateway.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/orchestrators/guides/migrate-to-arbitrum.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/models-download.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Technical",
+      "definition": "CLI stands for Command Line Interface. It's a text-based way to interact with a computer program or operating system, often used by developers for managing Livepeer components.",
+      "tags": [
+        "command line",
+        "development",
+        "tools"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Docker",
+      "totalOccurrences": 71,
+      "pageCount": 28,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/orchestrators/guides/install-go-livepeer.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/self-hosting/deploying.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/self-hosting/overview.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/self-hosting/how-to-contribute.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Technical",
+      "definition": "Docker is a platform for developing, shipping, and running applications in isolated environments called containers, simplifying deployment and ensuring consistency across different systems.",
+      "tags": [
+        "containerization",
+        "deployment",
+        "virtualization"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Target",
+      "totalOccurrences": 61,
+      "pageCount": 4,
+      "pages": [
+        {
+          "path": "v1/references/contract-addresses.mdx",
+          "occurrences": 40
+        },
+        {
+          "path": "v2/pages/07_resources/references/contract-addresses.mdx",
+          "occurrences": 19
+        },
+        {
+          "path": "v1/ai/pipelines/llm.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/api-reference/generate/llm.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "In Livepeer, a Target represents the desired output settings for a video stream, such as resolution, bitrate, and codec.",
+      "tags": [
+        "transcoding",
+        "settings",
+        "output"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "RTMP",
+      "totalOccurrences": 58,
+      "pageCount": 30,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/codemap.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/references/api-support-matrix.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration-view.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 3
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "RTMP (Real-Time Messaging Protocol) is a protocol commonly used for streaming video content from encoders to servers.",
+      "tags": [
+        "streaming",
+        "protocol",
+        "encoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "SPE",
+      "totalOccurrences": 57,
+      "pageCount": 27,
+      "pages": [
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/home/home/trending-layout-tests.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/about-livepeer/moved/livepeer-ecosystem.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "SPE stands for Stream Processing Engine. It's a core component of the Livepeer network responsible for transcoding and processing video streams.",
+      "tags": [
+        "transcoding",
+        "engine",
+        "processing"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Streamplace",
+      "totalOccurrences": 55,
+      "pageCount": 19,
+      "pages": [
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Streamplace is Livepeer's managed service for live streaming, simplifying the process of going live by handling infrastructure and encoding complexities. It provides a user-friendly interface and API for broadcasters.",
+      "tags": [
+        "live streaming",
+        "managed service",
+        "broadcasting"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "USDT",
+      "totalOccurrences": 54,
+      "pageCount": 1,
+      "pages": [
+        {
+          "path": "v2/pages/06_delegators/token-resources/lpt-exchanges.mdx",
+          "occurrences": 54
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "USDT (Tether) is a stablecoin pegged to the US dollar, commonly used within the Web3 ecosystem for transactions and payments, including on Livepeer. It provides a less volatile alternative to other cryptocurrencies.",
+      "tags": [
+        "stablecoin",
+        "cryptocurrency",
+        "payment"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "go-livepeer",
+      "totalOccurrences": 50,
+      "pageCount": 24,
+      "pages": [
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/linux-install.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/self-hosting/deploying.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/build-options.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "go-livepeer is the core implementation of the Livepeer protocol, written in the Go programming language. It encompasses the smart contracts, APIs, and tooling that enable decentralized video infrastructure.",
+      "tags": [
+        "protocol implementation",
+        "smart contracts",
+        "go programming"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Daydream",
+      "totalOccurrences": 49,
+      "pageCount": 33,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/home/home/primer.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Daydream is Livepeer's in-browser, low-latency live streaming studio, allowing users to broadcast directly from their web browser without needing external software. It simplifies the live streaming process for creators.",
+      "tags": [
+        "live streaming",
+        "browser-based",
+        "studio"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Worker",
+      "totalOccurrences": 45,
+      "pageCount": 14,
+      "pages": [
+        {
+          "path": "v1/ai/orchestrators/ai-worker.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/ai/contributors/guides/add-model.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/orchestrators/models-config.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/contributors/guides/add-pipeline.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A Worker in Livepeer is a node that performs the computationally intensive tasks of video transcoding and processing, contributing to the overall network capacity. They are incentivized with Livepeer tokens for their work.",
+      "tags": [
+        "transcoding",
+        "node",
+        "decentralization"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "IPFS",
+      "totalOccurrences": 44,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-ipfs.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/guides/upload-video-asset.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/tutorials/decentralized-app-with-fvm.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useCreateAsset.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/api-reference/asset/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/transcode-video-w3s.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/references/example-applications.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useUpdateAsset.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "IPFS (InterPlanetary File System) is a decentralized storage network used by Livepeer to store and retrieve video segments and other data in a content-addressed manner. This ensures data availability and integrity.",
+      "tags": [
+        "decentralized storage",
+        "content addressing",
+        "data availability"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "RPC",
+      "totalOccurrences": 40,
+      "pageCount": 15,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "occurrences": 22
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/guides/migrate-to-arbitrum.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/guides/gateway-overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/self-hosting/deploying.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "RPC (Remote Procedure Call) is a protocol used for communication between software components, particularly relevant in Livepeer for interacting with Ethereum/Arbitrum nodes and smart contracts. It allows applications to execute code on remote servers.",
+      "tags": [
+        "protocol",
+        "Ethereum",
+        "API"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "React",
+      "totalOccurrences": 38,
+      "pageCount": 22,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/references/knowledge-base/playback.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/07_resources/changelog/changelog.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/core-concepts/player/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/access-control-webhooks.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "React is a JavaScript library for building user interfaces. It's commonly used to create dynamic and interactive web applications, and is a core technology in the Livepeer Studio frontend.",
+      "tags": [
+        "javascript",
+        "frontend",
+        "UI"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Tailwind",
+      "totalOccurrences": 37,
+      "pageCount": 12,
+      "pages": [
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-arweave.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-ipfs.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/tutorials/decentralized-app-with-fvm.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/tutorials/token-gate-videos-with-lit.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/livestream-from-browser.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "Tailwind CSS is a utility-first CSS framework that provides pre-defined CSS classes for rapid UI development. It's used in Livepeer Studio to quickly style components.",
+      "tags": [
+        "css",
+        "frontend",
+        "styling"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Live",
+      "totalOccurrences": 37,
+      "pageCount": 21,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/codemap.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/references/api-support-matrix.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/core-concepts/core-api/multistream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/multistream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/home/home/copy-trending-at-livepeer.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "In the context of Livepeer, 'Live' refers to real-time video streams being broadcast and transcoded through the network. It signifies the active processing of a live video feed.",
+      "tags": [
+        "streaming",
+        "realtime",
+        "transcoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Studio",
+      "totalOccurrences": 35,
+      "pageCount": 22,
+      "pages": [
+        {
+          "path": "v1/gateways/guides/publish-content.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/api-reference/overview/authentication.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/api-support-matrix.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/api-reference/generate/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/core-concepts/core-api/access-control.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/core-concepts/core-api/multistream.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Livepeer Studio is a self-service platform that allows users to create and manage live streams and video-on-demand workflows using the Livepeer Network. It provides a user-friendly interface for interacting with the protocol.",
+      "tags": [
+        "platform",
+        "streaming",
+        "vod"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "IP",
+      "totalOccurrences": 34,
+      "pageCount": 26,
+      "pages": [
+        {
+          "path": "v1/orchestrators/guides/troubleshoot.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/why.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/orchestrators/ai-worker.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/audio-to-text.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/image-to-image.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/image-to-text.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "IP, or InterPlanetary File System, is a decentralized storage network that can be used to store video files and other assets within the Livepeer ecosystem. It offers a more resilient and censorship-resistant alternative to traditional centralized storage.",
+      "tags": [
+        "decentralized storage",
+        "ipfs",
+        "data"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Sets",
+      "totalOccurrences": 34,
+      "pageCount": 7,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 13
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Broadcast.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/sdks/react/player/Root.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Root.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/LivepeerConfig.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Sets in Livepeer refer to pre-defined configurations of transcoding parameters (resolution, bitrate, codecs) used to create different quality versions of a video stream. They streamline the process of creating multi-quality streams.",
+      "tags": [
+        "transcoding",
+        "quality",
+        "configuration"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Livepeer Network",
+      "totalOccurrences": 34,
+      "pageCount": 24,
+      "pages": [
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/05_orchestrators/about-orchestrators/overview.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/about-livepeer/moved/livepeer-ecosystem.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/guides/dual-mine.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/self-hosting/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "The Livepeer Network is a decentralized, open-source network of video transcoding infrastructure. It allows developers to reliably and cost-effectively stream and process video.",
+      "tags": [
+        "decentralized",
+        "transcoding",
+        "infrastructure"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "open-source",
+      "totalOccurrences": 33,
+      "pageCount": 22,
+      "pages": [
+        {
+          "path": "v1/ai/contributors/coming-soon.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/builders/showcase.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/home/home/primer.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/guides/assess-capabilities.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Open-source refers to software with source code that anyone can inspect, modify, and enhance. Livepeer is an open-source protocol, fostering community contributions and transparency.",
+      "tags": [
+        "decentralization",
+        "community",
+        "transparency"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "off-chain",
+      "totalOccurrences": 33,
+      "pageCount": 18,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/gateways/start-gateway.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/guides/set-pricing.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Off-chain refers to processes or data storage that occur outside of the Ethereum or Arbitrum blockchain. Livepeer utilizes off-chain components for tasks like video transcoding to reduce blockchain costs and improve scalability.",
+      "tags": [
+        "scalability",
+        "blockchain",
+        "layer2"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "MP4",
+      "totalOccurrences": 33,
+      "pageCount": 19,
+      "pages": [
+        {
+          "path": "v1/developers/guides/playback-an-asset.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/developers/guides/transcode-video-storj.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/knowledge-base/livestream.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Root.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/player/Root.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/api-reference/session/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/core-concepts/player/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/access-control-webhooks.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "MP4 is a common video file format used for storing and transmitting video and audio data. It's a frequently used output format for video transcoded through the Livepeer Network.",
+      "tags": [
+        "video format",
+        "codec",
+        "transcoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "URI",
+      "totalOccurrences": 32,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/orchestrators/guides/troubleshoot.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/orchestrators/guides/migrate-to-arbitrum.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "Uniform Resource Identifier. A string of characters used to identify a name or a resource on the internet, like a web page or a video stream.",
+      "tags": [
+        "URI",
+        "identifiers",
+        "networking"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Subnet",
+      "totalOccurrences": 31,
+      "pageCount": 8,
+      "pages": [
+        {
+          "path": "v1/ai/contributors/get-started.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/ai/contributors/guides/add-model.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/ai/contributors/developers.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/contributors/guides/add-pipeline.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/builders/get-started.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/builders/showcase.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A smaller, independent network within a larger network, often used in Livepeer to isolate and manage groups of transcoders for improved efficiency and security.",
+      "tags": [
+        "subnet",
+        "scalability",
+        "transcoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "C2PA",
+      "totalOccurrences": 31,
+      "pageCount": 13,
+      "pages": [
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/api-reference/asset/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "Coalition for Content Provenance and Authenticity. A technical standard for verifying the source and history of digital content, helping to combat misinformation.",
+      "tags": [
+        "C2PA",
+        "provenance",
+        "authenticity"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Stream",
+      "totalOccurrences": 31,
+      "pageCount": 27,
+      "pages": [
+        {
+          "path": "v1/developers/core-concepts/core-api/stream.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useStream.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useStreamSession.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/delegators/livepeer-studio-cli.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/core-concepts/studio/stream-health.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/create-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/playback-a-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/stream-via-obs.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/livepeer-studio-cli.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "A continuous flow of data, typically video and audio, transmitted over a network. In Livepeer, it refers to the live video feed being processed and distributed.",
+      "tags": [
+        "stream",
+        "live video",
+        "broadcasting"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Livepeer Gateway",
+      "totalOccurrences": 31,
+      "pageCount": 22,
+      "pages": [
+        {
+          "path": "v1/gateways/guides/publish-content.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/04_gateways/gateways-portal.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/gateways/guides/gateway-overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/guides/playback-content.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/guides/windows-install.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A service that allows broadcasters to easily publish live streams to Livepeer without needing to directly interact with the blockchain or complex infrastructure.",
+      "tags": [
+        "gateway",
+        "broadcasting",
+        "live stream"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Learn",
+      "totalOccurrences": 30,
+      "pageCount": 12,
+      "pages": [
+        {
+          "path": "v2/pages/07_resources/changelog/changelog.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v2/pages/06_delegators/token-portal.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/delegators/introduction.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/introduction.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/gateways/introduction.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/introduction.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "AI / Machine Learning",
+      "definition": "Livepeer's machine learning service that allows users to apply AI models to video streams, such as object detection or content moderation.",
+      "tags": [
+        "learn",
+        "AI",
+        "machine learning"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Livepeer React",
+      "totalOccurrences": 30,
+      "pageCount": 16,
+      "pages": [
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-ipfs.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-arweave.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/developers/tutorials/token-gate-videos-with-lit.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/tutorials/decentralized-app-with-fvm.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/LivepeerConfig.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/migration-4.x.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/livestream-from-browser.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/playback-an-asset.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "A React component library providing pre-built UI elements for interacting with Livepeer, simplifying the development of video applications.",
+      "tags": [
+        "Livepeer React",
+        "UI",
+        "React"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "JWT",
+      "totalOccurrences": 30,
+      "pageCount": 8,
+      "pages": [
+        {
+          "path": "v1/developers/core-concepts/core-api/access-control.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/developers/tutorials/token-gate-videos-with-lit.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/07_resources/changelog/changelog.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useUpdateStream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/player/Root.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/player/Video.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "JSON Web Token. A standard for securely transmitting information between parties as a JSON object, often used for authentication and authorization in Livepeer.",
+      "tags": [
+        "JWT",
+        "authentication",
+        "security"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "transcodingOptions",
+      "totalOccurrences": 30,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "occurrences": 12
+        },
+        {
+          "path": "v1/gateways/guides/transcoding-options.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/v1/transcoding-options.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orch-config.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "Parameters that define how a video stream is converted into different formats and resolutions during the transcoding process, impacting quality and compatibility.",
+      "tags": [
+        "transcoding",
+        "options",
+        "video formats"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Transcoder",
+      "totalOccurrences": 29,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/orchestrators/guides/troubleshoot.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A node within the Livepeer network responsible for encoding and decoding video streams, converting them into different formats for wider compatibility.",
+      "tags": [
+        "transcoder",
+        "encoding",
+        "video processing"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Protocol",
+      "totalOccurrences": 29,
+      "pageCount": 24,
+      "pages": [
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/09_internal/ally-notes.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/about-portal.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A set of rules and standards that govern how data is transmitted and processed within the Livepeer network, ensuring interoperability and security.",
+      "tags": [
+        "protocol",
+        "standards",
+        "blockchain"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Delegators",
+      "totalOccurrences": 28,
+      "pageCount": 14,
+      "pages": [
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v1/developers/core-concepts/livepeer-network/delegators.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/orchestrators/guides/migrate-from-contract-wallet.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/tab-index.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Users who entrust their cryptocurrency to a Transcoder to support the network and earn rewards, contributing to the overall capacity and reliability of Livepeer.",
+      "tags": [
+        "delegators",
+        "staking",
+        "rewards"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "WHIP",
+      "totalOccurrences": 28,
+      "pageCount": 15,
+      "pages": [
+        {
+          "path": "v1/sdks/react/broadcast/get-ingest.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Root.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/developers/guides/livestream-from-browser.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Enabled.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Broadcast.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/core-concepts/studio/in-browser-broadcast.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/create-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/optimize-latency-of-a-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/broadcast/useBroadcastContext.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "WebRTC Intermediary Protocol. A protocol used for transporting live video streams between broadcasters and Livepeer's transcoding infrastructure.",
+      "tags": [
+        "WHIP",
+        "WebRTC",
+        "live streaming"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Node",
+      "totalOccurrences": 28,
+      "pageCount": 23,
+      "pages": [
+        {
+          "path": "v1/developers/guides/setup-and-listen-to-webhooks.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/09_internal/ally-notes.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/decentralized-app-with-fvm.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-arweave.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-ipfs.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/self-hosting/how-to-contribute.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/home/home/trending-layout-tests.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A computer participating in the Livepeer network, performing tasks like transcoding, storage, or validation. Nodes are essential for the decentralized operation of the protocol.",
+      "tags": [
+        "node",
+        "infrastructure",
+        "decentralization"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Transcoding",
+      "totalOccurrences": 27,
+      "pageCount": 22,
+      "pages": [
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/core-concepts/studio/stream-health.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/monitor-stream-health.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/orchestrators/guides/set-session-limits.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/references/go-livepeer/hardware-requirements.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useCreateStream.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "Transcoding is the process of converting video files from one format to another, often to optimize for different devices or bandwidths. In Livepeer, it's a core function performed by network participants to prepare video for streaming.",
+      "tags": [
+        "video",
+        "encoding",
+        "formats"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Tanstack Query",
+      "totalOccurrences": 27,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useAsset.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useAssetMetrics.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/playback/usePlaybackInfo.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useStream.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useStreamSession.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useStreamSessions.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useCreateAsset.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useUpdateAsset.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useCreateStream.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/stream/useUpdateStream.mdx",
+          "occurrences": 2
+        }
+      ],
+      "category": "Technical",
+      "definition": "Tanstack Query is a library for managing, fetching, and updating asynchronous data in web applications, improving performance and developer experience. It's used within the Livepeer UI to efficiently handle data interactions with the Livepeer protocol.",
+      "tags": [
+        "javascript",
+        "data fetching",
+        "UI"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Broadcast",
+      "totalOccurrences": 26,
+      "pageCount": 13,
+      "pages": [
+        {
+          "path": "v1/sdks/react/migration/3.x/Broadcast.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/sdks/react/player/useMediaContext.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/sdks/react/broadcast/useBroadcastContext.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/sdks/react/migration/migration-4.x.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/core-concepts/studio/in-browser-broadcast.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/Broadcast.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Container.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Enabled.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Root.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "In the context of Livepeer, a broadcast refers to the live streaming of video content to an audience. It involves capturing, encoding, and distributing the video stream in real-time.",
+      "tags": [
+        "streaming",
+        "live video",
+        "RTMP"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Arweave",
+      "totalOccurrences": 25,
+      "pageCount": 6,
+      "pages": [
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-arweave.mdx",
+          "occurrences": 8
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/developers/guides/upload-video-asset.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/asset/useCreateAsset.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/references/example-applications.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "Arweave is a decentralized storage network that provides permanent data storage. Livepeer uses Arweave to store important data like stream metadata and potentially video segments for long-term availability.",
+      "tags": [
+        "decentralized storage",
+        "permanent storage",
+        "data integrity"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "VRAM",
+      "totalOccurrences": 24,
+      "pageCount": 16,
+      "pages": [
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "occurrences": 7
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/get-started.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/contributors/get-started.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/orchestrators/models-config.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/audio-to-text.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/image-to-image.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/image-to-text.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/image-to-video.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/llm.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "VRAM (Video Random Access Memory) is the dedicated memory on a graphics card used to store and process video data. Sufficient VRAM is crucial for efficient video transcoding within the Livepeer network.",
+      "tags": [
+        "graphics card",
+        "memory",
+        "transcoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "On-chain",
+      "totalOccurrences": 23,
+      "pageCount": 13,
+      "pages": [
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/orchestrators/onchain.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Web3 / Blockchain",
+      "definition": "On-chain refers to data or operations that are recorded and executed directly on a blockchain, like Ethereum or Arbitrum. Livepeer utilizes on-chain data for key protocol functions like account balances and contract interactions.",
+      "tags": [
+        "blockchain",
+        "ethereum",
+        "smart contracts"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Workers",
+      "totalOccurrences": 23,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/ai/orchestrators/ai-worker.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "Workers are background processes that perform tasks independently of the main application thread. In Livepeer, they are used to handle computationally intensive operations like video transcoding and stream processing.",
+      "tags": [
+        "parallel processing",
+        "background tasks",
+        "concurrency"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "CORS",
+      "totalOccurrences": 23,
+      "pageCount": 12,
+      "pages": [
+        {
+          "path": "v1/api-reference/overview/authentication.mdx",
+          "occurrences": 9
+        },
+        {
+          "path": "v1/sdks/react/migration/migration-4.x.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/guides/get-engagement-analytics-via-grafana.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/delegators/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/get-engagement-analytics-via-api.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/playback-a-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/playback-an-asset.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/quick-start.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/orchestrators/quick-start.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Technical",
+      "definition": "CORS (Cross-Origin Resource Sharing) is a browser security mechanism that restricts web pages from making requests to a different domain than the one which served the web page. Understanding CORS is important when integrating Livepeer's APIs into web applications.",
+      "tags": [
+        "API",
+        "security",
+        "web development"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "The Livepeer",
+      "totalOccurrences": 22,
+      "pageCount": 13,
+      "pages": [
+        {
+          "path": "v1/ai/orchestrators/start-orchestrator.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "occurrences": 5
+        },
+        {
+          "path": "v1/ai/api-reference/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/orchestrators/models-config.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/pipelines/overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/api-reference/overview/introduction.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/delegators/guides/yield-calculation.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-4everland.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/tutorials/upload-playback-videos-on-arweave.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "Refers to the complete Livepeer network, encompassing all participants, infrastructure, and the protocol itself. It's often used to distinguish the network from just the Livepeer Inc. company.",
+      "tags": [
+        "network",
+        "protocol",
+        "infrastructure"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Explore",
+      "totalOccurrences": 22,
+      "pageCount": 8,
+      "pages": [
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v1/ai/builders/get-started.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/delegators/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/gateways/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/orchestrators/introduction.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/home/home/primer.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/00_home/introduction/why-livepeer.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "The Livepeer Explore page is a user interface for discovering and interacting with deployed AI models and video transcoding infrastructure.",
+      "tags": [
+        "interface",
+        "discovery",
+        "models"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Model",
+      "totalOccurrences": 22,
+      "pageCount": 16,
+      "pages": [
+        {
+          "path": "v1/ai/contributors/guides/add-model.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/ai/gateways/onchain.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v2/pages/07_resources/livepeer-glossary.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/references/go-livepeer/gpu-support.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/gateways-vs-orchestrators.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/_tests-to-delete/layouts.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "AI / Machine Learning",
+      "definition": "In the context of Livepeer, a 'Model' refers to a pre-trained AI algorithm (like for video processing) that can be deployed and used on the network. Users pay to utilize these models for tasks like object detection or speech-to-text.",
+      "tags": [
+        "AI",
+        "algorithm",
+        "inference"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Broadcaster",
+      "totalOccurrences": 22,
+      "pageCount": 14,
+      "pages": [
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "occurrences": 4
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/ai/gateways/get-started.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/ai/introduction.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/core-concepts/livepeer-network/gateways.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/gateways/guides/gateway-overview.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/references/go-livepeer/cli-reference.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A Broadcaster is a component within the Livepeer system responsible for ingesting a video stream and distributing it to the network for transcoding. It's the starting point for getting video onto Livepeer.",
+      "tags": [
+        "ingest",
+        "transcoding",
+        "video source"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "Redeemer",
+      "totalOccurrences": 22,
+      "pageCount": 2,
+      "pages": [
+        {
+          "path": "v1/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 11
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "occurrences": 11
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "A Redeemer is a component that claims rewards for completed transcoding or AI processing jobs on the Livepeer network. They are essential for the economic incentives of the protocol.",
+      "tags": [
+        "rewards",
+        "jobs",
+        "economics"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "SDP",
+      "totalOccurrences": 21,
+      "pageCount": 11,
+      "pages": [
+        {
+          "path": "v1/developers/guides/livestream-from-browser.mdx",
+          "occurrences": 6
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Root.mdx",
+          "occurrences": 3
+        },
+        {
+          "path": "v1/developers/guides/access-control-jwt.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/guides/access-control-webhooks.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Player.mdx",
+          "occurrences": 2
+        },
+        {
+          "path": "v1/developers/core-concepts/studio/in-browser-broadcast.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/optimize-latency-of-a-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/developers/guides/playback-a-livestream.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/broadcast/Enabled.mdx",
+          "occurrences": 1
+        },
+        {
+          "path": "v1/sdks/react/migration/3.x/Broadcast.mdx",
+          "occurrences": 1
+        }
+      ],
+      "category": "Video Engineering",
+      "definition": "Session Description Protocol (SDP) is a standard for describing multimedia sessions for the purposes of session announcement and control. It's used in Livepeer for establishing real-time communication between broadcasters and transcoders.",
+      "tags": [
+        "protocol",
+        "realtime",
+        "transcoding"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    },
+    {
+      "term": "GTX",
+      "totalOccurrences": 20,
+      "pageCount": 2,
+      "pages": [
+        {
+          "path": "v1/references/go-livepeer/gpu-support.mdx",
+          "occurrences": 10
+        },
+        {
+          "path": "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
+          "occurrences": 10
+        }
+      ],
+      "category": "Livepeer Protocol",
+      "definition": "GTX represents a unit of computational work performed on the Livepeer network, specifically related to video transcoding. Users pay in $LPT to purchase GTX, which is then used by miners to encode video streams.",
+      "tags": [
+        "GTX",
+        "transcoding",
+        "mining"
+      ],
+      "externalVerification": "",
+      "contextNotes": "",
+      "llmEvaluated": true
+    }
+  ]
+}

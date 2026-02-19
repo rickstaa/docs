@@ -1,0 +1,2121 @@
+{
+  "timestamp": "2026-02-19T00:53:38.112Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "totalPages": 264,
+  "passed": 0,
+  "failed": 264,
+  "failedPages": [
+    {
+      "pagePath": "v2/pages/00_home/mission-control",
+      "url": "http://127.0.0.1:3000/00_home/mission-control",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/home/home/user-journey",
+      "url": "http://127.0.0.1:3000/00_home/home/user-journey",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/home/home/primer",
+      "url": "http://127.0.0.1:3000/00_home/home/primer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/vision",
+      "url": "http://127.0.0.1:3000/00_home/introduction/vision",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/evolution",
+      "url": "http://127.0.0.1:3000/00_home/introduction/evolution",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/why-livepeer",
+      "url": "http://127.0.0.1:3000/00_home/introduction/why-livepeer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/ecosystem",
+      "url": "http://127.0.0.1:3000/00_home/introduction/ecosystem",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/roadmap",
+      "url": "http://127.0.0.1:3000/00_home/introduction/roadmap",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/project-showcase/showcase",
+      "url": "http://127.0.0.1:3000/00_home/project-showcase/showcase",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/project-showcase/industry-verticals",
+      "url": "http://127.0.0.1:3000/00_home/project-showcase/industry-verticals",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/project-showcase/applications",
+      "url": "http://127.0.0.1:3000/00_home/project-showcase/applications",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/redirect",
+      "url": "http://127.0.0.1:3000/07_resources/redirect",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/about-portal",
+      "url": "http://127.0.0.1:3000/01_about/about-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/core-concepts/livepeer-overview",
+      "url": "http://127.0.0.1:3000/01_about/core-concepts/livepeer-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/core-concepts/livepeer-core-concepts",
+      "url": "http://127.0.0.1:3000/01_about/core-concepts/livepeer-core-concepts",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/core-concepts/mental-model",
+      "url": "http://127.0.0.1:3000/01_about/core-concepts/mental-model",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/overview",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/core-mechanisms",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/core-mechanisms",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/livepeer-token",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/livepeer-token",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/governance-model",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/governance-model",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/treasury",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/treasury",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/protocol-economics",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/protocol-economics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/technical-architecture",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/technical-architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/overview",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/actors",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/actors",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/job-lifecycle",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/job-lifecycle",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/marketplace",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/marketplace",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/technical-architecture",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/technical-architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/interfaces",
+      "url": "http://127.0.0.1:3000/01_about/livepeer-network/interfaces",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/livepeer-whitepaper",
+      "url": "http://127.0.0.1:3000/01_about/resources/livepeer-whitepaper",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/livepeer-glossary",
+      "url": "http://127.0.0.1:3000/01_about/resources/livepeer-glossary",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/blockchain-contracts",
+      "url": "http://127.0.0.1:3000/01_about/resources/blockchain-contracts",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/technical-roadmap",
+      "url": "http://127.0.0.1:3000/01_about/resources/technical-roadmap",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/gateways-vs-orchestrators",
+      "url": "http://127.0.0.1:3000/01_about/resources/gateways-vs-orchestrators",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products-portal",
+      "url": "http://127.0.0.1:3000/010_products/products-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/all-ecosystem/product-hub",
+      "url": "http://127.0.0.1:3000/010_products/products/all-ecosystem/product-hub",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products",
+      "url": "http://127.0.0.1:3000/010_products/products/all-ecosystem/ecosystem-products",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/daydream/daydream",
+      "url": "http://127.0.0.1:3000/010_products/products/daydream/daydream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/client-use-cases",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/quickstart",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/authentication",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/studio-cli",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/livestream-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/create-livestream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/playback-livestream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/stream-via-obs",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/livestream-from-browser",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/multistream",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/multistream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/clip-livestream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/stream-health",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/stream-health",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/optimize-latency",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/vod-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/upload-asset",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/playback-asset",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/encrypted-assets",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/thumbnails-vod",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/transcode-video",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/transcode-video",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/webhooks",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/jwt",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/webhooks",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/webhooks",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/listen-to-events",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/analytics/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/player-and-embed",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/api-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/api-reference/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/sdks-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/managing-projects",
+      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/managing-projects",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-guide",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-architecture",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-integration",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-integration",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-provenance",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-provenance",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-funding",
+      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-funding",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/embody/overview",
+      "url": "http://127.0.0.1:3000/010_products/products/embody/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/frameworks/frameworks",
+      "url": "http://127.0.0.1:3000/010_products/products/frameworks/frameworks",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-portal",
+      "url": "http://127.0.0.1:3000/03_developers/developer-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/developer-guide",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer/developer-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/partners",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer/partners",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/developer-journey",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer/developer-journey",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "url": "http://127.0.0.1:3000/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
+      "url": "http://127.0.0.1:3000/03_developers/building-on-livepeer/quick-starts/video-streaming",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/guides-and-resources/developer-guides",
+      "url": "http://127.0.0.1:3000/03_developers/guides-and-resources/developer-guides",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/guides-and-resources/resources",
+      "url": "http://127.0.0.1:3000/03_developers/guides-and-resources/resources",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/guides-and-resources/developer-help",
+      "url": "http://127.0.0.1:3000/03_developers/guides-and-resources/developer-help",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/guides-and-resources/contribution-guide",
+      "url": "http://127.0.0.1:3000/03_developers/guides-and-resources/contribution-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/builder-opportunities/dev-programs",
+      "url": "http://127.0.0.1:3000/03_developers/builder-opportunities/dev-programs",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps",
+      "url": "http://127.0.0.1:3000/03_developers/builder-opportunities/livepeer-rfps",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/sdks",
+      "url": "http://127.0.0.1:3000/03_developers/technical-references/sdks",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/apis",
+      "url": "http://127.0.0.1:3000/03_developers/technical-references/apis",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-tools/tooling-hub",
+      "url": "http://127.0.0.1:3000/03_developers/developer-tools/tooling-hub",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-tools/livepeer-explorer",
+      "url": "http://127.0.0.1:3000/03_developers/developer-tools/livepeer-explorer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-tools/livepeer-cloud",
+      "url": "http://127.0.0.1:3000/03_developers/developer-tools/livepeer-cloud",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-tools/dashboards",
+      "url": "http://127.0.0.1:3000/03_developers/developer-tools/dashboards",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/awesome-livepeer",
+      "url": "http://127.0.0.1:3000/03_developers/technical-references/awesome-livepeer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/wiki",
+      "url": "http://127.0.0.1:3000/03_developers/technical-references/wiki",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/deepwiki",
+      "url": "http://127.0.0.1:3000/03_developers/technical-references/deepwiki",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/changelog/changelog",
+      "url": "http://127.0.0.1:3000/07_resources/changelog/changelog",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/changelog/migration-guides",
+      "url": "http://127.0.0.1:3000/07_resources/changelog/migration-guides",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/gateways-portal",
+      "url": "http://127.0.0.1:3000/04_gateways/gateways-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-explainer",
+      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-explainer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-functions",
+      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-functions",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-architecture",
+      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-economics",
+      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-economics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart-a-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/choosing-a-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/daydream-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
+      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/streamplace",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/setup",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/setup",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/install-overview",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/install-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/docker-install",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/docker-install",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/linux-install",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/linux-install",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/windows-install",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/windows-install",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/community-projects",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/community-projects",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/configuration-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/video-configuration",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/ai-configuration",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/dual-configuration",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/pricing-configuration",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/test-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/publish-content",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/playback-content",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/playback-content",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/lp-marketplace",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/discover-offerings",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/discover-offerings",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/connect-with-offerings",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/monitor/monitor-and-optimise",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/why-run-a-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/run-a-gateway",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/gateway-tools/explorer",
+      "url": "http://127.0.0.1:3000/04_gateways/gateway-tools/explorer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/gateway-tools/livepeer-tools",
+      "url": "http://127.0.0.1:3000/04_gateways/gateway-tools/livepeer-tools",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/guides-and-resources/community-guides",
+      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/community-guides",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/guides-and-resources/community-projects",
+      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/community-projects",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/guides-and-resources/faq",
+      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/faq",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/ai",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/ai",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/text-to-image",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-image",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-video",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/upscale",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/upscale",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/audio-to-text",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/segment-anything-2",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/llm",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/llm",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-text",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/live-video-to-video",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/text-to-speech",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/health",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/health",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/hardware-info",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/hardware-stats",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/unbond",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/rebond",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/reward",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage",
+      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/signmessage",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/technical-architecture",
+      "url": "http://127.0.0.1:3000/04_gateways/references/technical-architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/configuration-flags",
+      "url": "http://127.0.0.1:3000/04_gateways/references/configuration-flags",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/video-flags",
+      "url": "http://127.0.0.1:3000/04_gateways/references/video-flags",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/cli-commands",
+      "url": "http://127.0.0.1:3000/04_gateways/references/cli-commands",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/livepeer-exchanges",
+      "url": "http://127.0.0.1:3000/04_gateways/references/livepeer-exchanges",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/artibtrum-exchanges",
+      "url": "http://127.0.0.1:3000/04_gateways/references/artibtrum-exchanges",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/arbitrum-rpc",
+      "url": "http://127.0.0.1:3000/04_gateways/references/arbitrum-rpc",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrators-portal",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrators-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/about-orchestrators/overview",
+      "url": "http://127.0.0.1:3000/05_orchestrators/about-orchestrators/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions",
+      "url": "http://127.0.0.1:3000/05_orchestrators/about-orchestrators/orchestrator-functions",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/about-orchestrators/architecture",
+      "url": "http://127.0.0.1:3000/05_orchestrators/about-orchestrators/architecture",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/about-orchestrators/economics",
+      "url": "http://127.0.0.1:3000/05_orchestrators/about-orchestrators/economics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/quickstart/overview",
+      "url": "http://127.0.0.1:3000/05_orchestrators/quickstart/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/quickstart/join-a-pool",
+      "url": "http://127.0.0.1:3000/05_orchestrators/quickstart/join-a-pool",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup",
+      "url": "http://127.0.0.1:3000/05_orchestrators/quickstart/orchestrator-setup",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
+      "url": "http://127.0.0.1:3000/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats",
+      "url": "http://127.0.0.1:3000/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "url": "http://127.0.0.1:3000/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "url": "http://127.0.0.1:3000/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview",
+      "url": "http://127.0.0.1:3000/05_orchestrators/setting-up-an-orchestrator/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT",
+      "url": "http://127.0.0.1:3000/05_orchestrators/advanced-setup/staking-LPT",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
+      "url": "http://127.0.0.1:3000/05_orchestrators/advanced-setup/rewards-and-fees",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/delegation",
+      "url": "http://127.0.0.1:3000/05_orchestrators/advanced-setup/delegation",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
+      "url": "http://127.0.0.1:3000/05_orchestrators/advanced-setup/ai-pipelines",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/run-a-pool",
+      "url": "http://127.0.0.1:3000/05_orchestrators/advanced-setup/run-a-pool",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrator-tools-and-resources/community-pools",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help",
+      "url": "http://127.0.0.1:3000/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/references/faq",
+      "url": "http://127.0.0.1:3000/05_orchestrators/references/faq",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/references/cli-flags",
+      "url": "http://127.0.0.1:3000/05_orchestrators/references/cli-flags",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/token-portal",
+      "url": "http://127.0.0.1:3000/06_lptoken/token-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/about/overview",
+      "url": "http://127.0.0.1:3000/06_lptoken/about/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/about/purpose",
+      "url": "http://127.0.0.1:3000/06_lptoken/about/purpose",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/about/tokenomics",
+      "url": "http://127.0.0.1:3000/06_lptoken/about/tokenomics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/about/mechanics",
+      "url": "http://127.0.0.1:3000/06_lptoken/about/mechanics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/delegation/overview",
+      "url": "http://127.0.0.1:3000/06_lptoken/delegation/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/delegation/about-delegators",
+      "url": "http://127.0.0.1:3000/06_lptoken/delegation/about-delegators",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/delegation/delegation-guide",
+      "url": "http://127.0.0.1:3000/06_lptoken/delegation/delegation-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/governance/overview",
+      "url": "http://127.0.0.1:3000/06_lptoken/governance/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/governance/model",
+      "url": "http://127.0.0.1:3000/06_lptoken/governance/model",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/governance/processes",
+      "url": "http://127.0.0.1:3000/06_lptoken/governance/processes",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/treasury/overview",
+      "url": "http://127.0.0.1:3000/06_lptoken/treasury/overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/treasury/proposals",
+      "url": "http://127.0.0.1:3000/06_lptoken/treasury/proposals",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/treasury/allocations",
+      "url": "http://127.0.0.1:3000/06_lptoken/treasury/allocations",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/resources/exchanges",
+      "url": "http://127.0.0.1:3000/06_lptoken/resources/exchanges",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/resources/lpt-eth-usage",
+      "url": "http://127.0.0.1:3000/06_lptoken/resources/lpt-eth-usage",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/community-portal",
+      "url": "http://127.0.0.1:3000/02_community/community-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/trending-topics",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/trending-topics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/roadmap",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/roadmap",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/community-guidelines",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/community-guidelines",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-connect/news-and-socials",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/news-and-socials",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-connect/events-and-community-streams",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/events-and-community-streams",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-connect/forums-and-discussions",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/forums-and-discussions",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-contribute/contribute",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/contribute",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-contribute/opportunities",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/opportunities",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-contribute/build-livepeer",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/build-livepeer",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/trending-test",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/trending-test",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/media-kit",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/media-kit",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/latest-topics",
+      "url": "http://127.0.0.1:3000/02_community/livepeer-community/latest-topics",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/resources-portal",
+      "url": "http://127.0.0.1:3000/07_resources/resources-portal",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/documentation-overview",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/documentation-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/documentation-guide",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/documentation-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/docs-features-and-ai-integrations",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/style-guide",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/style-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/snippets-inventory",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/snippets-inventory",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/contribute-to-the-docs",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/automations-workflows",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/automations-workflows",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/primitives",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/primitives",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/display",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/display",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/content",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/content",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/layout",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/layout",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/integrations",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/integrations",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/domain",
+      "url": "http://127.0.0.1:3000/07_resources/documentation-guide/component-library/domain",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/concepts/livepeer-core-concepts",
+      "url": "http://127.0.0.1:3000/07_resources/concepts/livepeer-core-concepts",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/livepeer-glossary",
+      "url": "http://127.0.0.1:3000/07_resources/livepeer-glossary",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/concepts/livepeer-actors",
+      "url": "http://127.0.0.1:3000/07_resources/concepts/livepeer-actors",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+      "url": "http://127.0.0.1:3000/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/changelog/changelog",
+      "url": "http://127.0.0.1:3000/00_home/changelog/changelog",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/changelog/migration-guide",
+      "url": "http://127.0.0.1:3000/00_home/changelog/migration-guide",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/08_help/redirect",
+      "url": "http://127.0.0.1:3000/08_help/redirect",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/08_help/README",
+      "url": "http://127.0.0.1:3000/08_help/README",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/internal-overview",
+      "url": "http://127.0.0.1:3000/09_internal/internal-overview",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/docs-status",
+      "url": "http://127.0.0.1:3000/09_internal/docs-status",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/governance",
+      "url": "http://127.0.0.1:3000/09_internal/governance",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/strategic-alignment",
+      "url": "http://127.0.0.1:3000/09_internal/strategic-alignment",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/docs-philosophy",
+      "url": "http://127.0.0.1:3000/09_internal/docs-philosophy",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/definitions",
+      "url": "http://127.0.0.1:3000/09_internal/definitions",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/personas",
+      "url": "http://127.0.0.1:3000/09_internal/personas",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/ecosystem",
+      "url": "http://127.0.0.1:3000/09_internal/ecosystem",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/references",
+      "url": "http://127.0.0.1:3000/09_internal/references",
+      "errors": [
+        "Navigation Error: page.waitForTimeout is not a function"
+      ],
+      "warnings": []
+    }
+  ]
+}

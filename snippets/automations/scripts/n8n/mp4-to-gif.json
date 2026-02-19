@@ -1,0 +1,350 @@
+{
+  "name": "MP4 to GIF Converter (Local & URL)",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 300],
+      "webhookId": "mp4-to-gif"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "input_video_url",
+              "name": "videoUrl",
+              "value": "={{ $json.body.video_url || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "local_path",
+              "name": "localPath",
+              "value": "={{ $json.body.local_path || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "fps",
+              "name": "fps",
+              "value": "={{ $json.body.fps || 10 }}",
+              "type": "number"
+            },
+            {
+              "id": "width",
+              "name": "width",
+              "value": "={{ $json.body.width || 480 }}",
+              "type": "number"
+            },
+            {
+              "id": "start_time",
+              "name": "startTime",
+              "value": "={{ $json.body.start_time || '0' }}",
+              "type": "string"
+            },
+            {
+              "id": "duration",
+              "name": "duration",
+              "value": "={{ $json.body.duration || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "optimize",
+              "name": "optimize",
+              "value": "={{ $json.body.optimize !== false }}",
+              "type": "boolean"
+            },
+            {
+              "id": "output_path",
+              "name": "outputPath",
+              "value": "={{ $json.body.output_path || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-params",
+      "name": "Set Parameters",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has_url",
+              "leftValue": "={{ $json.videoUrl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-source",
+      "name": "Check Source Type",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.videoUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "download-video",
+      "name": "Download Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "command": "=#!/bin/bash\n\n# Generate unique filenames\nTIMESTAMP=\"{{ $now.toUnixInteger() }}\"\nTEMP_INPUT=\"/tmp/input_${TIMESTAMP}.mp4\"\nPALETTE_FILE=\"/tmp/palette_${TIMESTAMP}.png\"\nOUTPUT_FILE=\"/tmp/output_${TIMESTAMP}.gif\"\n\n# Get input video from binary data (from URL download)\necho '{{ $binary.data.data }}' | base64 -d > \"$TEMP_INPUT\"\nINPUT_FILE=\"$TEMP_INPUT\"\n\n# Build FFmpeg filter string\nFILTER=\"fps={{ $json.fps }},scale={{ $json.width }}:-1:flags=lanczos\"\n\n# Build time parameters\nTIME_PARAMS=\"\"\nif [ \"{{ $json.startTime }}\" != \"0\" ]; then\n  TIME_PARAMS=\"$TIME_PARAMS -ss {{ $json.startTime }}\"\nfi\nif [ \"{{ $json.duration }}\" != \"\" ]; then\n  TIME_PARAMS=\"$TIME_PARAMS -t {{ $json.duration }}\"\nfi\n\nif [ \"{{ $json.optimize }}\" = \"true\" ]; then\n  # High quality two-pass conversion with palette\n  ffmpeg -i \"$INPUT_FILE\" $TIME_PARAMS -vf \"$FILTER,palettegen\" -y \"$PALETTE_FILE\"\n  ffmpeg -i \"$INPUT_FILE\" -i \"$PALETTE_FILE\" $TIME_PARAMS -lavfi \"$FILTER [x]; [x][1:v] paletteuse\" -y \"$OUTPUT_FILE\"\nelse\n  # Simple one-pass conversion\n  ffmpeg -i \"$INPUT_FILE\" $TIME_PARAMS -vf \"$FILTER\" -y \"$OUTPUT_FILE\"\nfi\n\n# Output the GIF as base64\nbase64 -w 0 \"$OUTPUT_FILE\"\n\n# Cleanup\nrm -f \"$TEMP_INPUT\" \"$PALETTE_FILE\" \"$OUTPUT_FILE\""
+      },
+      "id": "ffmpeg-convert-url",
+      "name": "FFmpeg Convert (URL)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "command": "=#!/bin/bash\n\n# Generate unique filenames\nTIMESTAMP=\"{{ $now.toUnixInteger() }}\"\nINPUT_FILE=\"{{ $json.localPath }}\"\nPALETTE_FILE=\"/tmp/palette_${TIMESTAMP}.png\"\n\n# Determine output path\nif [ \"{{ $json.outputPath }}\" != \"\" ]; then\n  OUTPUT_FILE=\"{{ $json.outputPath }}\"\nelse\n  # Create output next to input file\n  OUTPUT_FILE=\"${INPUT_FILE%.*}.gif\"\nfi\n\n# Build FFmpeg filter string\nFILTER=\"fps={{ $json.fps }},scale={{ $json.width }}:-1:flags=lanczos\"\n\n# Build time parameters\nTIME_PARAMS=\"\"\nif [ \"{{ $json.startTime }}\" != \"0\" ]; then\n  TIME_PARAMS=\"$TIME_PARAMS -ss {{ $json.startTime }}\"\nfi\nif [ \"{{ $json.duration }}\" != \"\" ]; then\n  TIME_PARAMS=\"$TIME_PARAMS -t {{ $json.duration }}\"\nfi\n\nif [ \"{{ $json.optimize }}\" = \"true\" ]; then\n  # High quality two-pass conversion with palette\n  ffmpeg -i \"$INPUT_FILE\" $TIME_PARAMS -vf \"$FILTER,palettegen\" -y \"$PALETTE_FILE\"\n  ffmpeg -i \"$INPUT_FILE\" -i \"$PALETTE_FILE\" $TIME_PARAMS -lavfi \"$FILTER [x]; [x][1:v] paletteuse\" -y \"$OUTPUT_FILE\"\nelse\n  # Simple one-pass conversion\n  ffmpeg -i \"$INPUT_FILE\" $TIME_PARAMS -vf \"$FILTER\" -y \"$OUTPUT_FILE\"\nfi\n\n# Return output file path\necho \"$OUTPUT_FILE\"\n\n# Cleanup\nrm -f \"$PALETTE_FILE\""
+      },
+      "id": "ffmpeg-convert-local",
+      "name": "FFmpeg Convert (Local)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "gif_data",
+              "name": "data",
+              "value": "={{ $json.stdout }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-binary",
+      "name": "Prepare Binary (URL)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "mode": "jsonToBinary",
+        "options": {
+          "mimeType": "image/gif",
+          "fileName": "=output_{{ $now.toUnixInteger() }}.gif",
+          "dataIsBase64": true
+        }
+      },
+      "id": "convert-to-binary",
+      "name": "Convert to Binary (URL)",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "typeVersion": 1,
+      "position": [1450, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "output_file_path",
+              "name": "outputFilePath",
+              "value": "={{ $json.stdout.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "success",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-local-response",
+      "name": "Prepare Local Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [1250, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "image/gif"
+              },
+              {
+                "name": "Content-Disposition",
+                "value": "=attachment; filename=\"output_{{ $now.toUnixInteger() }}.gif\""
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-webhook-url",
+      "name": "Respond to Webhook (URL)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1650, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"output_file\": $json.outputFilePath } }}",
+        "options": {}
+      },
+      "id": "respond-webhook-local",
+      "name": "Respond to Webhook (Local)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1450, 400]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Parameters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Parameters": {
+      "main": [
+        [
+          {
+            "node": "Check Source Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Source Type": {
+      "main": [
+        [
+          {
+            "node": "Download Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FFmpeg Convert (Local)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Video": {
+      "main": [
+        [
+          {
+            "node": "FFmpeg Convert (URL)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FFmpeg Convert (URL)": {
+      "main": [
+        [
+          {
+            "node": "Prepare Binary (URL)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FFmpeg Convert (Local)": {
+      "main": [
+        [
+          {
+            "node": "Prepare Local Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Binary (URL)": {
+      "main": [
+        [
+          {
+            "node": "Convert to Binary (URL)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to Binary (URL)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook (URL)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Local Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook (Local)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}

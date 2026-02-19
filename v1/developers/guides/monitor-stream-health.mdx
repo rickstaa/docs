@@ -1,0 +1,284 @@
+---
+title: Monitor stream health
+description: Learn how to monitor stream metrics on Livepeer
+---
+
+This guide provides instructions and information about using stream metrics to:
+
+- Monitor any active stream for issues that may impact the quality of your
+  stream
+- Understand the metrics for operating a livestreaming or user generated content
+  platform
+- View health status of your livestream (API and Dashboard No-Code Option)
+
+## Metrics with Source Segments Duration
+
+The value of `sourceSegmentsDuration` returned is the duration in seconds of the
+asset source processed by Livepeer Studio. On the parent stream object, this
+value equates to the total amount of source video ingested by Livepeer Studio
+all time. On the session object, this value is the length of the livestream
+session (or the session recording).
+
+### Request
+
+Use the [get stream](/api-reference/stream/get) endpoint to retrieve a stream,
+or
+
+<Tabs>
+  <Tab title="Node.js">
+    ```javascript
+    import { Livepeer } from "livepeer";
+
+    const apiKey = 'YOUR_API_KEY';
+    const streamId = 'STREAM_ID';
+
+    const livepeer = new Livepeer({apiKey});
+
+    livepeer.stream.get(streamId)
+      .then((response) => {
+        console.log("Stream details:", response);
+      })
+      .catch((error) => {
+        console.error("Error fetching stream details:", error);
+      });
+    ```
+
+  </Tab>
+
+  <Tab title="Python">
+    ```python
+    import livepeer
+
+     // Initialize the Livepeer client with your API key
+    client = livepeer.Livepeer(
+        api_key="<YOUR_BEARER_TOKEN_HERE>",
+    )
+
+
+    // Replan <value> with the stream ID you want to retrieve
+    res = client.stream.get(id='<value>')
+
+    if res.stream is not None:
+        # handle response
+        pass
+    ```
+
+  </Tab>
+
+  <Tab title="Go">
+    ```go
+    package main
+
+    import(
+      livepeergo "github.com/livepeer/livepeer-go"
+      "context"
+      "log"
+    )
+
+    func main() {
+        // Initialize the Livepeer client with your API key
+        client := livepeergo.New(
+            livepeergo.WithSecurity("<YOUR_BEARER_TOKEN_HERE>"),
+        )
+
+        // Define the stream ID you want to retrieve
+        var id string = "<value>"
+
+        ctx := context.Background()
+        res, err := client.Stream.Get(ctx, id)
+
+        if err != nil {
+            log.Fatal(err)
+        }
+        if res.Stream != nil {
+            // handle response
+        }
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+**`GET /session/{id}` to retrieve a session object**
+
+<Tabs>
+  <Tab title="Node.js">
+    ```javascript
+    import { Livepeer } from "livepeer";
+
+    const apiKey = 'YOUR_API_KEY';
+    const sessionId = 'SESSION_ID';
+
+    const livepeer = new Livepeer({apiKey});
+
+    livepeer
+      .session.get(sessionId)
+      .then((response) => {
+        console.log("Session details:", response);
+      })
+      .catch((error) => {
+        console.error("Error fetching session details:", error);
+      });
+    ```
+
+  </Tab>
+
+  <Tab title="Python">
+    ```python
+    import livepeer
+
+    client = livepeer.Livepeer(
+        api_key="<YOUR_BEARER_TOKEN_HERE>",
+    )
+
+
+    res = client.session.get(id='<value>')
+
+    if res.session is not None:
+        # handle response
+        pass
+    ```
+
+  </Tab>
+
+  <Tab title="Go">
+    ```go
+    package main
+
+    import(
+      livepeergo "github.com/livepeer/livepeer-go"
+      "context"
+      "log"
+    )
+
+    func main() {
+        client := livepeergo.New(
+            livepeergo.WithSecurity("<YOUR_BEARER_TOKEN_HERE>"),
+        )
+        var id string = "<value>"
+        ctx := context.Background()
+        res, err := client.Session.Get(ctx, id)
+        if err != nil {
+            log.Fatal(err)
+        }
+        if res.Session != nil {
+            // handle response
+        }
+    }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Response
+
+- Returns a `200` response with the following object:
+
+```json
+{
+  "name": "test_stream",
+  "id": "ijkl61f3-95bd-4971-a7b1-4dcb5d39e78a",
+  "createdAt": 1596081229373,
+  "streamKey": "abcd-uimq-jtgy-x98v",
+  "playbackId": "efghb2mxupongp5k",
+  "isActive": "true",
+  "lastSeen": 1596119750455,
+  "sourceSegments": 1360,
+  "transcodedSegments": 5480,
+  "sourceSegmentsDuration": 2630.53200000000004,
+  "transcodedSegmentsDuration": 10620.1280000000004
+  // other asset object keys, like profiles and parentId
+}
+```
+
+### Global Health Status
+
+- `Healthy` indicates that all the Health Checks are in a `Healthy` state.
+- `Unhealthy` indicates that one or more of the Health Checks are in an
+  `Unhealthy` state
+- `Idle` indicates that the stream is not currently active
+
+### Health Checks
+
+- **_Transcoding_** — A `Healthy` status indicates that video transcoding is
+  occurring, and the multiple profiles of your stream are available for
+  playback. An `Unhealthy` status indicates that we have failed to generate the
+  profiles, so only the original video will be available. Check the event log
+  below for any actionable errors, or check the
+  [Status page](https://livepeer.statuspage.io/) for platform-wide issues.
+- **_Real-time —_** This indicates whether our system transcoded the stream
+  faster than in real-time. In other words, if the video transcodes, latency is
+  lower than the video duration. Unconventional configurations may cause an
+  `Unhealthy` status.
+- **_Multistreaming —_** This health check indicates whether all configured
+  `multistream targets` are connected. If no targets exist, this will appear
+  blank and not be considered for the global health state. If this shows up as
+  `Unhealthy`, you can also check the status of the individual
+  `multistream targets` in the `Overview` tab, where the targets can be either
+  `Idle`, `Pending`, `Online'or' Offline`:
+  - An `Idle` status indicates that the stream is not currently active, so
+    neither is multistreaming.
+  - A `Pending` status indicates that our system tries connecting to the
+    respective `multistream target`.
+  - An `Online` status indicates that the `multistream target` is successfully
+    connected.
+  - An `Offline` status means that we've received an error when trying to
+    connect to the target. To try again, check the ingest URL and stream key of
+    your destination service, re-configure your `multistream target` and restart
+    your stream.
+
+### Logs
+
+Logs will surface informational alerts (ex., stream has started/stopped,
+multistream destinations have connected/disconnected) or any fatal errors from
+the transcoding process. Here is an example of a fatal error:
+
+```bash
+Transcode error from ewr-prod-livepeer-orchestrator-0 for segment 0:
+**Unsupported input pixel format**
+```
+
+If you run into this or any similar errors, check the configuration in your
+streaming software (e.g., OBS) and restart the stream.
+
+### Session Ingest Rate
+
+Session ingest rate tells you the bitrate of the video received by Livepeer
+ingest servers, updated every 10 seconds. A high bitrate is suggestive that
+streams into the Livepeer system are high quality, your encoder is working
+correctly, and your internet connection is good. A fluctuating or low bitrate
+may suggest that your encoder is misconfigured or that the streamer internet
+connection isn't as strong as it should be to deliver high-quality streams to
+your viewers.
+
+### Monitoring in the Dashboard
+
+In the dashboard, there will be a `health` tab on the right side:
+
+<Frame>
+  ![image](https://user-images.githubusercontent.com/79172645/135450248-bf3edea4-e666-4927-8114-f972cd2879fe.png)
+</Frame>
+During any Active stream, components on this page will display a variety of health
+indicators.
+<Frame>
+
+![image](https://user-images.githubusercontent.com/79172645/135450296-168bd797-fafb-4371-af8a-86b346bbaa18.png)
+
+</Frame>
+<br />
+<Frame>
+  ![image](https://user-images.githubusercontent.com/79172645/135450340-4abed968-df77-473d-b926-88c11b5799d2.png)
+</Frame>
+
+At the bottom of the page, a chart will show the ingest rate of a livestream:
+
+<Frame>
+  ![image](https://user-images.githubusercontent.com/79172645/135467197-08ec63ab-4c44-4cad-a0d5-95a76b80e5c5.png)
+</Frame>
+
+### Monitor with the API
+
+<Info>
+  We are working on building a first-class solution to monitor stream health
+  using the API. Please reach out to us on Discord if you have any input.
+</Info>

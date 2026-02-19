@@ -4,3 +4,81 @@ node_modules
 # IDE
 .vscode
 *.code-workspace
+
+# V2
+# ------------------------------------
+# Node
+# ------------------------------------
+# node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Optional: ignore local `.env` files
+.env
+.env.*local
+
+# Google OAuth secrets
+**/client_secret*.json
+
+# ------------------------------------
+# Logs
+# ------------------------------------
+logs/
+*.log
+*.log.*
+debug.log
+
+# ------------------------------------
+# OS / Editor files
+# ------------------------------------
+# .DS_Store
+Thumbs.db
+.idea/
+
+# VSCode — allow settings.json, ignore rest
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/extensions.json
+
+# ------------------------------------
+# Mintlify / Build Stuff
+# ------------------------------------
+.mintlify/
+.mintlify-cache/
+.out/
+dist/
+build/
+
+# ------------------------------------
+# Temporary files
+# ------------------------------------
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ------------------------------------
+# TypeScript
+# ------------------------------------
+*.tsbuildinfo
+
+# ------------------------------------
+# External docs (fetched at build time)
+# ------------------------------------
+snippets/external/
+
+# ------------------------------------
+# Notion exports (contains API keys)
+# ------------------------------------
+notion/
+
+# ------------------------------------
+# AI task planning & execution folder 
+# ------------------------------------
+tasks/plan/*
+

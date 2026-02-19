@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-02-19T09:19:06.843Z",
+  "completedAt": "2026-02-19T09:19:14.679Z",
+  "baseUrl": "https://docs.livepeer.org",
+  "mode": "staged",
+  "versionScope": "both",
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "durationSec": 8,
+  "results": [
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/automations-workflows",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/automations-workflows",
+      "status": 200,
+      "title": "Automations & Workflows Guide - Livepeer Docs",
+      "contentLength": 22807,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+      "status": 200,
+      "title": "Contribute To The Docs - Livepeer Docs",
+      "contentLength": 16322,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/style-guide",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/style-guide",
+      "status": 200,
+      "title": "Documentation Style Guide - Livepeer Docs",
+      "contentLength": 29550,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    }
+  ]
+}

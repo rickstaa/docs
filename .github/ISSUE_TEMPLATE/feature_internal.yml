@@ -1,0 +1,20 @@
+name: Request Feature (Internal Team)
+description: File a feature (internal team use only)
+title: "[feature] <title>"
+<<<<<<< HEAD
+labels: ["feature", "triage", "team: studio", "docs-v2", "help wanted"]
+=======
+labels: ["feature", "triage", "team: studio"]
+>>>>>>> upstream/docs-v2-preview
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for adding a feature request! _Note: this is only for the internal Livepeer team - please use
+        [Discussions](https://github.com/livepeer/docs/discussions) if you are not a maintainer of this project._
+  - type: textarea
+    attributes:
+      label: Description
+      description: A concise description of the feature request.
+    validations:
+      required: false

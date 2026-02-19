@@ -1,0 +1,76 @@
+# Pages in this section (from index.mdx)
+
+## Top-level
+- [Livepeer Products & Developer Platforms](products-portal.mdx)
+
+## Products
+- [Ecosystem Products](products/all-ecosystem/ecosystem-products.mdx)
+- [Product HUB](products/all-ecosystem/product-hub.mdx)
+- [Daydream](products/daydream/daydream.mdx)
+- [Embody Avatars](products/embody/overview.mdx)
+- [Frameworks](products/frameworks/frameworks.mdx)
+- [API Reference](products/livepeer-studio/api-reference/overview.mdx)
+- [Authentication](products/livepeer-studio/getting-started/authentication.mdx)
+- [Getting Started with Livepeer Studio](products/livepeer-studio/getting-started/overview.mdx)
+- [Studio CLI](products/livepeer-studio/getting-started/studio-cli.mdx)
+- [Clip a livestream](products/livepeer-studio/guides/clip-livestream.mdx)
+- [Create a livestream](products/livepeer-studio/guides/create-livestream.mdx)
+- [Encrypted assets](products/livepeer-studio/guides/encrypted-assets.mdx)
+- [Listen to events](products/livepeer-studio/guides/listen-to-events.mdx)
+- [Livestream from browser](products/livepeer-studio/guides/livestream-from-browser.mdx)
+- [Managing projects](products/livepeer-studio/guides/managing-projects.mdx)
+- [Multistream](products/livepeer-studio/guides/multistream.mdx)
+- [Optimize latency](products/livepeer-studio/guides/optimize-latency.mdx)
+- [Play an asset](products/livepeer-studio/guides/playback-asset.mdx)
+- [Play a livestream](products/livepeer-studio/guides/playback-livestream.mdx)
+- [Player and embed](products/livepeer-studio/guides/player-and-embed.mdx)
+- [Stream health](products/livepeer-studio/guides/stream-health.mdx)
+- [Stream via OBS](products/livepeer-studio/guides/stream-via-obs.mdx)
+- [Thumbnails (VOD)](products/livepeer-studio/guides/thumbnails-vod.mdx)
+- [Transcode video](products/livepeer-studio/guides/transcode-video.mdx)
+- [Upload an asset](products/livepeer-studio/guides/upload-asset.mdx)
+- [Webhooks](products/livepeer-studio/guides/webhooks.mdx)
+- [Access control with JWTs](products/livepeer-studio/guides/access-control/jwt.mdx)
+- [Access control overview](products/livepeer-studio/guides/access-control/overview.mdx)
+- [Access control with webhooks](products/livepeer-studio/guides/access-control/webhooks.mdx)
+- [Analytics](products/livepeer-studio/guides/analytics/overview.mdx)
+- [API overview](products/livepeer-studio/overview/api-overview.mdx)
+- [Livepeer Studio Client Use Cases](products/livepeer-studio/overview/client-use-cases.mdx)
+- [Livestream overview](products/livepeer-studio/overview/livestream-overview.mdx)
+- [Livepeer Studio overview](products/livepeer-studio/overview/overview.mdx)
+- [Quickstart](products/livepeer-studio/overview/quickstart.mdx)
+- [SDKs overview](products/livepeer-studio/overview/sdks-overview.mdx)
+- [Video on demand overview](products/livepeer-studio/overview/vod-overview.mdx)
+- [Streamplace Architecture](products/streamplace/streamplace-architecture.mdx)
+- [How Streamplace Works](products/streamplace/streamplace-guide.mdx)
+- [Developer Integration Guide](products/streamplace/streamplace-integration.mdx)
+- [Provenance & Metadata](products/streamplace/streamplace-provenance.mdx)
+- [Streamplace Overview](products/streamplace/streamplace.mdx)
+
+# Headers (## from index.mdx)
+
+- ## Products
+
+# TODO:
+
+## Upgrade:
+- Refresh content and examples for all non-warning pages listed above.
+- Improve SEO metadata and section-level discoverability.
+
+## Remove:
+- Remove stale links or outdated references discovered during testing.
+
+## Rename
+- Align page and folder names with current information architecture.
+
+## Move 
+- Consolidate misplaced pages into the correct section hierarchy.
+
+## Test / Fix
+- Verify all internal links in listed pages resolve without 404s.
+- Verify index navigation order and grouping match the headers above.
+- Validate frontmatter consistency (title, description, sidebar labels).
+- Check every overview page links clearly to its child detail pages.
+- Execute quickstart/get-started steps end-to-end and confirm prerequisites are accurate.
+- Run guide workflows to ensure commands/snippets still work as written.
+- Test API reference examples for correct method, auth, request schema, and response fields.
