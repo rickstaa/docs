@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-v2-pages
- * @summary Utility script for tools/scripts/test-v2-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-v2-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-v2-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-v2-pages
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement V2 page tester — validates v2 pages via Puppeteer browser rendering
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/test-v2-pages.js [flags]
  */
 
 /**
@@ -93,8 +79,10 @@ function getV2Pages() {
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  // Remove v2/pages/ prefix and convert to URL
-  let url = pagePath.replace(/^v2\/pages\//, '');
+  // Preserve docs.json route paths exactly; only normalize legacy `v2/pages/...` to `v2/...`.
+  let url = pagePath
+    .replace(/^v2\/pages\//, 'v2/')
+    .replace(/\.mdx?$/, '');
   
   // Handle index pages (ending with /)
   if (url.endsWith('/')) {

@@ -1,0 +1,489 @@
+{
+  "name": "Discord-Issue-Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "discord-issue-intake",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "discord-intake-webhook",
+      "name": "Discord Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1200,
+        200
+      ],
+      "webhookId": "discord-issue-intake"
+    },
+    {
+      "parameters": {
+        "jsCode": "const headers = $json.headers || {};\nconst body = $json.body || {};\nconst rawBody = typeof $json.rawBody === 'string'\n  ? $json.rawBody\n  : typeof body === 'string'\n    ? body\n    : JSON.stringify(body);\n\nconst config = {\n  discordPublicKey: String($env.DISCORD_PUBLIC_KEY || '').trim(),\n  allowedChannelIds: String($env.ALLOWED_CHANNEL_IDS || '')\n    .split(',')\n    .map((id) => id.trim())\n    .filter(Boolean),\n  securityReportUrl: String($env.SECURITY_REPORT_URL || 'https://github.com/livepeer/docs/security/advisories/new').trim(),\n  rateLimitWindowSec: Number($env.RATE_LIMIT_WINDOW_SEC || 600),\n  rateLimitMax: Number($env.RATE_LIMIT_MAX || 3),\n  schemaVersion: String($env.DISCORD_ISSUE_SCHEMA_VERSION || '1.0.0').trim(),\n};\n\nconst toText = (value) => {\n  if (value === null || value === undefined) return '';\n  if (Array.isArray(value)) return value.join(', ').trim();\n  return String(value).trim();\n};\n\nconst isPlaceholder = (value) => {\n  const text = toText(value).toLowerCase().replace(/[`*_]/g, '').trim();\n  if (!text || text === '_no response_' || text === 'no response') return true;\n  return ['n/a', 'na', 'tbd', 'none', 'unknown', '?'].includes(text);\n};\n\nconst response = (route, content, extras = {}) => ({\n  route,\n  response_payload: {\n    type: 4,\n    data: {\n      flags: 64,\n      content,\n      ...(extras.data || {}),\n    },\n    ...(extras.topLevel || {}),\n  },\n  ...extras,\n});\n\nconst optionMap = (options = []) => {\n  const map = {};\n  for (const opt of options) {\n    map[opt.name] = opt.value;\n  }\n  return map;\n};\n\nconst getOption = (map, names, fallback = '') => {\n  for (const name of names) {\n    if (map[name] !== undefined && map[name] !== null) {\n      return map[name];\n    }\n  }\n  return fallback;\n};\n\nconst toBool = (value) => {\n  if (typeof value === 'boolean') return value;\n  const text = toText(value).toLowerCase();\n  return ['true', 'yes', 'y', '1', 'checked', 'confirm'].includes(text);\n};\n\nconst securityPattern = /\\b(vulnerability|exploit|rce|remote code execution|xss|csrf|sql injection|private key|secret leak|credential leak|auth bypass)\\b/i;\nconst subtypeToKind = {\n  'factual error': 'kind: factual-error',\n  'unclear instructions': 'kind: unclear-instructions',\n  'missing prerequisite or context': 'kind: missing-context',\n  'broken link or media': 'kind: broken-media-link',\n  'ux, readability, or accessibility issue': 'kind: accessibility-ux',\n  'structural or navigation issue': 'kind: navigation-structure',\n};\n\nconst now = Date.now();\nconst nowIso = new Date(now).toISOString();\n\nlet staticData;\ntry {\n  staticData = getWorkflowStaticData('global');\n} catch {\n  staticData = {};\n}\n\nstaticData.pending = staticData.pending || {};\nstaticData.ready = staticData.ready || {};\nstaticData.rateLimit = staticData.rateLimit || {};\n\nfor (const [key, pending] of Object.entries(staticData.pending)) {\n  if (!pending?.created_at || now - pending.created_at > 6 * 60 * 60 * 1000) {\n    delete staticData.pending[key];\n  }\n}\n\nfor (const [key, ready] of Object.entries(staticData.ready)) {\n  if (!ready?.created_at || now - ready.created_at > 6 * 60 * 60 * 1000) {\n    delete staticData.ready[key];\n  }\n}\n\nconst verifyDiscordSignature = () => {\n  const signature = headers['x-signature-ed25519'] || headers['X-Signature-Ed25519'];\n  const timestamp = headers['x-signature-timestamp'] || headers['X-Signature-Timestamp'];\n\n  if (!config.discordPublicKey || !signature || !timestamp || !rawBody) {\n    return false;\n  }\n\n  try {\n    const crypto = require('crypto');\n    const message = Buffer.from(`${timestamp}${rawBody}`);\n    const signatureBuffer = Buffer.from(signature, 'hex');\n    const publicKeyBuffer = Buffer.from(config.discordPublicKey, 'hex');\n    const keyPrefix = Buffer.from('302a300506032b6570032100', 'hex');\n    const publicKeyDer = Buffer.concat([keyPrefix, publicKeyBuffer]);\n\n    return crypto.verify(\n      null,\n      message,\n      { key: publicKeyDer, format: 'der', type: 'spki' },\n      signatureBuffer,\n    );\n  } catch {\n    return false;\n  }\n};\n\nif (!verifyDiscordSignature()) {\n  return [{\n    json: {\n      route: 'deny',\n      response_payload: { error: 'invalid request signature' },\n      response_code: 401,\n    },\n  }];\n}\n\nif (body.type === 1) {\n  return [{ json: { route: 'ping', response_payload: { type: 1 } } }];\n}\n\nconst channelId = toText(body.channel_id || body.channel?.id);\nconst user = body.member?.user || body.user || {};\nconst userId = toText(user.id);\nconst username = toText(user.global_name || user.username || 'unknown-user');\nconst userTag = user.discriminator && user.discriminator !== '0'\n  ? `${toText(user.username)}#${toText(user.discriminator)}`\n  : username;\n\nif (config.allowedChannelIds.length > 0 && !config.allowedChannelIds.includes(channelId)) {\n  return [{\n    json: response(\n      'deny',\n      `This command is only allowed in configured intake channels. Allowed IDs: ${config.allowedChannelIds.join(', ')}`,\n    ),\n  }];\n}\n\nif (body.type === 2) {\n  const commandName = toText(body.data?.name).toLowerCase();\n  if (commandName !== 'docs-issue') {\n    return [{ json: response('deny', 'Unsupported command. Use /docs-issue.') }];\n  }\n\n  if (!userId) {\n    return [{ json: response('deny', 'Unable to resolve your Discord user ID for intake.') }];\n  }\n\n  const userTimestamps = (staticData.rateLimit[userId] || []).filter(\n    (ts) => now - ts < config.rateLimitWindowSec * 1000,\n  );\n  if (userTimestamps.length >= config.rateLimitMax) {\n    staticData.rateLimit[userId] = userTimestamps;\n    return [{\n      json: response(\n        'deny',\n        `Rate limit reached: max ${config.rateLimitMax} issue intakes per ${config.rateLimitWindowSec} seconds. Please try again later.`,\n      ),\n    }];\n  }\n  userTimestamps.push(now);\n  staticData.rateLimit[userId] = userTimestamps;\n\n  const options = optionMap(body.data?.options || []);\n  const shortFields = {\n    title: toText(getOption(options, ['title', 'summary'])),\n    area: toText(getOption(options, ['area'])),\n    issue_subtype: toText(getOption(options, ['issue_subtype', 'subtype'])),\n    page_or_path: toText(getOption(options, ['page_or_path', 'page'])),\n    section_anchor: toText(getOption(options, ['section_anchor', 'section'])),\n    priority: toText(getOption(options, ['priority'])),\n    suggested_improvement: toText(getOption(options, ['suggested_improvement', 'suggestion'])),\n    requested_action: toText(getOption(options, ['requested_action', 'action'])),\n  };\n\n  const checks = {\n    searched_existing: toBool(getOption(options, ['searched_existing', 'searched_issues'], false)),\n    enough_detail: toBool(getOption(options, ['enough_detail', 'detail_confirmed'], false)),\n  };\n\n  const missingShortFields = Object.entries(shortFields)\n    .filter(([, value]) => isPlaceholder(value))\n    .map(([key]) => key);\n\n  if (missingShortFields.length > 0) {\n    return [{\n      json: response(\n        'deny',\n        `Missing required slash-command options: ${missingShortFields.join(', ')}.`,\n      ),\n    }];\n  }\n\n  if (!checks.searched_existing || !checks.enough_detail) {\n    return [{\n      json: response(\n        'deny',\n        'Both confirmation flags must be true: searched_existing and enough_detail.',\n      ),\n    }];\n  }\n\n  const correlationId = `dii-${now.toString(36)}-${Math.random().toString(36).slice(2, 8)}`;\n\n  staticData.pending[correlationId] = {\n    created_at: now,\n    user_id: userId,\n    user_tag: userTag,\n    fields: shortFields,\n    checks,\n    source: {\n      guild_id: toText(body.guild_id),\n      channel_id: channelId,\n      message_id: '',\n      user_id: userId,\n      user_tag: userTag,\n      interaction_timestamp: nowIso,\n    },\n  };\n\n  const modalPayload = {\n    type: 9,\n    data: {\n      title: 'Docs Issue Details (Phase 1)',\n      custom_id: `docs_issue_modal:${correlationId}`,\n      components: [\n        {\n          type: 1,\n          components: [\n            {\n              type: 4,\n              custom_id: 'content_problem',\n              style: 2,\n              label: 'Exact problem statement',\n              min_length: 10,\n              max_length: 1000,\n              required: true,\n              placeholder: 'What is wrong, unclear, or incomplete?',\n            },\n          ],\n        },\n        {\n          type: 1,\n          components: [\n            {\n              type: 4,\n              custom_id: 'evidence',\n              style: 2,\n              label: 'Evidence',\n              min_length: 5,\n              max_length: 1000,\n              required: true,\n              placeholder: 'Quote/snippet/log/output supporting the issue.',\n            },\n          ],\n        },\n        {\n          type: 1,\n          components: [\n            {\n              type: 4,\n              custom_id: 'ui_ux_feedback',\n              style: 2,\n              label: 'UX/readability/accessibility feedback',\n              min_length: 3,\n              max_length: 1000,\n              required: true,\n              placeholder: 'Describe readability/navigation/accessibility impact.',\n            },\n          ],\n        },\n        {\n          type: 1,\n          components: [\n            {\n              type: 4,\n              custom_id: 'done_criteria',\n              style: 2,\n              label: 'Done criteria / acceptance check',\n              min_length: 5,\n              max_length: 1000,\n              required: true,\n              placeholder: 'What must be true for this issue to be done?',\n            },\n          ],\n        },\n        {\n          type: 1,\n          components: [\n            {\n              type: 4,\n              custom_id: 'additional_context',\n              style: 2,\n              label: 'Additional context (optional)',\n              max_length: 1000,\n              required: false,\n              placeholder: 'Links, screenshots, related thread context, etc.',\n            },\n          ],\n        },\n      ],\n    },\n  };\n\n  return [{ json: { route: 'open_modal', response_payload: modalPayload } }];\n}\n\nif (body.type === 5) {\n  const customId = toText(body.data?.custom_id);\n  if (!customId.startsWith('docs_issue_modal:')) {\n    return [{ json: response('deny', 'Unsupported modal submission.') }];\n  }\n\n  const correlationId = customId.split(':')[1];\n  const pending = staticData.pending[correlationId];\n  if (!pending) {\n    return [{ json: response('deny', 'Intake session expired. Re-run /docs-issue.') }];\n  }\n\n  if (pending.user_id !== userId) {\n    return [{ json: response('deny', 'Only the original reporter can submit this modal.') }];\n  }\n\n  const modalValues = {};\n  for (const row of body.data?.components || []) {\n    for (const component of row.components || []) {\n      modalValues[component.custom_id] = toText(component.value);\n    }\n  }\n\n  const requiredModalIds = ['content_problem', 'evidence', 'ui_ux_feedback', 'done_criteria'];\n  const missingModal = requiredModalIds.filter((id) => isPlaceholder(modalValues[id]));\n  if (missingModal.length > 0) {\n    return [{\n      json: response(\n        'deny',\n        `Missing required modal fields: ${missingModal.join(', ')}. Re-run /docs-issue and submit complete details.`,\n      ),\n    }];\n  }\n\n  const issueFields = {\n    area: pending.fields.area,\n    issue_subtype: pending.fields.issue_subtype,\n    page_or_path: pending.fields.page_or_path,\n    section_anchor: pending.fields.section_anchor,\n    content_problem: modalValues.content_problem,\n    evidence: modalValues.evidence,\n    ui_ux_feedback: modalValues.ui_ux_feedback,\n    suggested_improvement: pending.fields.suggested_improvement,\n    requested_action: pending.fields.requested_action,\n    done_criteria: modalValues.done_criteria,\n    priority: pending.fields.priority,\n    additional_context: modalValues.additional_context || '',\n  };\n\n  const securityText = [\n    pending.fields.title,\n    ...Object.values(issueFields),\n  ].join('\\n');\n\n  if (securityPattern.test(securityText)) {\n    delete staticData.pending[correlationId];\n    delete staticData.ready[correlationId];\n    return [{\n      json: response(\n        'deny',\n        `This submission appears security-sensitive. Please use private reporting: ${config.securityReportUrl}`,\n      ),\n    }];\n  }\n\n  const issueBodyPreview = [\n    '### Area',\n    issueFields.area,\n    '',\n    '### Issue subtype',\n    issueFields.issue_subtype,\n    '',\n    '### Page URL or file path',\n    issueFields.page_or_path,\n    '',\n    '### Section or anchor',\n    issueFields.section_anchor,\n    '',\n    '### Exact problem statement',\n    issueFields.content_problem,\n    '',\n    '### Evidence',\n    issueFields.evidence,\n    '',\n    '### UX/readability/accessibility feedback',\n    issueFields.ui_ux_feedback,\n    '',\n    '### Suggested improvement',\n    issueFields.suggested_improvement,\n    '',\n    '### Action requested from maintainers',\n    issueFields.requested_action,\n    '',\n    '### Done criteria / acceptance check',\n    issueFields.done_criteria,\n    '',\n    '### Priority',\n    issueFields.priority,\n    '',\n    '### Additional context',\n    issueFields.additional_context || 'N/A',\n    '',\n    '### Submission checks',\n    '- [x] I searched existing issues and did not find an equivalent report.',\n    '- [x] I provided enough detail for maintainers to reproduce and act.',\n  ].join('\\n');\n\n  const kindLabel = subtypeToKind[toText(issueFields.issue_subtype).toLowerCase()] || 'kind: (not inferred)';\n  const labelsPreview = [\n    'docs-v2',\n    'help wanted',\n    'status: needs-triage',\n    'type: documentation',\n    'scope: page',\n    issueFields.area,\n    issueFields.priority,\n    kindLabel,\n  ].join(', ');\n\n  const truncate = (value, max) => {\n    if (value.length <= max) return value;\n    return `${value.slice(0, max - 3)}...`;\n  };\n\n  const previewMessage = [\n    `Preview for [docs-page]: ${pending.fields.title}`,\n    '',\n    `Inferred labels: ${labelsPreview}`,\n    '',\n    '```md',\n    truncate(issueBodyPreview, 1300),\n    '```',\n    '',\n    'Confirm to create the GitHub issue, or cancel to discard.',\n  ].join('\\n');\n\n  staticData.ready[correlationId] = {\n    created_at: now,\n    user_id: userId,\n    issue_title: pending.fields.title,\n    schema_version: config.schemaVersion,\n    template_key: 'docs_page_issue',\n    fields: issueFields,\n    checks: pending.checks,\n    source: pending.source,\n  };\n\n  const previewPayload = {\n    type: 4,\n    data: {\n      flags: 64,\n      content: previewMessage,\n      components: [\n        {\n          type: 1,\n          components: [\n            {\n              type: 2,\n              style: 3,\n              label: 'Confirm and create issue',\n              custom_id: `docs_issue_confirm:${correlationId}`,\n            },\n            {\n              type: 2,\n              style: 4,\n              label: 'Cancel',\n              custom_id: `docs_issue_cancel:${correlationId}`,\n            },\n          ],\n        },\n      ],\n    },\n  };\n\n  return [{ json: { route: 'modal_preview', response_payload: previewPayload } }];\n}\n\nif (body.type === 3) {\n  const customId = toText(body.data?.custom_id);\n\n  if (customId.startsWith('docs_issue_cancel:')) {\n    const correlationId = customId.split(':')[1];\n    const ready = staticData.ready[correlationId];\n    if (!ready) {\n      return [{ json: response('deny', 'No active preview found. Re-run /docs-issue.') }];\n    }\n    if (ready.user_id !== userId) {\n      return [{ json: response('deny', 'Only the original reporter can cancel this intake.') }];\n    }\n\n    delete staticData.ready[correlationId];\n    delete staticData.pending[correlationId];\n\n    return [{\n      json: {\n        route: 'cancel',\n        response_payload: {\n          type: 7,\n          data: {\n            content: 'Discord issue intake cancelled. No GitHub issue was created.',\n            components: [],\n          },\n        },\n      },\n    }];\n  }\n\n  if (customId.startsWith('docs_issue_confirm:')) {\n    const correlationId = customId.split(':')[1];\n    const ready = staticData.ready[correlationId];\n    if (!ready) {\n      return [{ json: response('deny', 'Intake preview expired. Re-run /docs-issue.') }];\n    }\n    if (ready.user_id !== userId) {\n      return [{ json: response('deny', 'Only the original reporter can confirm this intake.') }];\n    }\n\n    const dispatchPayload = {\n      schema_version: ready.schema_version,\n      template_key: ready.template_key,\n      correlation_id: correlationId,\n      issue_title: ready.issue_title,\n      fields: ready.fields,\n      source: {\n        ...ready.source,\n        guild_id: toText(body.guild_id || ready.source.guild_id),\n        channel_id: toText(body.channel_id || ready.source.channel_id),\n        message_id: toText(body.message?.id || body.message?.message_reference?.message_id || ''),\n        user_id: ready.source.user_id,\n        user_tag: ready.source.user_tag,\n        interaction_timestamp: nowIso,\n      },\n      checks: ready.checks,\n    };\n\n    delete staticData.ready[correlationId];\n    delete staticData.pending[correlationId];\n\n    return [{\n      json: {\n        route: 'confirm',\n        response_payload: {\n          type: 7,\n          data: {\n            content: 'Creating GitHub issue now. I will post the issue link shortly.',\n            components: [],\n          },\n        },\n        dispatch_payload: dispatchPayload,\n        source: {\n          application_id: toText(body.application_id),\n          interaction_token: toText(body.token),\n        },\n      },\n    }];\n  }\n\n  return [{ json: response('deny', 'Unsupported interaction button.') }];\n}\n\nreturn [{ json: response('deny', 'Unsupported Discord interaction payload.') }];"
+      },
+      "id": "parse-and-route",
+      "name": "Parse, Verify, and Route",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -980,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-ping",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "ping",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-ping",
+      "name": "Is Ping?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -760,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-ping",
+      "name": "Respond Ping",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -540,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-open-modal",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "open_modal",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-open-modal",
+      "name": "Is Open Modal?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-open-modal",
+      "name": "Respond Open Modal",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-preview",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "modal_preview",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-preview",
+      "name": "Is Modal Preview?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-preview",
+      "name": "Respond Preview",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-cancel",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "cancel",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-cancel",
+      "name": "Is Cancel?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-cancel",
+      "name": "Respond Cancel",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        120,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-confirm",
+              "leftValue": "={{ $json.route }}",
+              "rightValue": "confirm",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-confirm",
+      "name": "Is Confirm?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        120,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-confirm-ack",
+      "name": "Respond Confirm Ack",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        340,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.dispatch_payload || {};\nconst source = $json.source || {};\n\nconst owner = String($env.GITHUB_OWNER || 'livepeer').trim();\nconst repo = String($env.GITHUB_REPO || 'docs').trim();\nconst dispatchToken = String($env.GITHUB_DISPATCH_TOKEN || '').trim();\nconst eventType = String($env.GITHUB_DISPATCH_EVENT_TYPE || 'discord-issue-intake').trim();\nconst pollAttempts = Number($env.GITHUB_POLL_ATTEMPTS || 8);\nconst pollDelayMs = Number($env.GITHUB_POLL_DELAY_MS || 4000);\n\nconst correlationId = String(payload.correlation_id || '').trim();\nconst followupUrl = source.application_id && source.interaction_token\n  ? `https://discord.com/api/v10/webhooks/${source.application_id}/${source.interaction_token}`\n  : '';\n\nlet success = false;\nlet issueUrl = '';\nlet issueNumber = null;\nlet errorMessage = '';\n\nif (!dispatchToken) {\n  errorMessage = 'Missing GITHUB_DISPATCH_TOKEN environment variable.';\n} else if (!correlationId) {\n  errorMessage = 'Missing correlation_id in dispatch payload.';\n} else {\n  try {\n    const dispatchRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/dispatches`, {\n      method: 'POST',\n      headers: {\n        Authorization: `Bearer ${dispatchToken}`,\n        Accept: 'application/vnd.github+json',\n        'Content-Type': 'application/json',\n        'User-Agent': 'livepeer-discord-issue-intake',\n      },\n      body: JSON.stringify({\n        event_type: eventType,\n        client_payload: payload,\n      }),\n    });\n\n    if (!dispatchRes.ok) {\n      throw new Error(`repository_dispatch failed: ${dispatchRes.status} ${await dispatchRes.text()}`);\n    }\n\n    const query = `repo:${owner}/${repo} is:issue in:body \"discord-intake-id:${correlationId}\"`;\n\n    for (let attempt = 1; attempt <= pollAttempts; attempt += 1) {\n      const searchRes = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(query)}&per_page=1`, {\n        headers: {\n          Authorization: `Bearer ${dispatchToken}`,\n          Accept: 'application/vnd.github+json',\n          'User-Agent': 'livepeer-discord-issue-intake',\n        },\n      });\n\n      if (!searchRes.ok) {\n        throw new Error(`issue search failed: ${searchRes.status} ${await searchRes.text()}`);\n      }\n\n      const searchData = await searchRes.json();\n      if (searchData.total_count > 0 && searchData.items?.[0]) {\n        issueUrl = searchData.items[0].html_url;\n        issueNumber = searchData.items[0].number;\n        success = true;\n        break;\n      }\n\n      if (attempt < pollAttempts) {\n        await new Promise((resolve) => setTimeout(resolve, pollDelayMs));\n      }\n    }\n\n    if (!success) {\n      errorMessage = 'Issue creation was dispatched but not found yet. Check Actions runs for discord-issue-intake.';\n    }\n  } catch (error) {\n    errorMessage = error.message;\n  }\n}\n\nreturn [{\n  json: {\n    success,\n    issue_url: issueUrl,\n    issue_number: issueNumber,\n    correlation_id: correlationId,\n    error: errorMessage,\n    followup_url: followupUrl,\n  },\n}];"
+      },
+      "id": "dispatch-and-poll",
+      "name": "Dispatch and Poll GitHub",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.followup_url }}",
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "flags",
+              "value": 64
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.success ? `Issue created: ${$json.issue_url}\\nIssue #${$json.issue_number}\\nCorrelation ID: ${$json.correlation_id}` : `Issue intake submitted, but I could not confirm creation yet. Correlation ID: ${$json.correlation_id}\\nError: ${$json.error}` }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-followup",
+      "name": "Send Discord Followup",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.response_payload }}",
+        "options": {
+          "responseCode": "={{ Number($json.response_code || 200) }}"
+        }
+      },
+      "id": "respond-denied",
+      "name": "Respond Denied",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        340,
+        560
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Discord Intake Webhook": {
+      "main": [
+        [
+          {
+            "node": "Parse, Verify, and Route",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse, Verify, and Route": {
+      "main": [
+        [
+          {
+            "node": "Is Ping?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Ping?": {
+      "main": [
+        [
+          {
+            "node": "Respond Ping",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is Open Modal?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Open Modal?": {
+      "main": [
+        [
+          {
+            "node": "Respond Open Modal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is Modal Preview?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Modal Preview?": {
+      "main": [
+        [
+          {
+            "node": "Respond Preview",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is Cancel?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Cancel?": {
+      "main": [
+        [
+          {
+            "node": "Respond Cancel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is Confirm?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Confirm?": {
+      "main": [
+        [
+          {
+            "node": "Respond Confirm Ack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond Denied",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond Confirm Ack": {
+      "main": [
+        [
+          {
+            "node": "Dispatch and Poll GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dispatch and Poll GitHub": {
+      "main": [
+        [
+          {
+            "node": "Send Discord Followup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "00000000-0000-0000-0000-discordissue01",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "set-in-your-n8n-instance"
+  },
+  "id": "DiscordIssueIntakePhase1",
+  "tags": []
+}

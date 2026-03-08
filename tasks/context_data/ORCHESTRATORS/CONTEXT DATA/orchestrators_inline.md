@@ -1,6 +1,6 @@
 Perfect. Next page in the IA:
 
-v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx
+v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx
 Hardware Requirements
 
 Running an Orchestrator is running production GPU infrastructure.
@@ -283,7 +283,7 @@ Yes
 
 Great. Next page:
 
-v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx
+v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx
 Orchestrator Stats & Monitoring
 
 If you can’t measure it, you can’t operate it.
@@ -586,7 +586,7 @@ Yes
 
 Great. Next page:
 
-v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
+v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
 Quickstart: Add Your GPU to Livepeer
 
 This guide connects your GPU to the Livepeer network as an Orchestrator worker — ready to process video or AI jobs.

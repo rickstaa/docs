@@ -1,27 +1,13 @@
 /**
- * @script seo-generator-safe
- * @summary Utility script for tools/scripts/dev/seo-generator-safe.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/seo-generator-safe.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/seo-generator-safe.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            seo-generator-safe
+ * @category          generator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement Safe SEO generator — generates SEO metadata with dry-run and rollback safety
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
+ * @usage             node tools/scripts/dev/seo-generator-safe.js [flags]
  */
 const fs = require("fs");
 const path = require("path");
@@ -89,21 +75,21 @@ function getOgImagePath(filePath) {
   // Determine og:image based on directory structure
   const pathParts = filePath.split("/");
 
-  if (pathParts.includes("00_home")) {
+  if (pathParts.includes("00_home") || pathParts.includes("home")) {
     return "/snippets/assets/domain/00_HOME/social-preview-home.jpg";
-  } else if (pathParts.includes("01_about")) {
+  } else if (pathParts.includes("01_about") || pathParts.includes("about")) {
     return "/snippets/assets/domain/01_ABOUT/social-preview-about.jpg";
-  } else if (pathParts.includes("02_community")) {
+  } else if (pathParts.includes("02_community") || pathParts.includes("community")) {
     return "/snippets/assets/domain/02_COMMUNITY/social-preview-community.jpg";
-  } else if (pathParts.includes("03_developers")) {
+  } else if (pathParts.includes("03_developers") || pathParts.includes("developers")) {
     return "/snippets/assets/domain/03_DEVELOPERS/social-preview-developers.jpg";
-  } else if (pathParts.includes("04_gateways")) {
+  } else if (pathParts.includes("04_gateways") || pathParts.includes("gateways")) {
     return "/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg";
-  } else if (pathParts.includes("05_orchestrators")) {
+  } else if (pathParts.includes("05_orchestrators") || pathParts.includes("orchestrators")) {
     return "/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg";
-  } else if (pathParts.includes("06_delegators")) {
+  } else if (pathParts.includes("06_lptoken") || pathParts.includes("lpt")) {
     return "/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg";
-  } else if (pathParts.includes("07_resources")) {
+  } else if (pathParts.includes("07_resources") || pathParts.includes("resources")) {
     return "/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg";
   }
 
@@ -250,7 +236,7 @@ if (require.main === module) {
     console.log("");
     console.log("Example:");
     console.log(
-      "  node seo-generator-safe.js v2/pages/00_home/mission-control.mdx",
+      "  node seo-generator-safe.js v2/home/mission-control.mdx",
     );
     process.exit(1);
   }

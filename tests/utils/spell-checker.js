@@ -1,53 +1,98 @@
 #!/usr/bin/env node
 /**
- * @script spell-checker
- * @summary Utility script for tests/utils/spell-checker.js.
- * @owner docs
- * @scope tests
- *
- * @usage
- *   node tests/utils/spell-checker.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tests/utils/spell-checker.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            spell-checker
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tests
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Spell checker utility — checks text against custom dictionary with en-GB locale support
+ * @pipeline          indirect — library module
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tests/utils/spell-checker.js [flags]
  */
 /**
  * Spell checking utilities using cspell
  */
 
-const { execSync } = require('child_process');
+const { execSync, execFileSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
+
+function resolveCspellConfig(configPath = null) {
+  if (configPath && fs.existsSync(configPath)) {
+    return configPath;
+  }
+
+  const repoRoot = getRepoRoot();
+  const candidates = [
+    path.join(process.cwd(), 'cspell.json'),
+    path.join(repoRoot, 'cspell.json'),
+    path.join(repoRoot, 'tools', 'config', 'cspell.json')
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return path.join(repoRoot, 'tools', 'config', 'cspell.json');
+}
+
+function resolveCspellBinary() {
+  if (process.env.CSPELL_BIN) {
+    return { bin: process.env.CSPELL_BIN, viaNpx: false };
+  }
+
+  const repoRoot = getRepoRoot();
+  const candidates = [
+    path.join(repoRoot, 'tools', 'node_modules', '.bin', 'cspell'),
+    path.join(repoRoot, 'tests', 'node_modules', '.bin', 'cspell')
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return { bin: candidate, viaNpx: false };
+    }
+  }
+
+  return { bin: 'npx', viaNpx: true };
+}
 
 /**
  * Check spelling in a file
  */
 function checkSpelling(filePath, configPath = null) {
-  const cspellConfig = configPath || path.join(process.cwd(), 'cspell.json');
+  const cspellConfig = resolveCspellConfig(configPath);
+  const cspell = resolveCspellBinary();
   
   try {
-    // Run cspell check
-    const result = execSync(
-      `npx cspell --no-progress --config "${cspellConfig}" "${filePath}"`,
-      { encoding: 'utf8', stdio: 'pipe' }
-    );
+    let result;
+    if (cspell.viaNpx) {
+      result = execSync(
+        `npx cspell --no-progress --config "${cspellConfig}" "${filePath}"`,
+        { encoding: 'utf8', stdio: 'pipe' }
+      );
+    } else {
+      result = execFileSync(
+        cspell.bin,
+        ['--no-progress', '--config', cspellConfig, filePath],
+        { encoding: 'utf8', stdio: 'pipe' }
+      );
+    }
     return { errors: [], output: result };
   } catch (error) {
     // Parse cspell output
-    const output = error.stdout || error.message;
+    const output = error.stdout || error.stderr || error.message;
     const errors = parseCspellOutput(output, filePath);
     return { errors, output };
   }
@@ -98,5 +143,7 @@ function checkMultipleFiles(filePaths, configPath = null) {
 module.exports = {
   checkSpelling,
   checkMultipleFiles,
-  parseCspellOutput
+  parseCspellOutput,
+  resolveCspellBinary,
+  resolveCspellConfig
 };

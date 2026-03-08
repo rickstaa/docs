@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script verify
-# @summary Utility script for .githooks/verify.sh.
-# @owner docs
-# @scope .githooks
-#
-# @usage
-#   bash .githooks/verify.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash .githooks/verify.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            verify
+# @category          utility
+# @purpose           tooling:dev-tools
+# @scope             .githooks
+# @owner             docs
+# @needs             E-C6, F-C1
+# @purpose-statement Pre-commit sub-hook — verifies file-walker is available and runs structural checks on staged files
+# @pipeline          manual — developer tool
+# @usage             bash .githooks/verify.sh [flags]
 # Verification script for pre-commit hook
 # Runs various validation checks on staged files
 
@@ -69,9 +55,9 @@ if [ -n "$MDX_FILES" ]; then
     for file in $MDX_FILES; do
         if [ -f "$file" ]; then
             # Basic check: ensure frontmatter is valid YAML
-            if head -n 20 "$file" | grep -q "^---$"; then
+            if head -n 1 "$file" | grep -q "^---[[:space:]]*$"; then
                 # Check if frontmatter closes properly
-                FRONTMATTER_LINES=$(head -n 50 "$file" | grep -n "^---$" | head -2 | cut -d: -f1)
+                FRONTMATTER_LINES=$(head -n 50 "$file" | grep -n "^---[[:space:]]*$" | head -2 | cut -d: -f1)
                 if [ -z "$FRONTMATTER_LINES" ] || [ "$(echo "$FRONTMATTER_LINES" | wc -l)" -lt 2 ]; then
                     WARNINGS+=("⚠️  $file: Frontmatter may be malformed")
                     VIOLATIONS=$((VIOLATIONS + 1))

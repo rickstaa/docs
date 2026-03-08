@@ -1,0 +1,29 @@
+---
+title: 'Domain Page Load Audit Report'
+sidebarTitle: 'Domain Pages'
+description: 'Generated deployed page load audit report from tests/integration/domain-pages-audit.js.'
+keywords: ["livepeer","internal","reports","page-audits","domain-pages-audit"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+Last Generated (UTC ISO): `2026-03-03T09:45:28.411Z`
+Last Generated (UTC Human): `March 03, 2026 09:45 UTC`
+Generator Script: `tests/integration/domain-pages-audit.js`
+What It Does: Audit deployed docs page load status and emit a stable JSON report.
+Audited Scope: `tests/integration, tests/reports, docs.livepeer.org`
+Outputs:
+- tests/reports/domain-page-load-report.json
+# Domain Page Load Report
+
+- Timestamp: 2026-03-03T03:51:17.295Z
+- Completed: 2026-03-03T03:51:23.739Z
+- Base URL: https://docs.livepeer.org
+- Mode: staged
+- Version Scope: both
+- Total: 8
+- Passed: 8
+- Failed: 0
+- Duration: 6s
+
+## Failures
+
+_No failures_

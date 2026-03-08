@@ -1,0 +1,163 @@
+name: Docs Page Issue (Actionable)
+description: Report a specific page issue with clear requested action and completion criteria.
+title: "[docs-page]: <short summary>"
+labels: ["docs-v2", "help wanted", "status: needs-triage", "type: documentation", "scope: page"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Select the primary area this issue affects.
+      options:
+        - area: home-about
+        - area: community
+        - area: developers
+        - area: gateways
+        - area: orchestrators
+        - area: lpt-governance
+        - area: resources
+        - area: ci-cd
+        - area: structure
+        - area: multiple
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_subtype
+    attributes:
+      label: Issue subtype
+      description: Select the subtype for clear auto-tagging.
+      options:
+        - Factual error
+        - Unclear instructions
+        - Missing prerequisite or context
+        - Broken link or media
+        - UX, readability, or accessibility issue
+        - Structural or navigation issue
+    validations:
+      required: true
+
+  - type: input
+    id: page_or_path
+    attributes:
+      label: Page URL or file path
+      description: Include the exact docs URL or repo path.
+      placeholder: https://docs.livepeer.org/... or v2/pages/... 
+    validations:
+      required: true
+
+  - type: input
+    id: section_anchor
+    attributes:
+      label: Section or anchor
+      description: Heading text or URL anchor for the exact location.
+      placeholder: "#running-an-orchestrator"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content_problem
+    attributes:
+      label: Exact problem statement
+      description: Clearly describe what is wrong or unclear.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Provide a quote, snippet, screenshot reference, or command output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: ui_ux_feedback
+    attributes:
+      label: UX/readability/accessibility feedback
+      description: Describe page UX, readability, navigation, or accessibility issues.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_improvement
+    attributes:
+      label: Suggested improvement
+      description: Propose concrete edits or structure changes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested_action
+    attributes:
+      label: Action requested from maintainers
+      description: What specific action should maintainers take?
+    validations:
+      required: true
+
+  - type: textarea
+    id: done_criteria
+    attributes:
+      label: Done criteria / acceptance check
+      description: Define what must be true for this issue to be considered resolved.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Classification
+      description: Select issue severity/impact. This is separate from priority (maintainer scheduling).
+      options:
+        - classification: urgent
+        - classification: high
+        - classification: moderate
+        - classification: minor
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select maintainer scheduling priority (separate from classification severity/impact).
+      options:
+        - priority: critical
+        - priority: high
+        - priority: medium
+        - priority: low
+    validations:
+      required: true
+
+  - type: textarea
+    id: before_after_screenshots
+    attributes:
+      label: Before/after screenshots
+      description: Optional visual comparison.
+    validations:
+      required: false
+
+  - type: textarea
+    id: related_links
+    attributes:
+      label: Related issues or PRs
+      description: Link related issues, pull requests, or discussion threads.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues and did not find an equivalent report.
+          required: true
+        - label: I provided enough detail for maintainers to reproduce and act.
+          required: true

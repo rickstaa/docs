@@ -91,7 +91,7 @@ Per-page review of the v2 Orchestrators section in nav order. Uses v2/ABOUT and 
 ### 1.5 about-orchestrators/economics.mdx
 
 - **Accuracy:** SFA model, LPT stake, protocol rewards + service fees, costs (GPU, bandwidth, energy, delegation rewards) are correct for 2026.
-- **Context:** 05_orchestrators_about_orchestrators_economics and docs/ABOUT Protocol economics align.
+- **Context:** orchestrators_about_orchestrators_economics and docs/ABOUT Protocol economics align.
 - **Upgrades:** Remove ComingSoon when content is finalised. Add one sentence on video vs AI revenue (video: inflation + tickets; AI: usage fees, no stake-weight routing). Link to rewards-and-fees and staking-LPT.
 - **IA:** Good. Cross-link to Advanced (rewards-and-fees, staking-LPT).
 - **Style:** Bullets and structure are clear. Avoid duplicate “Protocol rewards” bullets (merge).
@@ -230,7 +230,7 @@ Per-page review of the v2 Orchestrators section in nav order. Uses v2/ABOUT and 
 ### 4.1–4.5 staking-LPT, rewards-and-fees, delegation, ai-pipelines, run-a-pool.mdx
 
 - **Accuracy:** N/A — all five files are **empty**.
-- **Context:** 05_orchestrators_advanced_setup_staking_lpt, rewards_and_fees_advanced_orchestrator_guide, orchestrators_advanced_setup_delegation, 05_orchestrators_advanced_setup_ai_pipelines, 05_orchestrators_advanced_setup_run_a_pool (and V1 configure-reward-calling, set-pricing, vote, dual-mine, o-t-split; V1 AI orchestrator guides).
+- **Context:** orchestrators_advanced_setup_staking_lpt, rewards_and_fees_advanced_orchestrator_guide, orchestrators_advanced_setup_delegation, orchestrators_advanced_setup_ai_pipelines, orchestrators_advanced_setup_run_a_pool (and V1 configure-reward-calling, set-pricing, vote, dual-mine, o-t-split; V1 AI orchestrator guides).
 - **Upgrades:** Fill each from context data and V1:
   - **staking-LPT:** Why stake, bonding flow, self vs delegated stake, video vs AI (stake for video; not for AI routing); link to Explorer, BondingManager.
   - **rewards-and-fees:** LPT inflation vs ETH fees; reward cut and fee share; video vs AI revenue; link to economics, CLI flags for pricePerUnit.
@@ -292,10 +292,10 @@ Per-page review of the v2 Orchestrators section in nav order. Uses v2/ABOUT and 
 ### 6.1 references/faq.mdx
 
 - **Accuracy:** N/A — placeholder (“FAQ” only).
-- **Context:** 05_orchestrators_references_faq.md has full Q&A (what is orchestrator, on-chain vs off-chain, job assignment, rewards, video vs AI, etc.).
+- **Context:** orchestrators_references_faq.md has full Q&A (what is orchestrator, on-chain vs off-chain, job assignment, rewards, video vs AI, etc.).
 - **Upgrades:** Port FAQ context into MDX. Use Accordions per question or H2 per topic. Add “Troubleshooting” subsection or link to troubleshoot page if created.
 - **Complete?** No.
-- **Recommendation:** Fill from 05_orchestrators_references_faq; add Troubleshooting link.
+- **Recommendation:** Fill from orchestrators_references_faq; add Troubleshooting link.
 
 ---
 

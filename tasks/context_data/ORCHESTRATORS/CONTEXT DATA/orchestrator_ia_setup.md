@@ -2,7 +2,7 @@
 
 We will:
 
-- Audit and reuse any existing `.mdx` content from the [preview site](https://na-36-docs-v2-preview.mintlify.app/v2/pages/05_orchestrators) and GitHub [docs-v2-preview](https://github.com/livepeer/docs/tree/docs-v2-preview/v2/pages/05_orchestrators)
+- Audit and reuse any existing `.mdx` content from the [preview site](https://na-36-docs-v2-preview.mintlify.app/v2/orchestrators) and GitHub [docs-v2-preview](https://github.com/livepeer/docs/tree/docs-v2-preview/v2/orchestrators)
 - Ensure consistency and depth across:
   - Orchestrator architecture & job routing
   - Real-time & AI inference task handling

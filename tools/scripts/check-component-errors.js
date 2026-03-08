@@ -1,27 +1,13 @@
 /**
- * @script check-component-errors
- * @summary Utility script for tools/scripts/check-component-errors.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/check-component-errors.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/check-component-errors.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            check-component-errors
+ * @category          enforcer
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Component error checker — scans pages for broken or misconfigured component usage
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/check-component-errors.js [flags]
  */
 const puppeteer = require('puppeteer');
 

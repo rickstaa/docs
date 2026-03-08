@@ -16,19 +16,19 @@ Uncomment all components in component library MDX files to restore full document
 
 ### Files to Update
 
-1. **`v2/pages/07_resources/documentation-guide/component-library/primitives.mdx`**
+1. **`v2/resources/documentation-guide/component-library/primitives.mdx`**
    - Uncomment: BlinkingIcon, BlinkingTerminal, DoubleIconLink sections
 
-2. **`v2/pages/07_resources/documentation-guide/component-library/display.mdx`**
+2. **`v2/resources/documentation-guide/component-library/display.mdx`**
    - Uncomment: P component with icon prop examples
 
-3. **`v2/pages/07_resources/documentation-guide/component-library/content.mdx`**
+3. **`v2/resources/documentation-guide/component-library/content.mdx`**
    - Uncomment: ResponseFieldGroup section
 
-4. **`v2/pages/07_resources/documentation-guide/component-library/layout.mdx`**
+4. **`v2/resources/documentation-guide/component-library/layout.mdx`**
    - Uncomment: ListSteps, ApiBaseUrlsTable sections
 
-5. **`v2/pages/07_resources/documentation-guide/component-library/domain.mdx`**
+5. **`v2/resources/documentation-guide/component-library/domain.mdx`**
    - Uncomment: All Gateway components (GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload)
    - Uncomment: QuickStartTabs, QuickStartSteps
    - Uncomment: PreviewCallout, ComingSoonCallout, ReviewCallout

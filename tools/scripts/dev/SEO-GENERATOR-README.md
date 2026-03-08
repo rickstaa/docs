@@ -44,7 +44,7 @@ This will verify that the script correctly preserves all frontmatter and content
 ### Run on specific files (dry run)
 
 ```bash
-node seo-generator-safe.js v2/pages/00_home/mission-control.mdx
+node seo-generator-safe.js v2/home/mission-control.mdx
 ```
 
 This will show what changes would be made WITHOUT actually modifying files.
@@ -62,7 +62,7 @@ const DRY_RUN = false;
 
 Then run:
 ```bash
-node seo-generator-safe.js v2/pages/00_home/mission-control.mdx
+node seo-generator-safe.js v2/home/mission-control.mdx
 ```
 
 ### Run on all MDX files
@@ -94,7 +94,7 @@ Images are assigned based on directory structure:
 - `04_gateways` → `/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg`
 - `05_orchestrators` → `/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg`
 - `06_delegators` → `/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg`
-- `07_resources` → `/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg`
+- `resources` → `/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg`
 - Default → `/snippets/assets/domain/social-preview-default.jpg`
 
 ## Example Output
@@ -103,7 +103,7 @@ Images are assigned based on directory structure:
 Processing 3 file(s)...
 DRY RUN: YES (no files will be modified)
 
-✓ v2/pages/00_home/mission-control.mdx
+✓ v2/home/mission-control.mdx
   Keywords: ["home","index","landing","livepeer","mission control"]
   og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
 
@@ -120,7 +120,7 @@ DRY RUN: YES
 After running the script, verify changes with:
 
 ```bash
-git diff v2/pages/00_home/mission-control.mdx
+git diff v2/home/mission-control.mdx
 ```
 
 You should ONLY see changes to `keywords` and `og:image` fields.

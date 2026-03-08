@@ -1,6 +1,6 @@
 # Orchestrators Section — Style Guide
 
-Canonical guide for **copy**, **components**, **branding**, and **styling** in the v2 Orchestrators section (05_orchestrators). Use this when creating or editing Orchestrator pages so the section feels consistent and on-brand. Where not specified, follow the [About section style guide](../ABOUT/ABOUT-SECTION-STYLE-GUIDE.md).
+Canonical guide for **copy**, **components**, **branding**, and **styling** in the v2 Orchestrators section (orchestrators). Use this when creating or editing Orchestrator pages so the section feels consistent and on-brand. Where not specified, follow the [About section style guide](../ABOUT/ABOUT-SECTION-STYLE-GUIDE.md).
 
 ---
 
@@ -77,7 +77,7 @@ Canonical guide for **copy**, **components**, **branding**, and **styling** in t
 ### Links and CTAs
 
 - **Primary:** Explorer (explorer.livepeer.org), go-livepeer GitHub, Protocol GitHub, Forum (LIPs, scripts).
-- **Internal:** Prefer relative links within 05_orchestrators (e.g. `./quickstart/join-a-pool`, `../setting-up-an-orchestrator/install-go-livepeer`). Use correct paths (quickstart vs setting-up) so Cards don’t 404.
+- **Internal:** Prefer relative links within orchestrators (e.g. `./quickstart/join-a-pool`, `../setting-up-an-orchestrator/install-go-livepeer`). Use correct paths (quickstart vs setting-up) so Cards don’t 404.
 - **Cross-section:** Link to About (economics, network actors), Developers (BYOC, ComfyStream, AI pipelines), Gateways (job flow), Resources (glossary).
 
 ### Visual identity

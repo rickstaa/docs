@@ -1,4 +1,4 @@
-# V2 Pages Browser Test Workflow
+# Docs CI - V2 Browser Sweep
 
 This GitHub Actions workflow automatically tests all v2 pages from `docs.json` using Puppeteer in a headless browser whenever code is pushed or a PR is created.
 
@@ -15,8 +15,14 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 ## When it runs
 
-- **On push** to `main` or `docs-v2` branches
+- **On push** to `main`
 - **On pull requests** targeting `main` or `docs-v2` branches
+
+## Related workflows
+
+- `.github/workflows/test-suite.yml` runs changed-file blocking checks and writes GitHub Step Summary output.
+- This workflow (`test-v2-pages.yml`) owns PR comment updates and browser-sweep artifact uploads.
+- `.github/workflows/codex-governance.yml` runs codex-only governance checks (task contract scope, PR body marker, issue readiness labels/state, and codex PR overlap gate).
 
 ## Workflow steps
 
@@ -57,7 +63,7 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 ### Failed Pages
 
-- `v2/pages/01_about/livepeer-protocol/technical-architecture`
+- `v2/about/livepeer-protocol/technical-architecture`
 - `v2/pages/04_gateways/run-a-gateway/configure/ai-configuration`
 ...
 
@@ -77,16 +83,16 @@ The JSON report (`v2-page-test-report.json`) contains:
   "failed": 13,
   "results": [
     {
-      "pagePath": "v2/pages/00_home/mission-control",
-      "url": "http://localhost:3000/00_home/mission-control",
+      "pagePath": "v2/home/mission-control",
+      "url": "http://localhost:3000/home/mission-control",
       "success": true,
       "errors": [],
       "warnings": [],
       "logs": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/technical-architecture",
-      "url": "http://localhost:3000/01_about/livepeer-protocol/technical-architecture",
+      "pagePath": "v2/about/livepeer-protocol/technical-architecture",
+      "url": "http://localhost:3000/about/livepeer-protocol/technical-architecture",
       "success": false,
       "errors": [
         "Uncaught TypeError: Cannot read property 'map' of undefined"
@@ -107,12 +113,12 @@ The JSON report (`v2-page-test-report.json`) contains:
 ## Troubleshooting
 
 ### Server fails to start
-- Check the workflow logs for mint dev output
+- Check the workflow logs for Mintlify dev server output
 - May need to increase wait time or check for port conflicts
 
 ### Tests timeout
 - Some pages may be slow to load
-- Consider increasing per-page timeout in `scripts/test-v2-pages.js`
+- Consider increasing per-page timeout in `tools/scripts/test-v2-pages.js`
 
 ### Puppeteer issues
 - The workflow uses the system Chrome/Chromium
@@ -123,17 +129,17 @@ The JSON report (`v2-page-test-report.json`) contains:
 To test locally before pushing:
 
 ```bash
-# Start mint dev
-mint dev
+# Start Mintlify dev
+npx mintlify dev
 
 # In another terminal
-npm run test:v2-pages
+npm --prefix tools run test:v2-pages
 ```
 
 ## Customization
 
 ### Test specific pages only
-Modify `scripts/test-v2-pages.js` to filter pages:
+Modify `tools/scripts/test-v2-pages.js` to filter pages:
 
 ```javascript
 const pages = getV2Pages().filter(page => 
@@ -142,7 +148,7 @@ const pages = getV2Pages().filter(page =>
 ```
 
 ### Change timeout
-Update `TIMEOUT` constant in `scripts/test-v2-pages.js`
+Update `TIMEOUT` constant in `tools/scripts/test-v2-pages.js`
 
 ### Skip on certain branches
 Add conditions to workflow:

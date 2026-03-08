@@ -198,4 +198,4 @@ Use the **v2 Gateways quickstart** layout and patterns for Orchestrator quicksta
 
 ---
 
-*Report uses: v1 orchestrator and v1/ai/orchestrator files; v2 05_orchestrators nav and existing pages; v2 Gateways quickstart (quickstart-a-gateway.mdx and Docker tab) as style/layout reference. Style guides: About section, Developers section, and this Gateways quickstart layout.*
+*Report uses: v1 orchestrator and v1/ai/orchestrator files; v2 orchestrators nav and existing pages; v2 Gateways quickstart (quickstart-a-gateway.mdx and Docker tab) as style/layout reference. Style guides: About section, Developers section, and this Gateways quickstart layout.*

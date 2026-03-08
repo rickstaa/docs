@@ -33,8 +33,8 @@ See `component-verification-report.md` for detailed verification results.
 **File:** `snippets/components/content/responseField.jsx`  
 **Error:** `ReferenceError: Expandable is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library`
-- `/v2/pages/07_resources/documentation-guide/component-library/content`
+- `/v2/resources/documentation-guide/component-library`
+- `/v2/resources/documentation-guide/component-library/content`
 
 **Verification Steps:**
 1. Commented out ResponseFieldGroup usage in MDX files
@@ -66,7 +66,7 @@ Used in component library documentation pages. Component is used elsewhere in th
 **File:** `snippets/components/primitives/links.jsx`  
 **Error:** `ReferenceError: Cannot access 'BlinkingIcon' before initialization`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/primitives`
+- `/v2/resources/documentation-guide/component-library/primitives`
 
 **Verification Steps:**
 1. Commented out BlinkingIcon usage in primitives.mdx
@@ -96,7 +96,7 @@ Used in component library documentation. May be used elsewhere in the codebase.
 **File:** `snippets/components/primitives/links.jsx`  
 **Error:** Same as BlinkingIcon (alias component)  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/primitives`
+- `/v2/resources/documentation-guide/component-library/primitives`
 
 **Verification Steps:**
 1. Commented out BlinkingTerminal usage in primitives.mdx
@@ -118,7 +118,7 @@ Deprecated alias for BlinkingIcon. Used in component library documentation.
 **File:** `snippets/components/primitives/links.jsx`  
 **Error:** `Error: Expected component 'DoubleIconLink' to be defined: you likely forgot to import, pass, or provide it.`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out DoubleIconLink usage in domain.mdx
@@ -153,7 +153,7 @@ Used in component library documentation. May be used elsewhere in the codebase.
 **File:** `snippets/components/layout/ListSteps.jsx`  
 **Error:** `TypeError: Cannot read properties of undefined (reading 'map')`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/layout`
+- `/v2/resources/documentation-guide/component-library/layout`
 
 **Verification Steps:**
 1. Commented out ListSteps usage in layout.mdx
@@ -183,7 +183,7 @@ Used in component library documentation. May be used elsewhere in the codebase.
 **File:** `snippets/components/display/frameMode.jsx`  
 **Error:** `ReferenceError: resolvedIconColor is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/display`
+- `/v2/resources/documentation-guide/component-library/display`
 
 **Verification Steps:**
 1. Commented out P component usage with icon prop in display.mdx
@@ -213,7 +213,7 @@ Used in component library documentation. Used in frame mode pages throughout the
 **File:** `snippets/components/layout/api-base-urls-table.mdx`  
 **Error:** `ReferenceError: url is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/layout`
+- `/v2/resources/documentation-guide/component-library/layout`
 
 **Verification Steps:**
 1. Commented out ApiBaseUrlsTable usage in layout.mdx
@@ -235,7 +235,7 @@ Used in component library documentation. May be used elsewhere in the codebase.
 **File:** `snippets/components/domain/04_GATEWAYS/callouts.jsx`  
 **Error:** `ReferenceError: OrchAddrNote is not defined` / `ReferenceError: TestVideoDownload is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out OrchAddrNote and TestVideoDownload usage in domain.mdx
@@ -257,7 +257,7 @@ Used in component library documentation. Used in Gateway documentation pages.
 **File:** `snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx`  
 **Error:** `ReferenceError: QuickStartTabs is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out QuickStartTabs and QuickStartSteps usage in domain.mdx
@@ -279,7 +279,7 @@ Used in component library documentation. Used in Gateway documentation pages.
 **File:** `snippets/components/domain/SHARED/previewCallouts.jsx`  
 **Error:** `ReferenceError: PreviewCallout is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out PreviewCallout, ComingSoonCallout, ReviewCallout usage in domain.mdx
@@ -301,7 +301,7 @@ Used in component library documentation. Used throughout the codebase for previe
 **File:** `snippets/components/domain/SHARED/Portals.jsx`  
 **Error:** `ReferenceError: HeroSectionContainer is not defined`  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out Portal components usage in domain.mdx
@@ -323,7 +323,7 @@ Used in component library documentation. Used in Portal pages throughout the cod
 **File:** `snippets/components/domain/SHARED/HeroGif.jsx`  
 **Error:** Not tested separately (commented out with Portal components)  
 **Pages Affected:** 
-- `/v2/pages/07_resources/documentation-guide/component-library/domain`
+- `/v2/resources/documentation-guide/component-library/domain`
 
 **Verification Steps:**
 1. Commented out Starfield usage in domain.mdx

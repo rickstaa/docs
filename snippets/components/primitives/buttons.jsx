@@ -10,8 +10,8 @@
  * @author Livepeer Documentation Team
  */
 export const BasicBtn = () => {
-  return <div></div>;
-};
+  return <div></div>
+}
 
 /**
  * DownloadButton - Interactive download button with lazy loading
@@ -38,48 +38,48 @@ export const BasicBtn = () => {
  * @author Livepeer Documentation Team
  */
 export const DownloadButton = ({
-  label = "Download",
-  icon = "download",
+  label = 'Download',
+  icon = 'download',
   downloadLink,
-  rightIcon = "",
+  rightIcon = '',
   border = false,
 }) => {
-  const [isVisible, setIsVisible] = React.useState(false);
-  const ref = React.useRef(null);
+  const [isVisible, setIsVisible] = React.useState(false)
+  const ref = React.useRef(null)
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          setIsVisible(true)
+          observer.disconnect()
         }
       },
-      { threshold: 0.1 },
-    );
+      { threshold: 0.1 }
+    )
 
     if (ref.current) {
-      observer.observe(ref.current);
+      observer.observe(ref.current)
     }
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
-  downloadLink = downloadLink ? downloadLink : "https://Livepeer.org";
+  downloadLink = downloadLink ? downloadLink : 'https://Livepeer.org'
 
   const handleDownload = () => {
-    const a = document.createElement("a");
-    a.href = downloadLink;
-    a.download = "";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
+    const a = document.createElement('a')
+    a.href = downloadLink
+    a.download = ''
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+  }
 
   if (!isVisible) {
     return (
-      <span ref={ref} style={{ minHeight: "20px", display: "inline-block" }} />
-    );
+      <span ref={ref} style={{ minHeight: '20px', display: 'inline-block' }} />
+    )
   }
 
   return (
@@ -88,35 +88,40 @@ export const DownloadButton = ({
       style={
         border
           ? {
-              border: "1px solid grey",
-              borderRadius: "6px",
-              padding: "6px 10px",
-              display: "inline-block",
-              cursor: "pointer",
+              border: '1px solid grey',
+              borderRadius: '6px',
+              padding: '6px 10px',
+              display: 'inline-block',
+              cursor: 'pointer',
             }
-          : { cursor: "pointer" }
+          : { cursor: 'pointer' }
       }
     >
-      <Icon icon={icon} size={20} />
+      <Icon icon={icon} size={18} color="var(--accent)" />
       <button
         onClick={handleDownload}
         style={{
           marginRight: 8,
           marginLeft: 8,
-          background: "none",
-          border: "none",
-          color: "inherit",
-          cursor: "pointer",
-          textDecoration: "underline",
+          background: 'none',
+          border: 'none',
+          color: 'inherit',
+          cursor: 'pointer',
+          textDecoration: 'underline',
           padding: 0,
-          font: "inherit",
+          font: 'inherit',
         }}
       >
         {label}
       </button>
       {rightIcon && (
-        <Icon icon={rightIcon} style={{ marginLeft: 8 }} size={20} />
+        <Icon
+          icon={rightIcon}
+          style={{ marginLeft: 8 }}
+          size={18}
+          color="var(--accent)"
+        />
       )}
     </span>
-  );
-};
+  )
+}

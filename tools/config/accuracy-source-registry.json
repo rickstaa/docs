@@ -1,0 +1,82 @@
+{
+  "schema_version": "accuracy-source-registry.v1",
+  "as_of_default": "2026-02-23",
+  "decision_defaults": {
+    "verified_min_combined_support": 0.9,
+    "provisional_min_combined_support": 0.5,
+    "time_sensitive_freshness_days": 365,
+    "default_freshness_days": 730
+  },
+  "tiers": {
+    "A": {
+      "label": "canonical",
+      "description": "Primary sources of truth for code, protocol, API, and official product behavior."
+    },
+    "B": {
+      "label": "corroborating",
+      "description": "Secondary documentation used for discovery and cross-checking."
+    },
+    "C": {
+      "label": "context_only",
+      "description": "Contextual sources that may support triage but not final verification without Tier A corroboration."
+    }
+  },
+  "source_types": {
+    "github_code": {
+      "tier": "A",
+      "weight_key": "github_code_or_spec",
+      "description": "Source code, contracts, or specifications from GitHub repos."
+    },
+    "github_spec": {
+      "tier": "A",
+      "weight_key": "github_code_or_spec",
+      "description": "GitHub-hosted spec or generated reference content."
+    },
+    "github_docs": {
+      "tier": "A",
+      "weight_key": "github_repo_docs_or_readme",
+      "description": "GitHub repo docs pages."
+    },
+    "github_readme": {
+      "tier": "A",
+      "weight_key": "github_repo_docs_or_readme",
+      "description": "GitHub README or top-level project documentation."
+    },
+    "official_docs": {
+      "tier": "A",
+      "weight_key": "official_docs_livepeer",
+      "description": "Official Livepeer documentation pages."
+    },
+    "openapi": {
+      "tier": "A",
+      "weight_key": "official_openapi_or_generated_ref",
+      "description": "Official OpenAPI or generated API reference."
+    },
+    "deepwiki": {
+      "tier": "B",
+      "weight_key": "deepwiki",
+      "description": "DeepWiki pages used for corroboration and discovery."
+    },
+    "forum_post": {
+      "tier": "C",
+      "weight_key": "forum_post",
+      "description": "Forum posts or announcements."
+    },
+    "third_party": {
+      "tier": "C",
+      "weight_key": "third_party",
+      "description": "External blogs/tutorials/non-canonical docs."
+    }
+  },
+  "aliases": {
+    "github_code_or_spec": "github_code",
+    "github_repo_docs_or_readme": "github_docs",
+    "official_docs_livepeer": "official_docs",
+    "official_openapi_or_generated_ref": "openapi"
+  },
+  "default_verify_sources": [
+    "github",
+    "deepwiki",
+    "official"
+  ]
+}

@@ -1,27 +1,13 @@
 #!/usr/bin/env python3
-# @script audit-python
-# @summary Utility script for tasks/scripts/audit-python.py.
-# @owner docs
-# @scope tasks/scripts
-#
-# @usage
-#   python3 tasks/scripts/audit-python.py
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   python3 tasks/scripts/audit-python.py
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            audit-python
+# @category          validator
+# @purpose           qa:repo-health
+# @scope             tasks/scripts
+# @owner             docs
+# @needs             E-C1, R-R14
+# @purpose-statement Python audit utility — runs Python-based audit checks (alternative to Node auditors)
+# @pipeline          manual — not yet in pipeline
+# @usage             python3 tasks/scripts/audit-python.py [flags]
 """
 Comprehensive audit script for all v2 pages
 Runs file checks, MDX validation, and link checking
@@ -35,9 +21,9 @@ import re
 
 # Get absolute path to script, then go up 3 levels
 SCRIPT_DIR = Path(__file__).resolve().parent
-BASE_DIR = SCRIPT_DIR.parent.parent.parent
+BASE_DIR = SCRIPT_DIR.parent.parent
 DOCS_JSON_PATH = BASE_DIR / 'docs.json'
-REPORT_DIR = BASE_DIR / 'tasks' / 'PLAN' / 'reports'
+REPORT_DIR = BASE_DIR / 'tasks' / 'reports' / 'page-audits'
 V2_PAGES_DIR = BASE_DIR / 'v2' / 'pages'
 SNIPPETS_DIR = BASE_DIR / 'snippets'
 
@@ -315,8 +301,7 @@ for i, page_path in enumerate(pages, 1):
             audit_results['summary']['brokenLinks'] += len(broken_links)
 
 # Generate report
-timestamp = int(datetime.now().timestamp() * 1000)
-report_path = REPORT_DIR / f'page-audit-python-{timestamp}.json'
+report_path = REPORT_DIR / 'page-audit-python-latest.json'
 with open(report_path, 'w') as f:
     json.dump(audit_results, f, indent=2)
 
@@ -369,7 +354,7 @@ if audit_results['summary']['brokenLinks'] > 0:
                 md += f"  - Expected: `{l['expected']}`\n"
         md += "\n"
 
-markdown_path = REPORT_DIR / f'page-audit-python-{timestamp}.md'
+markdown_path = REPORT_DIR / 'page-audit-python-latest.md'
 with open(markdown_path, 'w') as f:
     f.write(md)
 

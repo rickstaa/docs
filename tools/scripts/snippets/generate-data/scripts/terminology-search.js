@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script terminology-search
- * @summary Utility script for tools/scripts/snippets/generate-data/scripts/terminology-search.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/snippets/generate-data/scripts/terminology-search.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/snippets/generate-data/scripts/terminology-search.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            terminology-search
+ * @category          generator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Terminology search — searches glossary/terminology data for definitions
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
+ * @usage             node tools/scripts/snippets/generate-data/scripts/terminology-search.js [flags]
  */
 
 /**
@@ -51,14 +37,36 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
-// Load .env file from the scripts directory
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+// Load .env file from the scripts directory (optional in local dry-run use)
+try {
+  require('dotenv').config({ path: path.join(__dirname, '.env') });
+} catch (_error) {
+  // Optional dependency for local dry-run usage.
+}
 
 // Configuration
-const REPO_ROOT = path.resolve(__dirname, '../../../..');
+const REPO_ROOT = getRepoRoot();
 const V1_PAGES_DIR = path.join(REPO_ROOT, 'v1');
-const V2_PAGES_DIR = path.join(REPO_ROOT, 'v2/pages');
+const V2_PAGES_DIRS = [
+  'v2/pages',
+  'v2/home',
+  'v2/solutions',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+]
+  .map((dir) => path.join(REPO_ROOT, dir))
+  .filter((dir) => fs.existsSync(dir));
 const OUTPUT_DIR = path.join(__dirname, '..', 'data');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'discovered-terms.json');
 
@@ -67,6 +75,14 @@ const isDryRun = args.includes('--dry-run');
 const withLLM = args.includes('--with-llm');
 const minOccurrencesArg = args.find(a => a.startsWith('--min-occurrences='));
 const MIN_OCCURRENCES = minOccurrencesArg ? parseInt(minOccurrencesArg.split('=')[1]) : 3;
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
 
 // OpenRouter model selection - can be overridden with --model flag
 const modelArg = args.find(a => a.startsWith('--model='));
@@ -492,7 +508,13 @@ async function main() {
 
   // Find all MDX files
   const v1Files = findMdxFiles(V1_PAGES_DIR);
-  const v2Files = findMdxFiles(V2_PAGES_DIR);
+  const v2FileSet = new Set();
+  for (const pagesDir of V2_PAGES_DIRS) {
+    for (const filePath of findMdxFiles(pagesDir)) {
+      v2FileSet.add(filePath);
+    }
+  }
+  const v2Files = Array.from(v2FileSet);
   const allFiles = [...v1Files, ...v2Files];
 
   console.log(`📚 Found ${v1Files.length} v1 files and ${v2Files.length} v2 files\n`);
@@ -566,4 +588,3 @@ async function main() {
 }
 
 main().catch(console.error);
-

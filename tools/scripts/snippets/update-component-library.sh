@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script update-component-library
-# @summary Utility script for tools/scripts/snippets/update-component-library.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/update-component-library.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/update-component-library.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            update-component-library
+# @category          automation
+# @purpose           infrastructure:data-feeds
+# @scope             tools/scripts
+# @owner             docs
+# @needs             F-R1
+# @purpose-statement Component library updater — syncs component library documentation from source
+# @pipeline          manual — interactive developer tool, not suited for automated pipelines
+# @usage             bash tools/scripts/snippets/update-component-library.sh [flags]
 # Auto-updates snippets/snippetsWiki/componentLibrary/index.mdx
 # Run this script after changes to snippets/components/
 

@@ -7,8 +7,6 @@ labels:
   - help wanted
 
 body:
-
-body:
   - type: textarea
     id: overall_feedback
     attributes:
@@ -19,6 +17,9 @@ body:
     attributes:
       value: |
         ## 📄 Docs Review
+        This is a meta review issue for batching feedback across multiple pages.
+        Use child/actionable issues for page-level fixes and apply `classification:*` there.
+
         Below is the auto-generated review table:
 
         <!-- BEGIN AUTO-GENERATED TABLE -->

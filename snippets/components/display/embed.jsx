@@ -13,16 +13,16 @@
  * @author Livepeer Documentation Team
  */
 export const MarkdownEmbed = ({ url }) => {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('')
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.text())
-      .then(setContent);
-  }, [url]);
+      .then(setContent)
+  }, [url])
 
-  return <Markdown>{content}</Markdown>;
-};
+  return <Markdown>{content}</Markdown>
+}
 
 /**
  * EmbedMarkdown - Alias for MarkdownEmbed
@@ -35,36 +35,36 @@ export const MarkdownEmbed = ({ url }) => {
  * @example
  * <EmbedMarkdown url="https://example.com/content.md" />
  *
- * @author Livepeer Documentation Team
+ * @author Alison Haire
  */
 export const EmbedMarkdown = ({ url }) => {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('')
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.text())
-      .then(setContent);
-  }, [url]);
+      .then(setContent)
+  }, [url])
 
-  return <Markdown>{content}</Markdown>;
-};
+  return <Markdown>{content}</Markdown>
+}
 
 export const TwitterTimeline = ({}) => {
   return (
     <div
       style={{
-        border: "3px solid var(--accent)",
-        borderRadius: "12px",
-        overflow: "hidden",
-        height: "600px",
+        border: '3px solid var(--accent)',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        height: '600px',
       }}
     >
       <iframe
         src="https://feed.mikle.com/widget/v2/176804/"
         style={{
-          border: "none",
-          transform: "scale(1.01)", // Shrink by 1% to hide border
-          transformOrigin: "center",
+          border: 'none',
+          transform: 'scale(1.01)', // Shrink by 1% to hide border
+          transformOrigin: 'center',
         }}
         height="652px" // Increase height by 4px (2px top + 2px bottom)
         width="100%" // Increase width by 4px (2px left + 2px right)
@@ -73,8 +73,8 @@ export const TwitterTimeline = ({}) => {
         scrolling="no"
       ></iframe>
     </div>
-  );
-};
+  )
+}
 
 //Doesnt work
 // export const TwitterTimeline = ({}) => {

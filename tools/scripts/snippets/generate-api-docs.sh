@@ -1,28 +1,13 @@
 #!/bin/bash
-# @script generate-api-docs
-# @summary Utility script for tools/scripts/snippets/generate-api-docs.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/generate-api-docs.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/generate-api-docs.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
-#
+# @script            generate-api-docs
+# @category          generator
+# @purpose           tooling:dev-tools
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-C6, F-C1
+# @purpose-statement API docs generator — generates API reference pages from OpenAPI specs
+# @pipeline          manual — interactive developer tool, not suited for automated pipelines
+# @usage             bash tools/scripts/snippets/generate-api-docs.sh [flags]
 # Generate API documentation from OpenAPI spec
 # Creates: landing page + individual endpoint pages + navigation JSON
 #

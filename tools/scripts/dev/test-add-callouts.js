@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-add-callouts
- * @summary Utility script for tools/scripts/dev/test-add-callouts.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/test-add-callouts.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/test-add-callouts.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-add-callouts
+ * @category          remediator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Test for add-callouts.js — validates callout insertion logic against fixtures
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/dev/test-add-callouts.js [flags]
  */
 
 /**
@@ -118,6 +104,86 @@ Some content here.
     expectedCallout: null, // Should skip
     shouldHaveContent: true,
     hasExistingCallout: true
+  },
+  {
+    name: 'Remove top-level PreviewCallout with content',
+    content: `---
+title: 'Test Page'
+---
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+
+# Test Page
+
+Some content here.
+`,
+    removal: {
+      shouldRemove: true,
+      shouldHavePreviewImport: false,
+      shouldHaveCallout: false
+    }
+  },
+  {
+    name: 'Remove top-level ComingSoonCallout with content',
+    content: `---
+title: 'Test Page'
+---
+
+import {ComingSoonCallout} from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<ComingSoonCallout />
+
+# Test Page
+
+Some content here.
+`,
+    removal: {
+      shouldRemove: true,
+      shouldHavePreviewImport: false,
+      shouldHaveCallout: false
+    }
+  },
+  {
+    name: 'Do not remove callout used later in examples',
+    content: `---
+title: 'Test Page'
+---
+
+import { PreviewCallout, ReviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+
+# Test Page
+
+Some content here.
+
+## Examples
+
+<PreviewCallout />
+`,
+    removal: {
+      shouldRemove: true,
+      shouldHavePreviewImport: true,
+      shouldHaveCallout: true
+    }
+  },
+  {
+    name: 'Skip removal on page without content',
+    content: `---
+title: 'Test Page'
+---
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+`,
+    removal: {
+      shouldRemove: false,
+      shouldHavePreviewImport: true,
+      shouldHaveCallout: true
+    }
   }
 ];
 
@@ -149,6 +215,94 @@ function hasCallout(content) {
          content.includes('<CookingCallout');
 }
 
+function cleanupPreviewCalloutImports(content, usage) {
+  const importRegex = /^\s*import\s+\{([^}]*)\}\s+from\s+(['"])\/snippets\/components\/domain\/SHARED\/previewCallouts\.jsx\2;?\s*$/;
+
+  return content
+    .split('\n')
+    .map((line) => {
+      const match = line.match(importRegex);
+      if (!match) return line;
+
+      const quote = match[2];
+      const hasSemicolon = line.trim().endsWith(';');
+      const items = match[1]
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      const filtered = items.filter((item) => {
+        if (item === 'PreviewCallout') return usage.keepPreview;
+        if (item === 'ComingSoonCallout') return usage.keepComing;
+        return true;
+      });
+
+      if (filtered.length === 0) return null;
+
+      return `import { ${filtered.join(', ')} } from ${quote}/snippets/components/domain/SHARED/previewCallouts.jsx${quote}${hasSemicolon ? ';' : ''}`;
+    })
+    .filter((line) => line !== null)
+    .join('\n');
+}
+
+function removeTopLevelCallout(content) {
+  const parts = content.split('---');
+  if (parts.length < 3) return { content, removed: false };
+
+  const beforeMetadata = parts[0];
+  const metadata = parts[1];
+  const afterMetadata = parts.slice(2).join('---');
+
+  const lines = afterMetadata.split('\n');
+  const importRegex = /^\s*import\s+\{[^}]*\}\s+from\s+['"]\/snippets\/components\/domain\/SHARED\/previewCallouts\.jsx['"];?\s*$/;
+  const calloutRegex = /^\s*<\s*(PreviewCallout|ComingSoonCallout)\b[^>]*\/>\s*$/;
+
+  let firstNonImportIndex = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = lines[i].trim();
+    if (!trimmed) continue;
+    if (/^\s*import\s+/.test(lines[i])) continue;
+    firstNonImportIndex = i;
+    break;
+  }
+
+  let calloutIndex = -1;
+  if (firstNonImportIndex !== -1 && calloutRegex.test(lines[firstNonImportIndex])) {
+    calloutIndex = firstNonImportIndex;
+  }
+
+  let importIndex = -1;
+  if (calloutIndex !== -1) {
+    for (let i = 0; i < calloutIndex; i++) {
+      if (importRegex.test(lines[i]) && /(PreviewCallout|ComingSoonCallout)/.test(lines[i])) {
+        importIndex = i;
+        break;
+      }
+    }
+  }
+
+  if (calloutIndex === -1 && importIndex === -1) {
+    return { content, removed: false };
+  }
+
+  const filteredLines = lines.filter((_, index) => index !== calloutIndex && index !== importIndex);
+  let newAfter = filteredLines.join('\n');
+
+  const usage = {
+    keepPreview: /<PreviewCallout\b/.test(newAfter),
+    keepComing: /<ComingSoonCallout\b/.test(newAfter),
+  };
+
+  newAfter = cleanupPreviewCalloutImports(newAfter, usage);
+
+  if (!newAfter.startsWith('\n')) {
+    newAfter = `\n${newAfter}`;
+  }
+
+  const newContent = `${beforeMetadata}---${metadata}---${newAfter}`;
+  return { content: newContent, removed: newContent !== content };
+}
+
 // Run tests
 console.log('🧪 Running tests for add-callouts.js\n');
 
@@ -164,7 +318,7 @@ for (const testCase of testCases) {
   let testPassed = true;
   
   // Test content detection
-  if (contentDetected !== testCase.shouldHaveContent) {
+  if (typeof testCase.shouldHaveContent === 'boolean' && contentDetected !== testCase.shouldHaveContent) {
     console.log(`  ❌ Content detection failed: expected ${testCase.shouldHaveContent}, got ${contentDetected}`);
     testPassed = false;
   }
@@ -182,6 +336,27 @@ for (const testCase of testCases) {
     
     if (expectedType !== actualType) {
       console.log(`  ❌ Callout type mismatch: expected ${expectedType}, would add ${actualType}`);
+      testPassed = false;
+    }
+  }
+
+  if (testCase.removal) {
+    const removalResult = contentDetected ? removeTopLevelCallout(testCase.content) : { content: testCase.content, removed: false };
+    const hasPreviewImport = removalResult.content.includes('PreviewCallout');
+    const hasCalloutRemaining = hasCallout(removalResult.content);
+
+    if (removalResult.removed !== testCase.removal.shouldRemove) {
+      console.log(`  ❌ Removal detection failed: expected ${testCase.removal.shouldRemove}, got ${removalResult.removed}`);
+      testPassed = false;
+    }
+
+    if (hasPreviewImport !== testCase.removal.shouldHavePreviewImport) {
+      console.log(`  ❌ Import cleanup failed: expected preview import ${testCase.removal.shouldHavePreviewImport}, got ${hasPreviewImport}`);
+      testPassed = false;
+    }
+
+    if (hasCalloutRemaining !== testCase.removal.shouldHaveCallout) {
+      console.log(`  ❌ Callout cleanup failed: expected callout ${testCase.removal.shouldHaveCallout}, got ${hasCalloutRemaining}`);
       testPassed = false;
     }
   }
@@ -205,4 +380,3 @@ if (failed === 0) {
   console.log('❌ Some tests failed');
   process.exit(1);
 }
-

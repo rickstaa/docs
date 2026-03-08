@@ -16,18 +16,18 @@ Generated: 2026-02-16
 
 1. ✅ Mission Control (`/`) - Portal components + Starfield + BlinkingIcon
 2. ✅ Gateways Portal (`/04_gateways/gateways-portal`) - Portal components + Starfield
-3. ✅ Products Portal (`/010_products/products-portal`) - Portal components + Starfield + ComingSoonCallout
-4. ✅ Studio API Overview (`/010_products/products/livepeer-studio/api-reference/overview`) - PreviewCallout
+3. ✅ Products Portal (`/platforms/portal`) - Portal components + Starfield + ComingSoonCallout
+4. ✅ Studio API Overview (`/010_products/livepeer-studio/reference/overview`) - PreviewCallout
 5. ✅ Gateway Quickstart (`/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway`) - PreviewCallout + DoubleIconLink + Gateway components
 6. ✅ Gateway Video Config (`/04_gateways/run-a-gateway/configure/video-configuration`) - DoubleIconLink
 
 ## Component Library Pages Tested
 
-1. ✅ Component Library - Primitives (`/07_resources/documentation-guide/component-library/primitives`)
-2. ✅ Component Library - Display (`/07_resources/documentation-guide/component-library/display`)
-3. ✅ Component Library - Content (`/07_resources/documentation-guide/component-library/content`)
-4. ✅ Component Library - Layout (`/07_resources/documentation-guide/component-library/layout`)
-5. ✅ Component Library - Domain (`/07_resources/documentation-guide/component-library/domain`)
+1. ✅ Component Library - Primitives (`/resources/documentation-guide/component-library/primitives`)
+2. ✅ Component Library - Display (`/resources/documentation-guide/component-library/display`)
+3. ✅ Component Library - Content (`/resources/documentation-guide/component-library/content`)
+4. ✅ Component Library - Layout (`/resources/documentation-guide/component-library/layout`)
+5. ✅ Component Library - Domain (`/resources/documentation-guide/component-library/domain`)
 
 ## Verified Working Components
 
@@ -113,11 +113,11 @@ The following components were incorrectly identified as broken due to testing is
 **Action:** Remove comment blocks from component library MDX files to restore full documentation.
 
 **Files to Update:**
-- `v2/pages/07_resources/documentation-guide/component-library/primitives.mdx`
-- `v2/pages/07_resources/documentation-guide/component-library/display.mdx`
-- `v2/pages/07_resources/documentation-guide/component-library/content.mdx`
-- `v2/pages/07_resources/documentation-guide/component-library/layout.mdx`
-- `v2/pages/07_resources/documentation-guide/component-library/domain.mdx`
+- `v2/resources/documentation-guide/component-library/primitives.mdx`
+- `v2/resources/documentation-guide/component-library/display.mdx`
+- `v2/resources/documentation-guide/component-library/content.mdx`
+- `v2/resources/documentation-guide/component-library/layout.mdx`
+- `v2/resources/documentation-guide/component-library/domain.mdx`
 
 **Impact:** Restores full component library documentation for all components.
 

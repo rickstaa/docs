@@ -1,27 +1,13 @@
 /**
- * @script fetch-ghost-blog-data
- * @summary Utility script for .github/scripts/fetch-ghost-blog-data.js.
- * @owner docs
- * @scope .github/scripts
- *
- * @usage
- *   node .github/scripts/fetch-ghost-blog-data.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node .github/scripts/fetch-ghost-blog-data.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            fetch-ghost-blog-data
+ * @category          automation
+ * @purpose           infrastructure:data-feeds
+ * @scope             .github/scripts
+ * @owner             docs
+ * @needs             F-R1
+ * @purpose-statement Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/
+ * @pipeline          P5 (scheduled, daily)
+ * @usage             node .github/scripts/fetch-ghost-blog-data.js [flags]
  */
 const https = require("https");
 const fs = require("fs");
@@ -64,8 +50,15 @@ function formatDate(iso) {
 async function main() {
   console.log("Fetching Ghost blog posts...");
 
+  const apiKey = process.env.GHOST_CONTENT_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "GHOST_CONTENT_API_KEY environment variable is not set. Please configure your Ghost Content API key."
+    );
+  }
+
   const apiUrl =
-    "https://livepeer-studio.ghost.io/ghost/api/content/posts/?key=eaf54ba5c9d4ab35ce268663b0&limit=4&include=tags,authors";
+    `https://livepeer-studio.ghost.io/ghost/api/content/posts/?key=${apiKey}&limit=4&include=tags,authors`;
 
   const response = await fetchJSON(apiUrl);
 
@@ -114,8 +107,8 @@ async function main() {
   jsExport += "];\n";
 
   // Write to file
-  const outputPath = "snippets/automations/ghost/ghostBlogData.jsx";
-  fs.mkdirSync("snippets/automations/ghost", { recursive: true });
+  const outputPath = "snippets/automations/blog/ghostBlogData.jsx";
+  fs.mkdirSync("snippets/automations/blog", { recursive: true });
   fs.writeFileSync(outputPath, jsExport);
   console.log(`Written to ${outputPath}`);
 }

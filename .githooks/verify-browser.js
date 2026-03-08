@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script verify-browser
- * @summary Utility script for .githooks/verify-browser.js.
- * @owner docs
- * @scope .githooks
- *
- * @usage
- *   node .githooks/verify-browser.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node .githooks/verify-browser.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            verify-browser
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             .githooks
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Verifies browser availability for Puppeteer-based integration tests
+ * @pipeline          manual — developer tool
+ * @usage             node .githooks/verify-browser.js [flags]
  */
 /**
  * Headless browser validation for staged MDX files
@@ -80,7 +66,7 @@ function getStagedMdxFiles() {
     const repoRoot = execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
     const files = getStagedDocsPageFiles(repoRoot)
       .map((filePath) => toPosix(path.relative(repoRoot, filePath)))
-      .filter((filePath) => filePath.endsWith('.mdx') && filePath.startsWith('v2/pages/'))
+      .filter((filePath) => filePath.endsWith('.mdx') && filePath.startsWith('v2/'))
       .slice(0, MAX_PAGES); // Limit for speed
     
     return files;
@@ -90,30 +76,32 @@ function getStagedMdxFiles() {
 }
 
 /**
- * Convert file path to URL
- * Example: v2/pages/07_resources/documentation-guide/style-guide.mdx
- *          -> /v2/pages/07_resources/documentation-guide/style-guide
+ * Build candidate URLs for a staged MDX file path.
+ * Try legacy and current route patterns because local Mint dev routing
+ * can differ from production path handling during migrations.
  */
-function filePathToUrl(filePath) {
-  // Remove v2/pages prefix and .mdx extension
-  let url = filePath
+function filePathToUrls(filePath) {
+  const withoutExt = filePath.replace(/\.mdx$/, '');
+  const routeWithoutPrefix = withoutExt
     .replace(/^v2\/pages\//, '')
-    .replace(/\.mdx$/, '');
-  
-  // Handle index files
-  if (url.endsWith('/index')) {
-    url = url.replace(/\/index$/, '');
-  }
-  
-  return `/${url}`;
+    .replace(/^v2\//, '');
+  const normalizedRoute = routeWithoutPrefix.replace(/\/index$/, '');
+
+  const candidates = [
+    `/${normalizedRoute}`,
+    `/${withoutExt.replace(/^v2\//, '').replace(/\/index$/, '')}`,
+    `/v2/${normalizedRoute}`,
+    `/v2/pages/${normalizedRoute}`
+  ];
+
+  return [...new Set(candidates)];
 }
 
 /**
  * Test a single page in headless browser
  */
 async function testPage(browser, filePath, baseUrl) {
-  const url = filePathToUrl(filePath);
-  const fullUrl = `${baseUrl}${url}`;
+  const candidateUrls = filePathToUrls(filePath);
   const page = await browser.newPage();
   
   const errors = [];
@@ -191,53 +179,63 @@ async function testPage(browser, filePath, baseUrl) {
     // Ignore favicon and other non-critical failures
     if (failure && !url.includes('favicon') && !url.includes('sourcemap')) {
       // Only report if it's a critical resource
-      if (url.includes('/snippets/') || url.includes('/v2/pages/')) {
+      if (url.includes('/snippets/') || url.includes('/v2/')) {
         errors.push(`Request Failed: ${url} - ${failure.errorText}`);
       }
     }
   });
   
+  const attempted = [];
+
   try {
-    // Navigate to page
-    await page.goto(fullUrl, { 
-      waitUntil: 'networkidle2', 
-      timeout: TIMEOUT 
-    });
-    
-    // Wait for content to render (using Promise instead of deprecated waitForTimeout)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Check if page actually rendered content
-    const bodyText = await page.evaluate(() => document.body.innerText);
-    if (!bodyText || bodyText.trim().length < 50) {
-      errors.push('Page appears to be empty or failed to render');
+    for (const candidateUrl of candidateUrls) {
+      const fullUrl = `${baseUrl}${candidateUrl}`;
+      attempted.push(fullUrl);
+      errors.length = 0;
+      warnings.length = 0;
+
+      try {
+        await page.goto(fullUrl, {
+          waitUntil: 'networkidle2',
+          timeout: TIMEOUT
+        });
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        const bodyText = await page.evaluate(() => document.body.innerText);
+        if (!bodyText || bodyText.trim().length < 50) {
+          errors.push('Page appears to be empty or failed to render');
+        }
+
+        const hasError = await page.evaluate(() => {
+          return document.querySelector('[data-error-boundary]') !== null ||
+                 document.body.innerText.includes('Error:') ||
+                 document.body.innerText.includes('Failed to render');
+        });
+
+        if (hasError) {
+          errors.push('Page contains render errors');
+        }
+
+        if (errors.length === 0) {
+          return {
+            filePath,
+            url: fullUrl,
+            success: true,
+            errors: [],
+            warnings
+          };
+        }
+      } catch (error) {
+        errors.push(`Navigation Error: ${error.message}`);
+      }
     }
-    
-    // Check for common render errors
-    const hasError = await page.evaluate(() => {
-      // Check for React error boundaries
-      return document.querySelector('[data-error-boundary]') !== null ||
-             document.body.innerText.includes('Error:') ||
-             document.body.innerText.includes('Failed to render');
-    });
-    
-    if (hasError) {
-      errors.push('Page contains render errors');
-    }
-    
+
     return {
       filePath,
-      url: fullUrl,
-      success: errors.length === 0,
-      errors,
-      warnings
-    };
-  } catch (error) {
-    return {
-      filePath,
-      url: fullUrl,
+      url: attempted[attempted.length - 1] || `${baseUrl}/`,
       success: false,
-      errors: [`Navigation Error: ${error.message}`],
+      errors: [`All URL candidates failed: ${attempted.join(', ')}`, ...errors],
       warnings
     };
   } finally {
@@ -369,4 +367,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { testPage, getStagedMdxFiles, filePathToUrl };
+module.exports = { testPage, getStagedMdxFiles, filePathToUrls };

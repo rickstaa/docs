@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script debug-mint-dev
- * @summary Utility script for tools/scripts/debug-mint-dev.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/debug-mint-dev.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/debug-mint-dev.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            debug-mint-dev
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Mintlify dev debugger — diagnostic tool for troubleshooting mint dev server issues
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/debug-mint-dev.js [flags]
  */
 /**
  * Debug script: gather evidence for why "mint dev" hangs at "preparing local preview".

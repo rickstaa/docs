@@ -97,7 +97,7 @@ img[alt="light logo"] {
 } */
 
 /* V2 TEST */
-/* a.nav-tabs-item[href="/pages/07_resources/resources_hub.mdx"],
+/* a.nav-tabs-item[href="/pages/resources/resources_hub.mdx"],
 a.nav-tabs-item[href="/pages/08_help/README"] {
   color: rgba(255, 90, 90, 0.342) !important;
 } */
@@ -118,6 +118,13 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
   column-gap: 2rem !important;
 }
 
+a.nav-tabs-item[href*='/internal/'] {
+  margin-left: 1rem;
+  margin-right: -1rem;
+  padding-right: 0;
+  border-bottom-color: transparent !important;
+}
+
 /* .gap-x-6 {
   column-gap: 2rem !important;
 } */
@@ -126,8 +133,11 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
   column-gap: 2rem !important;
 } */
 
-/* Push Reference HUB to the right and style as outlined button */
-a.nav-tabs-item[href="/v2/pages/07_resources/resources-portal"] {
+/* Push Resource HUB to the right and style as outlined button */
+a.nav-tabs-item[href$='/resources/redirect'],
+a.nav-tabs-item[href$='/resources/resources-portal'],
+a.nav-tabs-item[href$='/07_resources/redirect'],
+a.nav-tabs-item[href$='/07_resources/resources-portal'] {
   margin-left: auto;
   background-color: transparent;
   border: 1px solid var(--accent) !important;
@@ -140,19 +150,27 @@ a.nav-tabs-item[href="/v2/pages/07_resources/resources-portal"] {
 }
 
 /* Color the text */
-/* a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] {
+/* a.nav-tabs-item[href="/v2/resources/resources_hub"] {
   color: #2b9a66 !important;
 } */
 
 /* Shrink & color the icon */
-a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] svg {
+a.nav-tabs-item[href$='/resources/redirect'] svg,
+a.nav-tabs-item[href$='/resources/resources-portal'] svg,
+a.nav-tabs-item[href$='/07_resources/redirect'] svg,
+a.nav-tabs-item[href$='/07_resources/resources-portal'] svg,
+a.nav-tabs-item[href$='/07_resources/resources_hub'] svg {
   height: 0.75rem;
   width: 0.75rem;
   /* background-color: #2b9a66 !important; */
 }
 
 /* Hide the underline on the button */
-a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
+a.nav-tabs-item[href$='/resources/redirect'] > div:last-child,
+a.nav-tabs-item[href$='/resources/resources-portal'] > div:last-child,
+a.nav-tabs-item[href$='/07_resources/redirect'] > div:last-child,
+a.nav-tabs-item[href$='/07_resources/resources-portal'] > div:last-child,
+a.nav-tabs-item[href$='/07_resources/resources_hub'] > div:last-child {
   display: none;
 }
 
@@ -168,6 +186,18 @@ a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
   padding-bottom: 1rem !important;
 }
 
+/* Accessibility: prevent hidden assistant sheet from receiving focus */
+#chat-assistant-sheet[aria-hidden='true'] {
+  display: none !important;
+}
+
+/* Accessibility: ensure CTA buttons meet minimum target size */
+button.text-left.text-gray-600.text-sm.font-medium {
+  min-height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
 /* #footer > div > div:first-child {
   display: flex;
   flex-direction: row !important;
@@ -181,7 +211,7 @@ a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
 } */
 
 /* Fix bad styling of cards with arrows */
-[data-component-part="card-content-container"] {
+[data-component-part='card-content-container'] {
   padding-right: 2.5rem; /* Creates space for the arrow */
 }
 
@@ -339,7 +369,7 @@ img[alt="US"][src*="flags/US.svg"]::before {
 }
 
 /* Pagination on frame mode pages ONLY - match container padding */
-[data-page-mode="frame"] #pagination {
+[data-page-mode='frame'] #pagination {
   width: calc(100% + 96px + 20px);
   margin-left: -96px;
   margin-right: -20px;
@@ -365,7 +395,7 @@ img[alt="US"][src*="flags/US.svg"]::before {
     padding-right: 1rem;
   }
 
-  [data-page-mode="frame"] #pagination {
+  [data-page-mode='frame'] #pagination {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -390,7 +420,7 @@ img[alt="US"][src*="flags/US.svg"]::before {
 }
 
 /* Target the card content container */
-.frame-mode-hero-full [data-component-part="card-content-container"] {
+.frame-mode-hero-full [data-component-part='card-content-container'] {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;

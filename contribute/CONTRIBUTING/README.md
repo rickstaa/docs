@@ -2,9 +2,11 @@
 
 Welcome! This guide will help you contribute to the Livepeer documentation.
 
+For optional maintainer pilot workflows using visual-explainer, see the canonical docs-guide section: [Optional Visual-Explainer Workflows (Pilot)](../../docs-guide/contributing/contributing.mdx#optional-visual-explainer-workflows-pilot).
+
 ## Quick Start
 
-1. **Read the Style Guide** - `v2/pages/07_resources/documentation-guide/style-guide.mdx`
+1. **Read the Style Guide** - `v2/resources/documentation-guide/style-guide.mdx`
 2. **Install Git Hooks** - See [Git Hooks Documentation](./GIT-HOOKS.md)
 3. **Fork and Clone** - Create your fork and clone it locally
 4. **Make Changes** - Follow the style guide and component library
@@ -15,8 +17,8 @@ Welcome! This guide will help you contribute to the Livepeer documentation.
 
 Before making any changes, read:
 
-1. **[Style Guide](../v2/pages/07_resources/documentation-guide/style-guide.mdx)** - Production-grade styling guidelines
-2. **[Component Library](../v2/pages/07_resources/documentation-guide/component-library.mdx)** - Available components
+1. **[Style Guide](../v2/resources/documentation-guide/style-guide.mdx)** - Production-grade styling guidelines
+2. **[Component Library](../v2/resources/documentation-guide/component-library.mdx)** - Available components
 3. **[Git Hooks](./GIT-HOOKS.md)** - Pre-commit hook documentation
 4. **[Mintlify Behavior Guide](../../snippets/snippetsWiki/mintlify-behaviour.mdx)** - Mintlify-specific patterns
 
@@ -68,6 +70,6 @@ Before submitting:
 
 ## Resources
 
-- [Documentation Guide](../v2/pages/07_resources/documentation-guide/documentation-guide.mdx)
-- [Contribute to the Docs](../v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx)
-- [Snippets Inventory](../v2/pages/07_resources/documentation-guide/snippets-inventory.mdx)
+- [Documentation Guide](../v2/resources/documentation-guide/documentation-guide.mdx)
+- [Contribute to the Docs](../v2/resources/documentation-guide/contribute-to-the-docs.mdx)
+- [Snippets Inventory](../v2/resources/documentation-guide/snippets-inventory.mdx)

@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script project-showcase-sync
- * @summary Utility script for .github/scripts/project-showcase-sync.js.
- * @owner docs
- * @scope .github/scripts
- *
- * @usage
- *   node .github/scripts/project-showcase-sync.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node .github/scripts/project-showcase-sync.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            project-showcase-sync
+ * @category          automation
+ * @purpose           infrastructure:data-feeds
+ * @scope             .github/scripts
+ * @owner             docs
+ * @needs             F-R1
+ * @purpose-statement Fetches project showcase data from external source, writes to snippets/automations/showcase/
+ * @pipeline          P5 (scheduled, daily)
+ * @usage             node .github/scripts/project-showcase-sync.js [flags]
  */
 /*
  * Project Showcase sync job for GitHub Actions.
@@ -313,10 +299,18 @@ async function notifySubmitter(discordId, message) {
   await discordSendMessage(dm, message);
 }
 
+function encodeGitHubContentPath(path) {
+  return String(path)
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+}
+
 async function githubGetFile(path, branch) {
-  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodeURIComponent(
-    path
-  )}?ref=${encodeURIComponent(branch)}`;
+  const encodedPath = encodeGitHubContentPath(path);
+  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodedPath}?ref=${encodeURIComponent(
+    branch
+  )}`;
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${cfg.githubToken}`,
@@ -332,9 +326,8 @@ async function githubGetFile(path, branch) {
 }
 
 async function githubPutFile(path, branch, contentBase64, message, sha) {
-  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodeURIComponent(
-    path
-  )}`;
+  const encodedPath = encodeGitHubContentPath(path);
+  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodedPath}`;
   const body = { message, content: contentBase64, branch };
   if (sha) body.sha = sha;
 

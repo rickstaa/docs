@@ -25,7 +25,12 @@ export const DynamicTable = ({
           <strong>{tableTitle}</strong>
         </div>
       )}
-      <div style={{ overflowX: "auto", ...(margin != null && { margin }) }}>
+      <div
+        style={{ overflowX: "auto", ...(margin != null && { margin }) }}
+        role="region"
+        tabIndex={0}
+        aria-label={tableTitle ? `Scrollable table: ${tableTitle}` : "Scrollable table"}
+      >
         <table
           style={{
             width: "100%",
@@ -59,28 +64,51 @@ export const DynamicTable = ({
           </thead>
           <tbody>
             {itemsList.map((item, rowIndex) => (
-              <tr
-                key={rowIndex}
-                style={{ borderBottom: "1px solid var(--border)" }}
-              >
-                {headerList.map((header, colIndex) => {
-                  const value =
-                    item[header] ?? item[header.toLowerCase()] ?? "-";
-                  const isMonospace = monospaceColumns.includes(colIndex);
+              item?.__separator ? (
+                <tr
+                  key={rowIndex}
+                  style={{
+                    backgroundColor: "var(--accent)",
+                    color: "#fff",
+                    borderBottom: "1px solid var(--accent)",
+                  }}
+                >
+                  <td
+                    colSpan={headerList.length}
+                    style={{
+                      padding: "8px 16px",
+                      fontWeight: "700",
+                      color: "#fff",
+                      letterSpacing: "0.01em",
+                    }}
+                  >
+                    {item[headerList[0]] ?? item.Category ?? "Category"}
+                  </td>
+                </tr>
+              ) : (
+                <tr
+                  key={rowIndex}
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
+                  {headerList.map((header, colIndex) => {
+                    const value =
+                      item[header] ?? item[header.toLowerCase()] ?? "-";
+                    const isMonospace = monospaceColumns.includes(colIndex);
 
-                  return (
-                    <td
-                      key={colIndex}
-                      style={{
-                        padding: "10px 16px",
-                        fontFamily: isMonospace ? "monospace" : "inherit",
-                      }}
-                    >
-                      {isMonospace ? <code>{value}</code> : value}
-                    </td>
-                  );
-                })}
-              </tr>
+                    return (
+                      <td
+                        key={colIndex}
+                        style={{
+                          padding: "10px 16px",
+                          fontFamily: isMonospace ? "monospace" : "inherit",
+                        }}
+                      >
+                        {isMonospace ? <code>{value}</code> : value}
+                      </td>
+                    );
+                  })}
+                </tr>
+              )
             ))}
           </tbody>
         </table>

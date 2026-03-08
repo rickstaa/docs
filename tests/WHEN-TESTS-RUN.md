@@ -11,16 +11,21 @@
 - Broken links and imports validation
 - MDX syntax validation
 - JSON/JS/Shell syntax checks
-- **Test suite (fast mode)** - Only on staged files, browser tests skipped
+- **Test suite (fast mode)** on staged docs pages
   - Style guide tests
   - MDX validation
   - Spelling checks
   - Quality checks
   - Broken links & imports validation
+- Script docs enforcement (`tests/unit/script-docs.test.js --staged --write --stage --autofill`)
+- Pages index sync (`tools/scripts/generate-pages-index.js --staged --write --stage`)
+- Staged WCAG accessibility audit with conservative autofix (`tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
+- Staged strict V2 link audit (`tests/integration/v2-link-audit.js --staged --strict ...`)
+- Staged domain audit (`tests/integration/domain-pages-audit.js --staged ...`)
 
-**Speed:** Fast (~10-30 seconds) - only tests staged files
+**Speed:** Fast (~10-30 seconds) for most commits, depends on staged scope
 
-**Blocks Commit:** YES - if violations found
+**Blocks Commit:** YES (except checks explicitly marked optional in hook output)
 
 **Installation Required:**
 ```bash
@@ -29,30 +34,121 @@
 
 ---
 
-## 2. CI/CD Workflow (GitHub Actions - Automatic)
+## 2. CI/CD Workflows (GitHub Actions - Automatic)
 
-**When:** 
-- On push to `main` or `docs-v2-preview`
-- On pull requests to `main` or `docs-v2-preview`
+### A) Content Quality Suite
 
 **Location:** `.github/workflows/test-suite.yml`
 
+**When:**
+- On push to `main`
+- On pull requests to `main` or `docs-v2`
+
 **What Runs:**
-- Style guide tests (all files)
-- MDX validation (all files)
-- Spelling tests (all files)
-- Quality checks (all files)
-- Broken links & imports validation (all files)
-- **Browser tests (ALL 264 pages from docs.json)**
+- **On pull requests:** changed-file blocking checks
+  - Style guide (`tests/unit/style-guide.test.js`)
+  - MDX validation (`tests/unit/mdx.test.js`)
+  - Spelling (`tests/unit/spelling.test.js`)
+  - Quality (`tests/unit/quality.test.js`)
+  - Links/imports (`tests/unit/links-imports.test.js`)
+  - Script docs enforcement for changed scripts (`tests/unit/script-docs.test.js --files ...`)
+  - Strict link audit for changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
+- Browser tests (all pages from `docs.json`) via `tests/integration/browser.test.js`
 
-**Speed:** Slower (~5-10 minutes) - tests entire codebase
+**Output:**
+- GitHub Step Summary tables
+- No PR comment from this workflow
 
-**Blocks PR:** YES - if any test fails
+**Blocks PR:** YES for changed-file checks and browser failures, except integration PR `docs-v2 -> main` where changed-file static failures are advisory
 
-**Requirements:**
-- Starts Mintlify dev server automatically
-- Tests all pages in headless browser
-- Generates test summary in PR comments
+### B) V2 Browser Sweep
+
+**Location:** `.github/workflows/test-v2-pages.yml`
+
+**When:**
+- On push to `main` or `docs-v2`
+- On pull requests to `main` or `docs-v2`
+
+**What Runs:**
+- Full V2 browser sweep from `docs.json` (`tools/scripts/test-v2-pages.js`)
+
+**Output:**
+- PR comment summary
+- Artifact: `v2-page-test-report.json`
+
+**Blocks PR:** YES when the sweep fails
+
+### C) Broken Links Check (Advisory)
+
+**Location:** `.github/workflows/broken-links.yml`
+
+**When:**
+- On pull requests to `main`
+
+**What Runs:**
+- `npx mintlify broken-links`
+
+**Policy:** Advisory only while legacy cleanup is in progress (non-blocking)
+
+### D) V2 External Link Audit (Advisory Nightly)
+
+**Location:** `.github/workflows/v2-external-link-audit.yml`
+
+**When:**
+- Nightly on schedule
+- Manual trigger (`workflow_dispatch`)
+
+**What Runs:**
+- Full V2 link audit with external HTTP/HTTPS validation:
+  `node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json`
+
+**Output:**
+- Workflow artifacts:
+  - `/tmp/v2-link-audit-external.md`
+  - `/tmp/v2-link-audit-external.json`
+- GitHub Step Summary counts (files, refs, external class breakdown)
+
+**Policy:** Advisory only (non-blocking)
+
+### E) OpenAPI Reference Validation (Blocking)
+
+**Location:** `.github/workflows/openapi-reference-validation.yml`
+
+**When:**
+- On pull requests to `main` and `docs-v2`
+- On push to `main` and `docs-v2`
+- Daily schedule at `04:35 UTC`
+- Manual trigger (`workflow_dispatch`)
+
+**What Runs:**
+- Strict OpenAPI endpoint reference audit:
+  `node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit-final.md --report-json /tmp/openapi-audit-final.json`
+- On non-PR events, conservative autofix attempt:
+  `node tests/integration/openapi-reference-audit.js --full --fix --write ...`
+
+**Autofix Boundaries:**
+- Method casing normalization only
+- Canonical spacing normalization for `METHOD /path`
+- Leading slash normalization where missing
+- No semantic path rewrites
+
+**Rolling Issue Behavior:**
+- Single marker issue: `<!-- openapi-reference-audit -->`
+- Opens/updates when unresolved failures remain
+- Closes with resolution comment when a run is clean
+- Labels ensured idempotently: `docs-v2`, `help wanted`, `status: needs-triage`, `type: bug`, `area: ci-cd`
+
+**Output:**
+- Artifacts:
+  - `/tmp/openapi-audit-initial.md`
+  - `/tmp/openapi-audit-initial.json`
+  - `/tmp/openapi-audit-fix.md`
+  - `/tmp/openapi-audit-fix.json`
+  - `/tmp/openapi-audit-final.md`
+  - `/tmp/openapi-audit-final.json`
+- GitHub Step Summary counts and top findings
+
+**Blocks PR:** YES when unresolved findings remain
 
 ---
 
@@ -60,79 +156,79 @@
 
 **When:** You run them manually
 
-**Commands:**
-
 ```bash
-# From root directory
-node tests/run-all.js                    # All tests
-node tests/unit/style-guide.test.js     # Style guide only
-node tests/unit/mdx.test.js             # MDX validation only
-node tests/unit/spelling.test.js        # Spelling only
-node tests/unit/quality.test.js         # Quality checks only
-node tests/unit/links-imports.test.js   # Broken links & imports only
-node tests/integration/browser.test.js  # Browser tests only
+# Full local suite
+node tests/run-all.js
 
-# Or from v2/ directory (if dependencies installed there)
-cd v2
-npm test                                # All tests
-npm run test:style                      # Style guide
-npm run test:mdx                        # MDX
-npm run test:spell                      # Spelling
-npm run test:browser                    # Browser
-npm run test:quality                    # Quality
-npm run test:links                      # Broken links & imports
-npm run test:all-pages                  # All pages browser test
+# Single suites
+node tests/unit/style-guide.test.js
+node tests/unit/mdx.test.js
+node tests/unit/spelling.test.js
+node tests/unit/quality.test.js
+node tests/unit/links-imports.test.js
+node tests/integration/browser.test.js
+node tests/integration/v2-wcag-audit.js --full
+node tests/integration/v2-wcag-audit.js --full --no-fix
+node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+bash lpd test --staged --wcag
+bash lpd test --full --wcag
+bash lpd test --full --wcag --wcag-no-fix
+
+# Changed-file PR simulation (local)
+node tests/run-pr-checks.js --base-ref main
+
+# Strict link audit on explicit files
+node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
+node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json
+node tests/integration/openapi-reference-audit.js --full --fix --write --report /tmp/openapi-audit-fix.md --report-json /tmp/openapi-audit-fix.json
+node tests/integration/openapi-reference-audit.js --files v2/solutions/livepeer-studio/api-reference/streams/create.mdx --strict
 ```
 
-**Browser Tests (All Pages):**
-```bash
-# Make sure mint dev is running on port 3333
-MINT_BASE_URL=http://localhost:3333 node scripts/test-all-pages-browser.js
-```
+## OpenAPI Triage (`endpoint-not-found-in-spec`)
+
+1. Confirm file-to-spec mapping from the audit report (`resolvedSpec` field).
+2. Verify method/path exact match inside the mapped spec (`api/studio.yaml`, `api/openapi.yaml`, or `api/cli-http.yaml`).
+3. Update both frontmatter `openapi:` and `<OpenAPI path=...>` to the canonical endpoint.
+4. If endpoint is intentionally removed, retire page + locale variants and remove navigation references in `docs.json`.
+5. Re-run strict audit until findings are zero.
 
 ---
 
-## Test Execution Flow
+## Execution Flow (PR)
 
-### Pre-Commit Flow
 ```
-git commit
+Pull request opened/updated
   ↓
-Pre-commit hook runs
+Content Quality Suite starts
   ↓
-Style guide checks (grep-based, fast)
+Compute changed files from merge-base (origin/<base_ref>..HEAD)
   ↓
-Verification scripts (syntax checks)
-  ↓
-Test suite (staged files only, --skip-browser)
-  ↓
-✅ Commit allowed OR ❌ Commit blocked
-```
-
-### CI/CD Flow
-```
-Push/PR created
-  ↓
-GitHub Actions triggered
-  ↓
-Install dependencies
-  ↓
-Run all test suites (all files)
+Run changed-file blocking checks
   ↓
 Start Mintlify dev server
   ↓
-Run browser tests (all 264 pages)
+Run browser tests
   ↓
-Generate summary
+Step summary updated
   ↓
-✅ PR approved OR ❌ PR blocked
+✅ PR can merge OR ❌ PR blocked
 ```
 
 ---
 
-## Current Issues
+## Future Graduation to Full-Repo Blocking
 
-**Note:** The CI workflow references `npm run test:*` scripts, but these are in `v2/package.json`, not root. The workflow needs to be updated to:
-- Either run from `v2/` directory
-- Or use direct `node` commands
-- Or install dependencies in v2/ first
+Changed-file blocking is intentional while legacy violations are being cleaned up.
+
+Graduate to full-repo blocking only after agreed criteria are met, for example:
+- Baseline static violations reduced to near-zero for style/MDX/quality/links checks
+- The team agrees the remaining debt is not expected to cause widespread PR failures
+- CI timing and developer experience remain acceptable after widening scope
+
+---
+
+## Detailed Matrix
+
+For the full PR CI test breakdown and full script run-context inventory, see:
+`tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`

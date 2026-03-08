@@ -4,28 +4,28 @@ The pre-commit hook can be bypassed using commit trailers and environment variab
 
 ## Human-Only Override Flags
 
-### `--trailer "allow-whitelist-edit=true"` ⚠️ HUMANS ONLY
+### `--trailer "allowlist-edit=true"` ⚠️ HUMANS ONLY
 
-**CRITICAL:** The `.whitelist` file is **PROTECTED** and cannot be edited by AI agents. The file contains the explicit rule: "IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE."
+**CRITICAL:** The `.allowlist` file is **PROTECTED** and cannot be edited by AI agents. The file contains the explicit rule: "IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE."
 
 **This flag is for HUMANS ONLY. AI agents must never use this flag.**
 
 **Usage (HUMANS ONLY):**
 ```bash
-git commit -m "Update .whitelist to add new root file" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist to add new root file" --trailer "allowlist-edit=true"
 ```
 
 **What it does:**
-- Allows editing the `.whitelist` file
+- Allows editing the `.allowlist` file
 - Shows a warning that the flag should only be used by humans
 - Still runs all other pre-commit checks
 
 **Legacy fallback (still supported):**
 ```bash
-ALLOW_WHITELIST_EDIT=1 git commit -m "Update .whitelist to add new root file"
+ALLOWLIST_EDIT=1 git commit -m "Update .allowlist to add new root file"
 ```
 
-**⚠️ WARNING:** AI agents are explicitly forbidden from using this flag. Only human users may edit `.whitelist`.
+**⚠️ WARNING:** AI agents are explicitly forbidden from using this flag. Only human users may edit `.allowlist`.
 
 ### `--trailer "allow-deletions=true"` ⚠️ HUMANS ONLY
 
@@ -54,7 +54,7 @@ ALLOW_DELETIONS=1 git commit -m "Remove obsolete file"
 
 ### `SKIP_STRUCTURE_CHECK=1`
 Bypasses structure validation checks:
-- Root directory whitelist enforcement
+- Root directory allowlist enforcement
 - Snippets directory structure checks
 - v1/ frozen directory protection
 

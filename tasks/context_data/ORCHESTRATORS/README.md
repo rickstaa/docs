@@ -15,5 +15,5 @@ This folder holds planning, style, and copy review documents for the **Orchestra
 ## Related
 
 - V1 source: `v1/orchestrators/`, `v1/orchestrators/guides/`, `v1/ai/orchestrators/`
-- V2 pages: `v2/pages/05_orchestrators/`
+- V2 pages: `v2/orchestrators/`
 - Style references: `docs/ABOUT/`, `docs/DEVELOPERS/`, and v2 Gateways quickstart (`v2/pages/04_gateways/run-a-gateway/quickstart/`)

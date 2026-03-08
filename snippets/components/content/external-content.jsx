@@ -63,6 +63,9 @@ export const ExternalContent = ({
             overflowY: "auto",
             padding: "0 1rem",
           }}
+          role="region"
+          tabIndex={0}
+          aria-label={repoName ? `Scrollable content for ${repoName}` : "Scrollable content"}
         >
           {children}
         </div>

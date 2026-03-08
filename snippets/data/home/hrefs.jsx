@@ -1,444 +1,9 @@
 export const LINK_MAP = {
-  "v2/pages/00_home/get-started/build-on-livepeer.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/00_home/get-started/stream-video-quickstart.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/00_home/get-started/use-livepeer.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/home/get-started.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../get-started/livepeer-ai-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../03_developers/developer-platforms/daydream/daydream.mdx",
-      "resolvedPath": "v2/pages/00_home/03_developers/developer-platforms/daydream/daydream.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx",
-        "v2/developers/developer-platforms/daydream/daydream.mdx",
-        "v2/pages/010_products/products/daydream/daydream.mdx"
-      ]
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../get-started/stream-video-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
+  "v2/home/about-livepeer/benefits.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://livepeer.studio",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../07_resources/documentation-guide/style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../07_resources/documentation-guide/contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "eyes",
-      "resolvedPath": "v2/home/home/eyes",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../00_home/introduction",
-      "resolvedPath": "v2/pages/00_home/introduction",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../home/copy-trending-at-livepeer",
-      "resolvedPath": "v2/home/home/copy-trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "camera-movie",
-      "resolvedPath": "v2/home/home/camera-movie",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/overview",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/livepeer-studio/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "wand-magic-sparkles",
-      "resolvedPath": "v2/home/home/wand-magic-sparkles",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../get-started/livepeer-ai-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "microchip-ai",
-      "resolvedPath": "v2/home/home/microchip-ai",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "building",
-      "resolvedPath": "v2/home/home/building",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "server",
-      "resolvedPath": "v2/home/home/server",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../05_orchestrators/quickstart",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "warehouse",
-      "resolvedPath": "v2/home/home/warehouse",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "mailto",
-      "rawPath": "mailto:hello@livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "video",
-      "resolvedPath": "v2/home/home/video",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../get-started/stream-video-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.studio",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "coins",
-      "resolvedPath": "v2/home/home/coins",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "check-to-slot",
-      "resolvedPath": "v2/home/home/check-to-slot",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "handshake",
-      "resolvedPath": "v2/home/home/handshake",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/building-on-livepeer/partners",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/partners.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "mailto",
-      "rawPath": "mailto:hello@livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "flask",
-      "resolvedPath": "v2/home/home/flask",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.org/whitepaper",
+      "rawPath": "https://www.linkedin.com/in/shannon-wells/",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -447,307 +12,26 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://blog.livepeer.org",
+      "rawPath": "https://forum.livepeer.org/t/livepeer-inc-in-the-age-of-the-livepeer-foundation/2850",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/home/primer.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://blog.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://discord.com/invite/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://daydream.live/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.studio/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../05_orchestrators/orchestrators-portal.mdx",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://blog.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://discord.com/invite/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjgxanlyczB0NW05M2xlYWEwdDg1N20zanowNGxmdzNnbWZ2bHQwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ae7SI3LoPYj8Q/giphy.gif",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "users",
-      "resolvedPath": "v2/home/home/users",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../02_community/livepeer-Community",
-      "resolvedPath": "v2/pages/02_community/livepeer-Community",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "chart-line",
-      "resolvedPath": "v2/home/home/chart-line",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-play",
-      "resolvedPath": "v2/home/home/circle-play",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "alicorn",
-      "resolvedPath": "v2/home/home/alicorn",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/00_home/project-showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "video-camera",
-      "resolvedPath": "v2/home/home/video-camera",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-play",
-      "resolvedPath": "v2/home/home/circle-play",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "code",
-      "resolvedPath": "v2/home/home/code",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "rocket",
-      "resolvedPath": "v2/home/home/rocket",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../04_gateways/gateways-portal.mdx",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "microchip",
-      "resolvedPath": "v2/home/home/microchip",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../05_orchestrators/orchestrator-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "users",
-      "resolvedPath": "v2/home/home/users",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/LivepeerStats.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/LivepeerStats.png",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -755,7 +39,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://discord.com/invite/livepeer",
+      "rawPath": "https://explorer.livepeer.org",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -764,161 +48,17 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer",
+      "rawPath": "https://explorer.livepeer.org",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "discord",
-      "resolvedPath": "v2/home/home/discord",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "github",
-      "resolvedPath": "v2/home/home/github",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "message",
-      "resolvedPath": "v2/home/home/message",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://twitter.com/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "twitter",
-      "resolvedPath": "v2/home/home/twitter",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "space-awesome",
-      "resolvedPath": "v2/home/home/space-awesome",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrow-up-right",
-      "resolvedPath": "v2/home/home/arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrow-up-right",
-      "resolvedPath": "v2/home/home/arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrow-up-right",
-      "resolvedPath": "v2/home/home/arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrow-up-right",
-      "resolvedPath": "v2/home/home/arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrow-up-right",
-      "resolvedPath": "v2/home/home/arrow-up-right",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/socialLinks.jsx",
-      "resolvedPath": "snippets/components/display/socialLinks.jsx",
+      "rawPath": "/snippets/components/display/video.jsx",
+      "resolvedPath": "snippets/components/display/video.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -935,188 +75,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/home/trending-topics.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://download.com",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://download.com",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://download.com",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://blog.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "camera-movie",
-      "resolvedPath": "v2/home/home/camera-movie",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://www.youtube.com/@livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "messages",
-      "resolvedPath": "v2/home/home/messages",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "discord",
-      "resolvedPath": "v2/home/home/discord",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://discord.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "twitter",
-      "resolvedPath": "v2/home/home/twitter",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://x.com/Livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "pencil-line",
-      "resolvedPath": "v2/home/home/pencil-line",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://blog.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://www.youtube.com/watch?v=-iO7HsR3KE4&#x26;list=PLkw6hm1fcjtF1OYFCF20AwBUtGygQxTQV&#x26;index=3",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://docs.google.com/presentation/d/1Qg6u1Ns1RU2Gw4m-dzGu_WeKx9z0v5HcbHTpWwA91Yw/embed",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.jsx",
-      "resolvedPath": "snippets/components/display/embed.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/video.jsx",
-      "resolvedPath": "snippets/components/display/video.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -1126,8 +84,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/automations/forum/forumData.jsx",
-      "resolvedPath": "snippets/automations/forum/forumData.jsx",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1135,8 +93,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/automations/blog/ghostBlogData.jsx",
-      "resolvedPath": "snippets/automations/blog/ghostBlogData.jsx",
+      "rawPath": "/snippets/components/display/quote.jsx",
+      "resolvedPath": "snippets/components/display/quote.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1144,8 +102,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/automations/youtube/youtubeData.jsx",
-      "resolvedPath": "snippets/automations/youtube/youtubeData.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1153,169 +111,14 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/automations/discord/discordAnnouncementsData.jsx",
-      "resolvedPath": "snippets/automations/discord/discordAnnouncementsData.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/index.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "mission-control.mdx",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "get-started/build-on-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "get-started/livepeer-ai-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "get-started/stream-video-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "get-started/use-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "home/get-started.mdx",
-      "resolvedPath": "v2/home/home/get-started.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "home/primer.mdx",
-      "resolvedPath": "v2/home/home/primer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "home/trending-topics.mdx",
-      "resolvedPath": "v2/home/home/trending-topics.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "introduction/ecosystem.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "introduction/evolution.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "introduction/roadmap.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "introduction/vision.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "introduction/why-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "project-showcase/applications.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "project-showcase/industry-verticals.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "project-showcase/landscape.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/landscape.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "project-showcase/showcase.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/00_home/introduction/ecosystem.mdx": [
+  "v2/home/about-livepeer/ecosystem.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1417,7 +220,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#livepeer-dao",
       "resolvedPath": null,
       "exists": null,
@@ -1426,7 +229,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#special-purpose-entities",
       "resolvedPath": null,
       "exists": null,
@@ -1480,11 +283,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../06_delegators/livepeer-treasury/",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-treasury",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/lpt/treasury/overview",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1561,7 +364,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#livepeer-dao",
       "resolvedPath": null,
       "exists": null,
@@ -1642,25 +445,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrows-spin",
-      "resolvedPath": "v2/pages/00_home/introduction/arrows-spin",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "clapperboard-play",
-      "resolvedPath": "v2/pages/00_home/introduction/clapperboard-play",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#livepeer-inc",
       "resolvedPath": null,
       "exists": null,
@@ -1669,16 +454,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "handshake-angle",
-      "resolvedPath": "v2/pages/00_home/introduction/handshake-angle",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#livepeer-foundation",
       "resolvedPath": null,
       "exists": null,
@@ -1687,16 +463,7 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "chart-network",
-      "resolvedPath": "v2/pages/00_home/introduction/chart-network",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#livepeer-dao",
       "resolvedPath": null,
       "exists": null,
@@ -1705,29 +472,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "shapes",
-      "resolvedPath": "v2/pages/00_home/introduction/shapes",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#special-purpose-entities-spes",
       "resolvedPath": null,
       "exists": null,
       "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "camera-retro",
-      "resolvedPath": "v2/pages/00_home/introduction/camera-retro",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -1750,51 +499,6 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "microphone",
-      "resolvedPath": "v2/pages/00_home/introduction/microphone",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "camera-retro",
-      "resolvedPath": "v2/pages/00_home/introduction/camera-retro",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "comment-pen",
-      "resolvedPath": "v2/pages/00_home/introduction/comment-pen",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "tv-retro",
-      "resolvedPath": "v2/pages/00_home/introduction/tv-retro",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "github",
-      "resolvedPath": "v2/pages/00_home/introduction/github",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
       "linkType": "external-https",
       "rawPath": "https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8/roles/foundation.md#L1-L14",
       "resolvedPath": null,
@@ -1813,20 +517,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "camera-retro",
-      "resolvedPath": "v2/pages/00_home/introduction/camera-retro",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "(../../06_delegators/delegating-lpt/how-to-delegate-lpt)",
-      "resolvedPath": "v2/pages/00_home/introduction/06_delegators/delegating-lpt/how-to-delegate-lpt)",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1863,42 +558,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "shapes",
-      "resolvedPath": "v2/pages/00_home/introduction/shapes",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-arrow-up-right",
-      "resolvedPath": "v2/pages/00_home/introduction/circle-arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-arrow-up-right",
-      "resolvedPath": "v2/pages/00_home/introduction/circle-arrow-up-right",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-arrow-up-right",
-      "resolvedPath": "v2/pages/00_home/introduction/circle-arrow-up-right",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -1940,14 +599,14 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/quadGrid.jsx",
-      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
+      "rawPath": "/snippets/components/layout/quad-grid.jsx",
+      "resolvedPath": "snippets/components/layout/quad-grid.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/evolution.mdx": [
+  "v2/home/about-livepeer/evolution.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2103,11 +762,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "TBD",
-      "resolvedPath": "v2/pages/00_home/introduction/TBD",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/about-livepeer/roadmap",
+      "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2138,7 +797,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/roadmap.mdx": [
+  "v2/home/about-livepeer/roadmap.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2146,15 +805,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "road",
-      "resolvedPath": "v2/pages/00_home/introduction/road",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -2178,14 +828,14 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/vision.mdx": [
+  "v2/home/about-livepeer/vision.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2242,65 +892,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrows-spin",
-      "resolvedPath": "v2/pages/00_home/introduction/arrows-spin",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "bolt",
-      "resolvedPath": "v2/pages/00_home/introduction/bolt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "piggy-bank",
-      "resolvedPath": "v2/pages/00_home/introduction/piggy-bank",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "arrows-maximize",
-      "resolvedPath": "v2/pages/00_home/introduction/arrows-maximize",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "people-group",
-      "resolvedPath": "v2/pages/00_home/introduction/people-group",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "road",
-      "resolvedPath": "v2/pages/00_home/introduction/road",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-roadmap",
-      "resolvedPath": "v2/pages/00_home/introduction/livepeer-roadmap",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/about-livepeer/roadmap",
+      "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2351,8 +947,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/quadGrid.jsx",
-      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
+      "rawPath": "/snippets/components/layout/quad-grid.jsx",
+      "resolvedPath": "snippets/components/layout/quad-grid.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2360,100 +956,95 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/why-livepeer.mdx": [
+  "v2/home/get-started/ai-pipelines.mdx": [],
+  "v2/home/get-started/build-on-livepeer.mdx": [],
+  "v2/home/get-started/stream-video.mdx": [],
+  "v2/home/get-started/use-livepeer.mdx": [],
+  "v2/home/get-started.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "\"https://www.linkedin.com/in/shannon-wells/\"",
-      "resolvedPath": "v2/pages/00_home/introduction/\"https:/www.linkedin.com/in/shannon-wells/\"",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
-      "sourceType": "jsx-attr",
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/ai/ai-pipelines",
+      "resolvedPath": "v2/developers/quickstart/ai/ai-pipelines.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "../solutions/portal",
+      "resolvedPath": "v2/solutions/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org/t/livepeer-inc-in-the-age-of-the-livepeer-foundation/2850",
+      "rawPath": "https://livepeer.studio",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-play",
-      "resolvedPath": "v2/pages/00_home/introduction/circle-play",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "hand-holding-dollar",
-      "resolvedPath": "v2/pages/00_home/introduction/hand-holding-dollar",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "lock",
-      "resolvedPath": "v2/pages/00_home/introduction/lock",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "dollar-sign",
-      "resolvedPath": "v2/pages/00_home/introduction/dollar-sign",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "globe-wifi",
-      "resolvedPath": "v2/pages/00_home/introduction/globe-wifi",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "lightbulb",
-      "resolvedPath": "v2/pages/00_home/introduction/lightbulb",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "video-camera",
-      "resolvedPath": "v2/pages/00_home/introduction/video-camera",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
+      "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/00_home/project-showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase",
+      "rawPath": "/v2/resources/documentation-guide/style-guide",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/resources/documentation-guide/contribute-to-the-docs",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2461,8 +1052,152 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/domain/00_HOME/LivepeerStats.png",
-      "resolvedPath": "snippets/assets/domain/00_HOME/LivepeerStats.png",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/about-livepeer/",
+      "resolvedPath": "/v2/home/about-livepeer",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./get-started/stream-video",
+      "resolvedPath": "v2/home/get-started/stream-video.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/livepeer-studio/overview",
+      "resolvedPath": "v2/solutions/livepeer-studio/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/ai/ai-pipelines",
+      "resolvedPath": "v2/developers/quickstart/ai/ai-pipelines.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../developers/ai-pipelines/comfystream",
+      "resolvedPath": "v2/developers/ai-pipelines/comfystream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../developers/ai-pipelines/byoc",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../developers/builder-opportunities/overview",
+      "resolvedPath": "v2/developers/builder-opportunities/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/quickstart/overview",
+      "resolvedPath": "v2/orchestrators/quickstart/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "mailto",
+      "rawPath": "mailto:hello@livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2470,16 +1205,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://explorer.livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://explorer.livepeer.org",
+      "rawPath": "https://livepeer.studio",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -2488,35 +1214,62 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "video-camera",
-      "resolvedPath": "v2/pages/00_home/introduction/video-camera",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "video-camera",
-      "resolvedPath": "v2/pages/00_home/introduction/video-camera",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/video.jsx",
-      "resolvedPath": "snippets/components/display/video.jsx",
+      "rawPath": "../lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     },
     {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../lpt/governance/overview",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../developers/guides/partner-integrations",
+      "resolvedPath": "v2/developers/guides/partner-integrations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "mailto",
+      "rawPath": "mailto:hello@livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.org/whitepaper",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://blog.livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/image.jsx",
-      "resolvedPath": "snippets/components/display/image.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2529,49 +1282,13 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/quote.jsx",
-      "resolvedPath": "snippets/components/display/quote.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/mission-control.mdx": [
+  "v2/home/mission-control.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2/snippets/assets/domain/00_HOME/Eric%20Shreck%20Gif.gif",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/domain/00_HOME/Eric%20Shreck%20Gif.gif",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -2580,26 +1297,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "circle-play",
-      "resolvedPath": "v2/pages/00_home/circle-play",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../01_about/about-home.mdx",
-      "resolvedPath": "v2/pages/01_about/about-home.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../03_developers/livepeer-real-time-video",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video",
+      "rawPath": "../about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2607,8 +1306,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/ai-inference-on-livepeer",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer",
+      "rawPath": "../developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2616,8 +1315,17 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../05_orchestrators/orchestrators-portal.mdx",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "rawPath": "../developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2625,8 +1333,17 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../02_community/community-portal.mdx",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2634,8 +1351,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../00_home/project-showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase",
+      "rawPath": "../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2643,8 +1360,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../04_gateways/gateways-portal.mdx",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "../lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2652,22 +1369,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../06_delegators/token-portal.mdx",
-      "resolvedPath": "v2/pages/06_delegators/token-portal.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/lpt/token-portal.mdx",
-        "v2/pages/06_lptoken/token-portal.mdx"
-      ]
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../03_developers/builder-opportunities/dev-programs-rfps-and-contributing.mdx",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs-rfps-and-contributing.mdx",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../developers/builder-opportunities/overview",
+      "resolvedPath": "v2/developers/builder-opportunities/overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2691,8 +1396,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/frameMode.jsx",
-      "resolvedPath": "snippets/components/display/frameMode.jsx",
+      "rawPath": "/snippets/components/display/frame-mode.jsx",
+      "resolvedPath": "snippets/components/display/frame-mode.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2725,146 +1430,281 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/applications.mdx": [
+  "v2/home/primer.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://blog.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://discord.com/invite/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://daydream.live/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.studio/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://blog.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://discord.com/invite/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "hashtag",
-      "resolvedPath": "v2/pages/00_home/project-showcase/hashtag",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjgxanlyczB0NW05M2xlYWEwdDg1N20zanowNGxmdzNnbWZ2bHQwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ae7SI3LoPYj8Q/giphy.gif",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "calendar",
-      "resolvedPath": "v2/pages/00_home/project-showcase/calendar",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/solutions/portal",
+      "resolvedPath": "v2/solutions/portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "microphone",
-      "resolvedPath": "v2/pages/00_home/project-showcase/microphone",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "graduation-cap",
-      "resolvedPath": "v2/pages/00_home/project-showcase/graduation-cap",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "gamepad",
-      "resolvedPath": "v2/pages/00_home/project-showcase/gamepad",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "cart-shopping",
-      "resolvedPath": "v2/pages/00_home/project-showcase/cart-shopping",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://discord.com/invite/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "heart-pulse",
-      "resolvedPath": "v2/pages/00_home/project-showcase/heart-pulse",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "shield-halved",
-      "resolvedPath": "v2/pages/00_home/project-showcase/shield-halved",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "briefcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/briefcase",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "wand-magic-sparkles",
-      "resolvedPath": "v2/pages/00_home/project-showcase/wand-magic-sparkles",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "circle-play",
-      "resolvedPath": "v2/pages/00_home/project-showcase/circle-play",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://twitter.com/livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/display/image.jsx",
+      "resolvedPath": "snippets/components/display/image.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/industry-verticals.mdx": [
+  "v2/home/solutions/applications.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/cards.jsx",
-      "resolvedPath": "snippets/components/layout/cards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "rawPath": "/snippets/components/display/custom-cards.jsx",
+      "resolvedPath": "snippets/components/display/custom-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/landscape.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "microphone",
-      "resolvedPath": "v2/pages/00_home/project-showcase/microphone",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
+  "v2/home/solutions/landscape.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -2877,15 +1717,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -2893,7 +1724,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/showcase.mdx": [
+  "v2/home/solutions/showcase.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2960,8 +1791,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "rawPath": "/snippets/components/display/showcase-cards.jsx",
+      "resolvedPath": "snippets/components/display/showcase-cards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2971,6 +1802,199 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/automations/showcase/showcaseData.jsx",
       "resolvedPath": "snippets/automations/showcase/showcaseData.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/solutions/verticals.mdx": [
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/cards.jsx",
+      "resolvedPath": "snippets/components/layout/cards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/trending.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://download.com",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://download.com",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://download.com",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://blog.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://www.youtube.com/@livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://discord.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://x.com/Livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://blog.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://www.youtube.com/watch?v=-iO7HsR3KE4&#x26;list=PLkw6hm1fcjtF1OYFCF20AwBUtGygQxTQV&#x26;index=3",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://docs.google.com/presentation/d/1Qg6u1Ns1RU2Gw4m-dzGu_WeKx9z0v5HcbHTpWwA91Yw/embed",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/data.jsx",
+      "resolvedPath": "snippets/components/content/data.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/embed.jsx",
+      "resolvedPath": "snippets/components/display/embed.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/video.jsx",
+      "resolvedPath": "snippets/components/display/video.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/forum/forumData.jsx",
+      "resolvedPath": "snippets/automations/forum/forumData.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/blog/ghostBlogData.jsx",
+      "resolvedPath": "snippets/automations/blog/ghostBlogData.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/youtube/youtubeData.jsx",
+      "resolvedPath": "snippets/automations/youtube/youtubeData.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/discord/discordAnnouncementsData.jsx",
+      "resolvedPath": "snippets/automations/discord/discordAnnouncementsData.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

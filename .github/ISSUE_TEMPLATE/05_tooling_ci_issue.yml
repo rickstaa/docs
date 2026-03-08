@@ -1,0 +1,181 @@
+name: Tooling / CI Issue
+description: Report problems with local tooling, scripts, hooks, and CI workflows.
+title: "[tooling]: <short summary>"
+labels: ["docs-v2", "help wanted", "status: needs-triage", "type: bug", "area: ci-cd"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Select the primary area this issue affects.
+      options:
+        - area: ci-cd
+        - area: structure
+        - area: developers
+        - area: resources
+        - area: multiple
+    validations:
+      required: true
+
+  - type: input
+    id: command_run
+    attributes:
+      label: Failing command or workflow
+      description: Provide the exact command or workflow name.
+      placeholder: npm test, lpd dev, .github/workflows/test-suite.yml
+    validations:
+      required: true
+
+  - type: input
+    id: workflow_or_script
+    attributes:
+      label: Script or workflow path
+      description: Exact path to the script/hook/workflow.
+      placeholder: .githooks/pre-commit or .github/workflows/test-v2-pages.yml
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_output
+    attributes:
+      label: Full error output
+      description: Paste the complete error output.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro_conditions
+    attributes:
+      label: Reproduction conditions
+      description: Describe setup/state required to reproduce.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested_action
+    attributes:
+      label: Action requested from maintainers
+      description: What specific action should maintainers take?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_in
+    attributes:
+      label: Scope in (required for Codex implementation)
+      description: List allowed file paths/prefixes to change.
+      placeholder: |
+        .githooks/
+        tests/run-pr-checks.js
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_out
+    attributes:
+      label: Scope out (required for Codex implementation)
+      description: List forbidden paths/prefixes, or write "none".
+      placeholder: |
+        v1/
+        snippets/components/
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_checks
+    attributes:
+      label: Acceptance commands (required for Codex implementation)
+      description: List commands expected to pass before merge.
+      placeholder: |
+        node tests/run-pr-checks.js --base-ref docs-v2
+        node tools/scripts/validate-codex-task-contract.js --branch codex/123-example --validate-contract-only
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk_flags
+    attributes:
+      label: Risk flags (required for Codex implementation)
+      description: Add zero or more from this set: new-route, navigation, generated-files, ci-impact, force-push-risk.
+      placeholder: |
+        generated-files
+        ci-impact
+    validations:
+      required: true
+
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Classification
+      description: Select issue severity/impact. This is separate from priority (maintainer scheduling).
+      options:
+        - classification: urgent
+        - classification: high
+        - classification: moderate
+        - classification: minor
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select maintainer scheduling priority (separate from classification severity/impact).
+      options:
+        - priority: critical
+        - priority: high
+        - priority: medium
+        - priority: low
+    validations:
+      required: true
+
+  - type: input
+    id: runner_details
+    attributes:
+      label: Runner or local environment details
+      description: OS, shell, Node version, CI runner image, etc.
+      placeholder: ubuntu-latest, Node 22, zsh
+    validations:
+      required: false
+
+  - type: input
+    id: commit_sha
+    attributes:
+      label: Commit SHA
+      description: Optional commit where failure occurred.
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround tried
+      description: Describe any workaround attempts and outcomes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues and did not find an equivalent report.
+          required: true
+        - label: I provided enough detail for maintainers to reproduce and act.
+          required: true

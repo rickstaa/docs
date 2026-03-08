@@ -4,12 +4,17 @@
 
 - **ALWAYS** check for the existence of local Git hooks in `.git/hooks/` before
   initiating a write command.
-- **NEVER** use `--no-verify` or `-n` flags to bypass safety checks. These are
-  hard project constraints.
+- **DEFAULT:** Do not use `--no-verify` or `-n`.
+- **EXCEPTION:** A human may explicitly authorize `--no-verify` in-thread; if so,
+  follow [`ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`](../ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md)
+  (requires `ALLOW_HUMAN_NO_VERIFY=1` and commit trailers).
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
+- **NEVER** use `git stash` for AI task isolation in this repository.
 - **NEVER** perform a `git reset --hard` or `git push --force` without a saved
   branch to revert to in case of failure.
+- For any implementation task, apply the `codex-task-isolation-standard` skill
+  first (task contract + scoped branch enforcement).
 
 ## 📦 GIT WORKFLOW & CHECKPOINTS
 
@@ -18,6 +23,8 @@ destructive or history-altering actions.
 
 - **Automatic Checkpoints:** Every `commit`, `push`, and `rebase` triggers a
   safety hook that creates a branch named `checkpoint/YYYY-MM-DD_HHMMSS`.
+- **Isolation Rule:** Use branch-scoped WIP commits for checkpoints. Do not use
+  stash as a checkpoint or isolation mechanism.
 - **Pre-Write Announcement:** Before executing a write command, you MUST state:
   _"I am initiating [COMMAND]. A safety checkpoint will be created. Please
   switch to your terminal to type 'yes' when prompted."_
@@ -29,13 +36,14 @@ destructive or history-altering actions.
 **⚠️ MANDATORY: Read Structure Rules Before Creating/Moving Files**
 
 **BEFORE creating, moving, or organizing files, you MUST read:**
+
 - `contribute/STRUCTURE.md` - Complete repository structure rules (if exists)
 - `tasks/plan/migration-plan.md` - Detailed structure documentation (Section 4)
 
 ### Critical Structure Rules
 
 1. **Root Directory** - Only essential files allowed:
-   - ✅ Allowed: `docs.json`, `package.json`, `README.md`, `LICENSE`, `Dockerfile`, `Makefile`, `style.css`, `.gitignore`, `.mintignore`, `.whitelist`
+   - ✅ Allowed: `docs.json`, `package.json`, `README.md`, `LICENSE`, `Dockerfile`, `Makefile`, `style.css`, `.gitignore`, `.mintignore`, `.allowlist`
    - ❌ Forbidden: Scripts, config files, documentation files, temporary files, OpenAPI specs
    - **CRITICAL:** Mintlify only allows ONE CSS file (`style.css`) at root - NO `styles/` folder
 
@@ -58,7 +66,7 @@ destructive or history-altering actions.
    - ❌ Components cannot import other components
 
 4. **Enforcement** - Structure is enforced:
-   - `.whitelist` file lists allowed root files/directories
+   - `.allowlist` file lists allowed root files/directories
    - Pre-commit hook blocks unauthorized root files/directories
    - Always check structure rules before creating new files
 

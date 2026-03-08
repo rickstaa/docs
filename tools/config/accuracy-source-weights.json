@@ -1,0 +1,13 @@
+{
+  "schema_version": "accuracy-source-weights.v1",
+  "as_of_default": "2026-02-23",
+  "weights": {
+    "github_code_or_spec": 1.0,
+    "github_repo_docs_or_readme": 0.9,
+    "official_docs_livepeer": 0.9,
+    "official_openapi_or_generated_ref": 0.95,
+    "deepwiki": 0.65,
+    "forum_post": 0.7,
+    "third_party": 0.4
+  }
+}

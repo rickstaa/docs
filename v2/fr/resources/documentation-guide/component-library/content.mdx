@@ -1,0 +1,462 @@
+---
+title: Composants de contenu
+sidebarTitle: Contenu
+description: >-
+  Composants pour afficher du code, des données, du contenu externe et de la
+  documentation d'API : blocs de code, chargeurs de contenu externe, champs de
+  réponses d'API, affichages de version, et dispositions de données pour blogs,
+  forums et événements
+keywords:
+  - livepeer
+  - components
+  - content
+  - code
+  - api
+  - data
+---
+{/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9jb21wb25lbnQtbGlicmFyeS9jb250ZW50Lm1keCIsInNvdXJjZVJvdXRlIjoidjIvcmVzb3VyY2VzL2RvY3VtZW50YXRpb24tZ3VpZGUvY29tcG9uZW50LWxpYnJhcnkvY29udGVudCIsInNvdXJjZUhhc2giOiI4ZTg1NTRmZTUwNzcwZDc5ZmZjYjc1Yzc2Y2IzMDNhZTQ0NWY0MGY0YzNlYjFhNzY5ZGJkMDExMjkzOTI4MzY1IiwibGFuZ3VhZ2UiOiJmciIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAzLTAxVDEzOjQ5OjM2LjM2MVoifQ== */}
+import { CustomCodeBlock, CodeComponent, ComplexCodeBlock, CodeSection } from '/snippets/components/content/code.jsx'
+import { ExternalContent } from '/snippets/components/content/external-content.jsx'
+import { ValueResponseField, CustomResponseField, ResponseFieldExpandable, ResponseFieldAccordion, ResponseFieldGroup } from '/snippets/components/content/response-field.jsx'
+import { LatestVersion } from '/snippets/components/content/release.jsx'
+import { BlogCard, PostCard, CardBlogDataLayout, ColumnsBlogCardLayout, BlogDataLayout, CardColumnsPostLayout, ForumLatestLayout, DiscordAnnouncements, LumaEvents } from '/snippets/components/content/data.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
+<Card title="Back to Component Library" icon="arrow-left" href="../component-library" arrow>
+  Return to the main component library index
+</Card>
+
+<CustomDivider middleText="Code Components" />
+
+## Composants de code
+
+### CustomCodeBlock
+
+Bloc de code avancé avec remplacement de point d'ancrage, notes préalables/postérieures et section de sortie facultative expandable.
+
+**Import :**
+```jsx
+import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Par défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `filename` | `string` | - | Non | Nom du fichier à afficher dans l'en-tête |
+| `icon` | `string` | - | Non | Icône à afficher dans l'en-tête |
+| `language` | `string` | - | Non | Langage de programmation pour la mise en évidence de la syntaxe |
+| `highlight` | `string` | - | Non | Numéros de lignes/plages à mettre en évidence (par exemple, "1-3,5") |
+| `codeString` | `string` | `""` | Non | Le contenu du code à afficher |
+| `placeholderValue` | `string` | `""` | Non | Valeur à remplacer {PLACEHOLDER}par |
+| `wrap` | `boolean` | `true` | Non | Si les lignes longues doivent être enveloppées |
+| `lines` | `boolean` | `true` | Non | Afficher les numéros de ligne |
+| `preNote` | `string` | `""` | Non | Note à afficher avant le bloc de code |
+| `postNote` | `string` | `""` | Non | Note à afficher après le bloc de code |
+| `output` | `object` | - | Non | Configuration de sortie facultative |
+| `output.codeString` | `string` | - | Non | Contenu du code de sortie |
+| `output.filename` | `string` | - | Non | Nom du fichier de sortie |
+| `output.icon` | `string` | - | Non | Icône de sortie |
+| `output.language` | `string` | - | Non | Langue de sortie |
+
+**Exemples :**
+
+<Tabs>
+  <Tab title="Basic">
+    <CustomCodeBlock
+      filename="example.js"
+      language="javascript"
+      codeString="const apiKey = 'your-key-here';"
+    />
+  </Tab>
+  <Tab title="With Placeholder">
+    <CustomCodeBlock
+      filename="config.js"
+      language="javascript"
+      codeString="const API_KEY = '{PLACEHOLDER}';"
+      placeholderValue="your-api-key-here"
+      preNote="Add this to your configuration file"
+    />
+  </Tab>
+  <Tab title="Code">
+```jsx
+<CustomCodeBlock
+  filename="example.js"
+  language="javascript"
+  codeString="const apiKey = 'your-key';"
+  preNote="Configuration example"
+  postNote="Remember to keep your API key secure"
+/>
+```
+  </Tab>
+</Tabs>
+
+---
+
+### CodeComponent
+
+Composant enveloppe de bloc de code simple.
+
+**Importer :**
+```jsx
+import { CodeComponent } from "/snippets/components/content/code.jsx";
+```
+
+**Props :** Accepte les props standards du composant CodeBlock (language, filename, icon, etc.)
+
+**Remarque :** C'est un wrapper autour du composant CodeBlock de Mintlify.
+
+---
+
+### ComplexCodeBlock
+
+Bloc de code avancé avec plusieurs fonctionnalités, notamment le remplacement des espaces réservés et les sections de sortie.
+
+**Importer :**
+```jsx
+import { ComplexCodeBlock } from "/snippets/components/content/code.jsx";
+```
+
+**Props :** Similaire à `CustomCodeBlock` avec une gestion supplémentaire de la complexité.
+
+---
+
+### CodeSection
+
+ Wrapper de section pour organiser plusieurs blocs de code.
+
+**Importer :**
+```jsx
+import { CodeSection } from "/snippets/components/content/code.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `children` | `ReactNode` | - | **Oui** | Blocs de code à afficher |
+
+<CustomDivider middleText="External Content" />
+
+## Contenu externe
+
+### ContenuExterne
+
+Composant réutilisable pour afficher du contenu externe GitHub avec un en-tête et un conteneur défilable.
+
+**Importer :**
+```jsx
+import { ExternalContent } from "/snippets/components/content/external-content.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `repoName` | `string` | - | **Oui** | Nom du dépôt (par exemple, "livepeer/awesome-livepeer") |
+| `githubUrl` | `string` | - | **Oui** | URL du dépôt GitHub complet |
+| `maxHeight` | `string` | `"1000px"` | Non | Hauteur maximale du conteneur défilable |
+| `icon` | `string` | `"github"` | Non | Icône à afficher dans l'en-tête |
+| `children` | `ReactNode` | - | **Oui** | Contenu à afficher (généralement importé MDX) |
+
+**Exemples :**
+
+<Tabs>
+  <Tab title="Live Example">
+    <ExternalContent
+      repoName="livepeer/docs"
+      githubUrl="https://github.com/livepeer/docs"
+      maxHeight="150px"
+    >
+      <p>External content from the Livepeer documentation repository.</p>
+      <ul>
+        <li>Automatically styled container</li>
+        <li>Link to GitHub source</li>
+      </ul>
+    </ExternalContent>
+  </Tab>
+  <Tab title="Code">
+```jsx
+import MyContent from '/snippets/external/my-content.mdx'
+
+<ExternalContent
+  repoName="livepeer/awesome-livepeer"
+  githubUrl="https://github.com/livepeer/awesome-livepeer"
+  maxHeight="800px"
+>
+  <MyContent />
+</ExternalContent>
+```
+  </Tab>
+</Tabs>
+
+<CustomDivider middleText="API Response Fields" />
+
+## Champs de réponse d'API
+
+### ValueResponseField
+
+Wrapper ResponseField qui affiche une valeur avec un label et un style de ligne optionnels.
+
+**Import :**
+```jsx
+import { ValueResponseField } from "/snippets/components/content/response-field.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `description` | `string\|function` | - | Non | Texte de description ou fonction qui retourne une description |
+| `post` | `any` | `null` | Non | Valeur à afficher après la description |
+| `label` | `string` | `"value"` | Non | Étiquette pour la valeur |
+| `line` | `boolean` | `true` | Non | Si afficher la ligne de bord inférieure |
+| `children` | `ReactNode` | - | Non | Contenu supplémentaire |
+| `...props` | `object` | - | Non | Propriétés supplémentaires de ResponseField (nom, type, par défaut, requis, etc.) |
+
+---
+
+### CustomResponseField
+
+Wrapper ResponseField qui masque le séparateur inférieur.
+
+**Importation :**
+```jsx
+import { CustomResponseField } from "/snippets/components/content/response-field.jsx";
+```
+
+**Props :**
+
+| Propriété | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `description` | `string` | - | Non | Texte de description |
+| `...props` | `object` | - | Non | Toutes les propriétés de ResponseField (nom, type, par défaut, requis, post, etc.) |
+
+---
+
+### ResponseFieldExpandable
+
+Groupe plusieurs champs de réponse dans une section repliable.
+
+**Importation :**
+```jsx
+import { ResponseFieldExpandable } from "/snippets/components/content/response-field.jsx";
+```
+
+**Propriétés :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `fields` | `Array\|Object` | `{}` | Non | Tableau ou objet des définitions de champ |
+| `...props` | `object` | - | Non | Propriétés des composants expansibles (titre, etc.) |
+
+---
+
+### ResponseFieldAccordion
+
+Groupe plusieurs champs de réponse dans un composant onglet.
+
+**Importer :**
+```jsx
+import { ResponseFieldAccordion } from "/snippets/components/content/response-field.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `fields` | `Array\|Object` | `{}` | Non | Tableau ou objet des définitions de champ |
+| `...props` | `object` | - | Non | Propriétés du composant Accordion (titre, etc.) |
+
+---
+
+### ResponseFieldGroup
+
+Wrapper qui choisit un layout d'accordion ou déroulable à l'exécution.
+
+**Import:**
+```jsx
+import { ResponseFieldGroup } from "/snippets/components/content/response-field.jsx";
+```
+
+**Props:**
+
+| Prop | Type | Par défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `component` | `string` | `"accordion"` | Non | Type de composant : « accordion » ou « expandable » |
+| `fields` | `Array\|Object` | `{}` | Non | Tableau ou objet des définitions de champ |
+| `...props` | `object` | - | Non | Props du composant (titre, etc.) |
+
+<CustomDivider middleText="Data Display Components" />
+
+## Composants d'affichage des données
+
+### BlogCard
+
+Composant de carte spécifiquement conçu pour les articles de blog avec prise en charge du temps de lecture et de l'extrait.
+
+**Importer :**
+```jsx
+import { BlogCard } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `title` | `string` | - | **Oui** | Le titre de l'article de blog |
+| `content` | `string` | - | **Oui** | Contenu HTML à afficher |
+| `href` | `string` | - | **Oui** | Lien URL pour l'article de blog |
+| `author` | `string` | `"Livepeer Team"` | Non | Nom de l'auteur |
+| `datePosted` | `string` | `null` | Non | Date de publication |
+| `excerpt` | `string` | `null` | Non | Extrait court (utilisez-le si vous reliez à un blog externe) |
+| `readingTime` | `number` | `null` | Non | Temps estimé de lecture en minutes |
+| `icon` | `string` | `"book-open"` | Non | Icône pour la carte |
+| `cta` | `string` | `"Read More"` | Non | Texte du bouton d'appel à l'action |
+| `img` | `string` | `null` | Non | URL d'image facultative |
+
+---
+
+### PostCard
+
+Composant de carte pour afficher des messages de forum ou des articles avec l'auteur, la date et les métadonnées.
+
+**Importation :**
+```jsx
+import { PostCard } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `title` | `string` | - | **Oui** | Le titre de l'article |
+| `content` | `string` | - | **Oui** | Contenu HTML à afficher |
+| `href` | `string` | - | **Oui** | Lien URL pour la carte |
+| `author` | `string` | `"Unknown"` | Non | Nom de l'auteur |
+| `datePosted` | `string` | `null` | Non | Date de publication du message |
+| `icon` | `string` | `"book-open"` | Non | Icône à afficher sur la carte |
+| `cta` | `string` | `"Read More"` | Non | Texte du bouton d'appel à l'action |
+| `img` | `string` | `null` | Non | URL d'image facultative pour la carte |
+
+---
+
+### CardBlogDataLayout
+
+Composant de mise en page pour afficher plusieurs BlogCards dans un layout vertical.
+
+**Importation :**
+```jsx
+import { CardBlogDataLayout } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `items` | `Array` | `[]` | Non | Tableau d'objets props BlogCard |
+| `limit` | `number` | - | Non | Limite optionnelle sur le nombre d'éléments |
+
+---
+
+### ColonnesBlogCardLayout
+
+Composant de mise en page pour afficher plusieurs BlogCards en colonnes.
+
+**Importation :**
+```jsx
+import { ColumnsBlogCardLayout } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Par défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `items` | `Array` | `[]` | Non | Tableau d'objets props BlogCard |
+| `cols` | `number` | `2` | Non | Nombre de colonnes |
+| `limit` | `number` | - | Non | Limite optionnelle sur le nombre d'éléments |
+
+---
+
+### CardColumnsPostLayout
+
+Composant de mise en page pour afficher plusieurs PostCards en colonnes.
+
+**Importation :**
+```jsx
+import { CardColumnsPostLayout } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `cols` | `number` | `2` | Non | Nombre de colonnes à afficher |
+| `items` | `Array` | `[]` | Non | Tableau d'objets de propriétés PostCard |
+| `limit` | `number` | - | Non | Limite optionnelle sur le nombre d'éléments |
+
+---
+
+### DiscordAnnouncements
+
+Affiche les annonces Discord depuis discordAnnouncementsData.jsx.
+
+**Importation :**
+```jsx
+import { DiscordAnnouncements } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `items` | `Array` | `[]` | Non | Tableau d'objets d'annonce |
+| `limit` | `number` | - | Non | Limite optionnelle sur le nombre d'annonces |
+
+**Remarque :** Requiert des données de `snippets/automations/discord/discordAnnouncementsData.jsx`
+
+---
+
+### LumaEvents
+
+Affiche les événements Luma à partir de lumaEventsData.jsx.
+
+**Importation :**
+```jsx
+import { LumaEvents } from "/snippets/components/content/data.jsx";
+```
+
+**Props :**
+
+| Prop | Type | Par défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `data` | `Object` | - | **Oui** | Objet de données d'événement avec des tableaux prochains et passés |
+| `limit` | `number` | - | Aucun | Limite optionnelle sur le nombre d'événements |
+| `type` | `string` | `"upcoming"` | Aucun | Type d'événements : "upcoming", "past" ou "all" |
+
+**Remarque :** Requiert des données de `snippets/automations/luma/lumaEventsData.jsx`
+
+<CustomDivider middleText="Version Components" />
+
+## Composants de la version
+
+### DernièreVersion
+
+Wrapper pour l'action GitHub qui récupère la dernière version de go-livepeer.
+
+**Importation :**
+```jsx
+import { LatestVersion } from "/snippets/components/content/release.jsx";
+```
+
+**Propriétés :**
+
+| Prop | Type | Défaut | Requis | Description |
+|------|------|---------|----------|-------------|
+| `version` | `string` | - | **Oui** | Chaîne de version (généralement provenant d'une action GitHub) |
+
+---
+
+<Card title="Next: Layout Components" icon="arrow-right" href="./layout" arrow>
+  Continue to Layout Components →
+</Card>

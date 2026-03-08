@@ -8,6 +8,7 @@
  * @param {React.ReactNode} children - Content to display inside the scroll area
  * @param {number|string} [maxHeight=300] - Maximum height before scrolling (px or CSS value)
  * @param {boolean} [showHint=true] - Whether to show "Scroll for more" hint
+ * @param {string} [ariaLabel="Scrollable content"] - Accessible label for the scroll region
  *
  * @example
  * <Card title="Gaming">
@@ -22,6 +23,7 @@ export const ScrollBox = ({
   children,
   maxHeight = 300,
   showHint = true,
+  ariaLabel = "Scrollable content",
   style,
 }) => {
   const contentRef = useRef(null);
@@ -47,6 +49,9 @@ export const ScrollBox = ({
     <div style={{ position: "relative" }}>
       <div
         ref={contentRef}
+        role="region"
+        tabIndex={0}
+        aria-label={ariaLabel}
         style={{
           maxHeight:
             typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight,

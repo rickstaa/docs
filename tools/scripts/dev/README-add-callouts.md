@@ -67,11 +67,25 @@ Displays: "Page is under construction. Feedback Welcome!"
 node add-callouts.js
 ```
 
+### Remove Top-Level Callouts (v2 en nav + content pages)
+
+```bash
+# Remove PreviewCallout/ComingSoonCallout from content pages in v2 English navigation
+node add-callouts.js --remove
+```
+
 ### Dry Run (Recommended First)
 
 ```bash
 # Preview changes without modifying files
 node add-callouts.js --dry-run
+```
+
+### Dry Run Removal
+
+```bash
+# Preview removals without modifying files
+node add-callouts.js --remove --dry-run
 ```
 
 This will show you what changes would be made without actually modifying any files.
@@ -111,6 +125,19 @@ node test-add-callouts.js
 ✨ Done!
 ```
 
+### Removal Output
+```
+🚀 Starting callout removal...
+
+📄 Found 120 MDX files in v2 English navigation
+
+✅ Removed top-level callout from v2/developers/example-page.mdx
+⏭️  Skipping v2/developers/another-page.mdx - no top-level callout
+⏭️  Skipping v2/developers/placeholder-page.mdx - no content
+
+✨ Done!
+```
+
 ## Test Suite
 
 The test suite (`test-add-callouts.js`) validates:
@@ -121,6 +148,9 @@ The test suite (`test-add-callouts.js`) validates:
 4. ✅ Page with imports and content detection
 5. ✅ Existing callout detection (ComingSoonCallout)
 6. ✅ Existing callout detection (PreviewCallout)
+7. ✅ Removal of top-level callouts on content pages
+8. ✅ Import cleanup behavior when callouts are removed
+9. ✅ Retaining callouts used later in the page
 
 Run tests before using the script to ensure logic is working correctly.
 
@@ -136,6 +166,7 @@ Run tests before using the script to ensure logic is working correctly.
 - Only processes `.mdx` files
 - Requires proper frontmatter structure (content between `---` delimiters)
 - Won't modify files that already have callouts
+- Removal only applies to top-level callouts on pages with content that are listed in docs.json v2 English navigation
 
 ## Troubleshooting
 
@@ -206,4 +237,3 @@ This guide covers the API endpoints...
 
 - Callout components: `/snippets/components/domain/SHARED/previewCallouts.jsx`
 - Target directory: `v2/pages/` (and all subdirectories)
-

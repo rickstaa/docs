@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-glossary
- * @summary Utility script for tools/scripts/snippets/generate-data/scripts/generate-glossary.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/snippets/generate-data/scripts/generate-glossary.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/snippets/generate-data/scripts/generate-glossary.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-glossary
+ * @category          generator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Glossary generator — produces glossary data file from terminology sources
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
+ * @usage             node tools/scripts/snippets/generate-data/scripts/generate-glossary.js [flags]
  */
 
 /**
@@ -48,15 +34,41 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // Configuration
-const REPO_ROOT = path.resolve(__dirname, '../../..');
+const REPO_ROOT = getRepoRoot();
 const V1_PAGES_DIR = path.join(REPO_ROOT, 'v1');
-const V2_PAGES_DIR = path.join(REPO_ROOT, 'v2/pages');
-const OUTPUT_DIR = path.join(__dirname, 'data');
+const V2_PAGES_DIRS = [
+  'v2/pages',
+  'v2/home',
+  'v2/solutions',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+]
+  .map((dir) => path.join(REPO_ROOT, dir))
+  .filter((dir) => fs.existsSync(dir));
+const OUTPUT_DIR = path.join(__dirname, '..', 'data');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'glossary-terms.json');
 
 const isDryRun = process.argv.includes('--dry-run');
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
 
 // Known terminology patterns and categories
 const TERM_PATTERNS = {
@@ -221,8 +233,12 @@ function scanFilesForTerms(files) {
  * Load existing definitions from glossary file
  */
 function loadExistingDefinitions() {
-  const glossaryPath = path.join(REPO_ROOT, 'v2/pages/07_resources/livepeer-glossary.mdx');
-  if (!fs.existsSync(glossaryPath)) return {};
+  const glossaryPathCandidates = [
+    path.join(REPO_ROOT, 'v2/resources/livepeer-glossary.mdx'),
+    path.join(REPO_ROOT, 'v2/resources/livepeer-glossary.mdx')
+  ];
+  const glossaryPath = glossaryPathCandidates.find((candidate) => fs.existsSync(candidate));
+  if (!glossaryPath) return {};
 
   const content = fs.readFileSync(glossaryPath, 'utf-8');
   const definitions = {};
@@ -298,7 +314,13 @@ function main() {
 
   // Find all MDX files
   const v1Files = findMdxFiles(V1_PAGES_DIR);
-  const v2Files = findMdxFiles(V2_PAGES_DIR);
+  const v2FileSet = new Set();
+  for (const pagesDir of V2_PAGES_DIRS) {
+    for (const filePath of findMdxFiles(pagesDir)) {
+      v2FileSet.add(filePath);
+    }
+  }
+  const v2Files = Array.from(v2FileSet);
   const allFiles = [...v1Files, ...v2Files];
 
   console.log(`📚 Found ${v1Files.length} v1 files and ${v2Files.length} v2 files\n`);
@@ -360,4 +382,3 @@ function main() {
 }
 
 main();
-

@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script test-scripts
-# @summary Utility script for tools/scripts/snippets/test-scripts.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/test-scripts.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/test-scripts.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            test-scripts
+# @category          utility
+# @purpose           tooling:dev-tools
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-C6, F-C1
+# @purpose-statement Snippet test runner — runs basic validation on snippet scripts
+# @pipeline          manual — diagnostic/investigation tool, run on-demand only
+# @usage             bash tools/scripts/snippets/test-scripts.sh [flags]
 # Test suite for tools/scripts/snippets
 # Run this before using scripts to verify they work correctly
 #
@@ -158,15 +144,11 @@ else
   fail "update-component-library.sh failed: $OUTPUT"
 fi
 
-# Test 7: Dry run generate-docs-status.js
+# Test 7: Deprecated generate-docs-status.js (moved out of snippets scope)
 echo ""
-echo "--- Test: generate-docs-status.js dry run ---"
-OUTPUT=$(node "$SCRIPT_DIR/generate-docs-status.js" 2>&1)
-if echo "$OUTPUT" | grep -q "Generated"; then
-  pass "generate-docs-status.js runs successfully"
-else
-  fail "generate-docs-status.js failed: $OUTPUT"
-fi
+echo "--- Test: generate-docs-status.js dry run (deprecated) ---"
+skip "generate-docs-status.js deprecated and moved to tools/scripts/archive/deprecated/project-management-output-script.js"
+
 
 # Summary
 echo ""
@@ -183,4 +165,3 @@ if [ $FAILED -gt 0 ]; then
 else
   exit 0
 fi
-

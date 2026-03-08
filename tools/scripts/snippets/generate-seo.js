@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-seo
- * @summary Utility script for tools/scripts/snippets/generate-seo.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/snippets/generate-seo.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/snippets/generate-seo.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-seo
+ * @category          generator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis
+ * @pipeline          P6 (on-demand, SEO refresh)
+ * @usage             node tools/scripts/snippets/generate-seo.js [flags]
  */
 /**
  * SEO Generator for Livepeer Documentation
@@ -42,23 +28,42 @@ const fs = require("fs");
 const path = require("path");
 
 // Configuration
-const PAGES_DIR = path.join(__dirname, "../../v2/pages");
+const PAGES_DIRS = [
+  path.join(__dirname, "../../v2/pages"),
+  path.join(__dirname, "../../v2"),
+].filter((candidate) => fs.existsSync(candidate));
 const DEFAULT_SOCIAL_IMAGE =
   "/snippets/assets/social/livepeer-social-preview.jpg";
 
 // Domain-specific images (can be expanded)
 const DOMAIN_IMAGES = {
+  home: "/snippets/assets/domain/00_HOME/social-preview-home.jpg",
+  about: "/snippets/assets/domain/01_ABOUT/social-preview-about.jpg",
+  community: "/snippets/assets/domain/03_COMMUNITY/social-preview-community.jpg",
+  developers:
+    "/snippets/assets/domain/02_DEVELOPERS/social-preview-developers.jpg",
+  gateways:
+    "/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg",
+  orchestrators:
+    "/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg",
+  lpt: "/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg",
+  resources: "/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg",
+  internal: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+  solutions: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+  deprecated: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+  experimental: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+  notes: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
   "00_home": "/snippets/assets/domain/00_HOME/social-preview-home.jpg",
   "01_about": "/snippets/assets/domain/01_ABOUT/social-preview-about.jpg",
-  "02_developers":
-    "/snippets/assets/domain/02_DEVELOPERS/social-preview-developers.jpg",
-  "03_community":
+  "02_community":
     "/snippets/assets/domain/03_COMMUNITY/social-preview-community.jpg",
+  "03_developers":
+    "/snippets/assets/domain/02_DEVELOPERS/social-preview-developers.jpg",
   "04_gateways":
     "/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg",
   "05_orchestrators":
     "/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg",
-  "06_delegators":
+  "06_lptoken":
     "/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg",
   "07_resources":
     "/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg",
@@ -235,9 +240,11 @@ function generateDescription(content) {
  * Get appropriate social image for a file
  */
 function getSocialImage(filePath) {
-  // Check if file already has an og:image or twitter:image
-  const pathParts = filePath.split("/");
-  const domainFolder = pathParts.find((p) => p.match(/^\d+_/));
+  const normalizedPath = String(filePath || "").replace(/\\/g, "/");
+  const v2Index = normalizedPath.indexOf("/v2/");
+  const relative = v2Index >= 0 ? normalizedPath.slice(v2Index + 4) : normalizedPath;
+  const parts = relative.split("/").filter(Boolean);
+  const domainFolder = parts[0] === "pages" ? parts[1] : parts[0];
 
   if (domainFolder && DOMAIN_IMAGES[domainFolder]) {
     return DOMAIN_IMAGES[domainFolder];
@@ -412,7 +419,13 @@ function main() {
     files = [fullPath];
     console.log(`📄 Processing single file: ${specificFile}\n`);
   } else {
-    files = findMdxFiles(PAGES_DIR);
+    const dedupedFiles = new Set();
+    for (const pagesDir of PAGES_DIRS) {
+      for (const mdxFile of findMdxFiles(pagesDir)) {
+        dedupedFiles.add(path.resolve(mdxFile));
+      }
+    }
+    files = Array.from(dedupedFiles);
     console.log(`📚 Found ${files.length} MDX files\n`);
   }
 

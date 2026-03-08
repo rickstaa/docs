@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script mdx-parser
- * @summary Utility script for tests/utils/mdx-parser.js.
- * @owner docs
- * @scope tests
- *
- * @usage
- *   node tests/utils/mdx-parser.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tests/utils/mdx-parser.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            mdx-parser
+ * @category          validator
+ * @purpose           tooling:dev-tools
+ * @scope             tests
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement MDX parser utility — extracts frontmatter, components, content blocks from MDX files
+ * @pipeline          indirect — library module
+ * @usage             node tests/utils/mdx-parser.js [flags]
  */
 /**
  * MDX parsing utilities for validation
@@ -74,71 +60,150 @@ function extractImports(content) {
 function checkUnclosedTags(content) {
   const errors = [];
   const tagStack = [];
-  const jsxTagRegex = /<\/?([A-Z][a-zA-Z0-9]*)\s*[^>]*>/g;
-  const selfClosingRegex = /<[A-Z][a-zA-Z0-9]*\s+[^>]*\/>/;
-  
-  // Remove code blocks to avoid false positives
-  let contentToCheck = content;
-  const codeBlockRegex = /```[\s\S]*?```/g;
-  const codeBlockRanges = [];
-  let codeMatch;
-  
-  while ((codeMatch = codeBlockRegex.exec(content)) !== null) {
-    codeBlockRanges.push({
-      start: codeMatch.index,
-      end: codeMatch.index + codeMatch[0].length
-    });
-  }
-  
-  // Check if position is in a code block
-  function isInCodeBlock(pos) {
-    return codeBlockRanges.some(range => pos >= range.start && pos < range.end);
-  }
-  
-  let match;
-  let lineNumber = 1;
-  let lastIndex = 0;
-  
-  while ((match = jsxTagRegex.exec(content)) !== null) {
-    // Skip if in code block
-    if (isInCodeBlock(match.index)) {
-      continue;
+  const ignoreRanges = [];
+  const ignoreRegexes = [
+    /```[\s\S]*?```/g,      // markdown code blocks
+    /`[^`\n]*`/g,           // inline code spans
+    /\{\/\*[\s\S]*?\*\/\}/g, // JSX comments
+    /<!--[\s\S]*?-->/g      // HTML comments
+  ];
+
+  ignoreRegexes.forEach((regex) => {
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      ignoreRanges.push({
+        start: match.index,
+        end: match.index + match[0].length
+      });
     }
-    // Update line number
-    const beforeMatch = content.substring(lastIndex, match.index);
-    lineNumber += (beforeMatch.match(/\n/g) || []).length;
-    
-    const fullTag = match[0];
-    const tagName = match[1];
-    const isClosing = fullTag.startsWith('</');
-    const isSelfClosing = selfClosingRegex.test(fullTag) || fullTag.endsWith('/>');
-    
-    if (isSelfClosing) {
-      continue;
-    }
-    
-    if (isClosing) {
-      // Find matching opening tag
-      let found = false;
-      for (let i = tagStack.length - 1; i >= 0; i--) {
-        if (tagStack[i].name === tagName) {
-          tagStack.splice(i);
-          found = true;
-          break;
+  });
+
+  function isInIgnoredRange(pos) {
+    return ignoreRanges.some((range) => pos >= range.start && pos < range.end);
+  }
+
+  function getLineNumber(pos) {
+    return content.slice(0, pos).split('\n').length;
+  }
+
+  function findTagEnd(startIndex) {
+    let quote = null;
+    let braceDepth = 0;
+
+    for (let i = startIndex + 1; i < content.length; i++) {
+      const ch = content[i];
+      const prev = content[i - 1];
+
+      // Inside JSX expression braces, only track nested braces.
+      // This avoids treating apostrophes in JSX text (e.g. Livepeer's)
+      // as string delimiters, which can hide the real closing '>'.
+      if (braceDepth > 0) {
+        if (ch === '{') {
+          braceDepth += 1;
+          continue;
         }
+
+        if (ch === '}') {
+          braceDepth -= 1;
+          continue;
+        }
+
+        continue;
       }
-      if (!found) {
-        errors.push({
-          line: lineNumber,
-          message: `Closing tag </${tagName}> without matching opening tag`,
-          tag: tagName
-        });
+
+      if (quote) {
+        if (ch === quote && prev !== '\\') {
+          quote = null;
+        }
+        continue;
       }
-    } else {
-      tagStack.push({ name: tagName, line: lineNumber });
+
+      if (ch === '"' || ch === '\'' || ch === '`') {
+        quote = ch;
+        continue;
+      }
+
+      if (ch === '{') {
+        braceDepth += 1;
+        continue;
+      }
+
+      if (ch === '>' && braceDepth === 0) {
+        return i;
+      }
     }
-    
-    lastIndex = match.index + match[0].length;
+
+    return -1;
+  }
+
+  for (let cursor = 0; cursor < content.length; ) {
+    const tagStart = content.indexOf('<', cursor);
+    if (tagStart === -1) {
+      break;
+    }
+
+    if (isInIgnoredRange(tagStart)) {
+      cursor = tagStart + 1;
+      continue;
+    }
+
+    let nameStart = tagStart + 1;
+    let isClosing = false;
+
+    if (content[nameStart] === '/') {
+      isClosing = true;
+      nameStart += 1;
+    }
+
+    if (!/[A-Z]/.test(content[nameStart] || '')) {
+      cursor = tagStart + 1;
+      continue;
+    }
+
+    let nameEnd = nameStart + 1;
+    while (/[A-Za-z0-9]/.test(content[nameEnd] || '')) {
+      nameEnd += 1;
+    }
+
+    const tagName = content.slice(nameStart, nameEnd);
+    const lineNumber = getLineNumber(tagStart);
+    const tagEnd = findTagEnd(tagStart);
+
+    if (tagEnd === -1) {
+      errors.push({
+        line: lineNumber,
+        message: `Unclosed tag <${tagName}>`,
+        tag: tagName
+      });
+      break;
+    }
+
+    const fullTag = content.slice(tagStart, tagEnd + 1);
+    const isSelfClosing = /\/\s*>$/.test(fullTag);
+
+    if (!isSelfClosing) {
+      if (isClosing) {
+        let found = false;
+        for (let i = tagStack.length - 1; i >= 0; i--) {
+          if (tagStack[i].name === tagName) {
+            tagStack.splice(i);
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          errors.push({
+            line: lineNumber,
+            message: `Closing tag </${tagName}> without matching opening tag`,
+            tag: tagName
+          });
+        }
+      } else {
+        tagStack.push({ name: tagName, line: lineNumber });
+      }
+    }
+
+    cursor = tagEnd + 1;
   }
   
   // Check for unclosed tags

@@ -1,0 +1,31 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.mdx": "mdx",
+    "docs.json": "json"
+  },
+  "eslint.options": {
+    "extensions": [".js", ".json", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "markdown",
+    "mdx",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.packageManager": "pnpm",
+  "cSpell.words": ["Arweave", "multistream"],
+  "json.format.enable": true,
+  "json.schemaDownload.enable": true,
+  "emmet.includeLanguages": {
+    "mdx": "html"
+  },
+  "[mdx]": {
+    "editor.formatOnSave": false
+  }
+}

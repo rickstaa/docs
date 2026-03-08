@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-youtube-pages
- * @summary Utility script for tools/scripts/test-youtube-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-youtube-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-youtube-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-youtube-pages
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement YouTube page tester — validates YouTube embed pages render correctly
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/test-youtube-pages.js [flags]
  */
 /**
  * Test pages that use YouTubeVideo component to verify they render correctly
@@ -39,10 +25,10 @@ const testPages = [
   '/introduction/vision',
   '/community-portal',
   '/introduction/evolution',
-  '/home/trending-topics',
+  '/home/trending',
   '/home/copy-trending-at-livepeer',
   '/about-livepeer/moved/livepeer-overview',
-  '/products-portal',
+  '/solutions/portal',
   '/livepeer-community/trending-topics',
 ];
 

@@ -1,44 +1,92 @@
 {
-  "timestamp": "2026-02-19T09:19:06.843Z",
-  "completedAt": "2026-02-19T09:19:14.679Z",
+  "timestamp": "2026-03-03T03:51:17.295Z",
+  "completedAt": "2026-03-03T03:51:23.739Z",
   "baseUrl": "https://docs.livepeer.org",
   "mode": "staged",
   "versionScope": "both",
-  "total": 3,
-  "passed": 2,
-  "failed": 1,
-  "durationSec": 8,
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "durationSec": 6,
   "results": [
     {
-      "pagePath": "v2/pages/07_resources/documentation-guide/automations-workflows",
-      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/automations-workflows",
+      "pagePath": "v2/about/portal",
+      "url": "https://docs.livepeer.org/v2/about/portal",
       "status": 200,
-      "title": "Automations & Workflows Guide - Livepeer Docs",
-      "contentLength": 22807,
+      "title": "About Livepeer: Protocol & Network - Livepeer Docs",
+      "contentLength": 1625,
       "passed": true,
       "errors": [],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
-      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+      "pagePath": "v2/cn/about/portal",
+      "url": "https://docs.livepeer.org/v2/cn/about/portal",
       "status": 200,
-      "title": "Contribute To The Docs - Livepeer Docs",
-      "contentLength": 16322,
+      "title": "关于 Livepeer: 协议与网络 - Livepeer Docs",
+      "contentLength": 1564,
       "passed": true,
       "errors": [],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/07_resources/documentation-guide/style-guide",
-      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/style-guide",
+      "pagePath": "v2/cn/home/primer",
+      "url": "https://docs.livepeer.org/v2/cn/home/primer",
       "status": 200,
-      "title": "Documentation Style Guide - Livepeer Docs",
-      "contentLength": 29550,
-      "passed": false,
-      "errors": [
-        "404 content"
-      ],
+      "title": "Livepeer 入门 - Livepeer Docs",
+      "contentLength": 2541,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/es/about/portal",
+      "url": "https://docs.livepeer.org/v2/es/about/portal",
+      "status": 200,
+      "title": "Acerca de Livepeer: Protocolo y Red - Livepeer Docs",
+      "contentLength": 1648,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/es/home/primer",
+      "url": "https://docs.livepeer.org/v2/es/home/primer",
+      "status": 200,
+      "title": "Livepeer Introducción - Livepeer Docs",
+      "contentLength": 4875,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/fr/about/portal",
+      "url": "https://docs.livepeer.org/v2/fr/about/portal",
+      "status": 200,
+      "title": "À propos Livepeer: Protocole & Réseau - Livepeer Docs",
+      "contentLength": 1665,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/fr/home/primer",
+      "url": "https://docs.livepeer.org/v2/fr/home/primer",
+      "status": 200,
+      "title": "Livepeer Introduction - Livepeer Docs",
+      "contentLength": 5036,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/home/primer",
+      "url": "https://docs.livepeer.org/v2/home/primer",
+      "status": 200,
+      "title": "Livepeer Primer - Livepeer Docs",
+      "contentLength": 4356,
+      "passed": true,
+      "errors": [],
       "warnings": []
     }
   ]

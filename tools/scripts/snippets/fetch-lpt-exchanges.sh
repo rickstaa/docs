@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script fetch-lpt-exchanges
-# @summary Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/fetch-lpt-exchanges.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/fetch-lpt-exchanges.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            fetch-lpt-exchanges
+# @category          automation
+# @purpose           infrastructure:data-feeds
+# @scope             tools/scripts
+# @owner             docs
+# @needs             F-R1
+# @purpose-statement LPT exchange data fetcher — pulls exchange listing data for LPT token pages
+# @pipeline          manual — interactive developer tool, not suited for automated pipelines
+# @usage             bash tools/scripts/snippets/fetch-lpt-exchanges.sh [flags]
 # Fetch LPT exchange listings from CoinGecko API and append to lpt-exchanges.mdx
 # Usage: ./tools/scripts/snippets/fetch-lpt-exchanges.sh
 
@@ -45,7 +31,11 @@ fi
 if [ -f "$CONFIG_FILE" ] && command -v node &>/dev/null; then
   OUTPUT_FILE="$REPO_ROOT/$(node -pe "require('$CONFIG_FILE').paths.lptExchanges")"
 else
-  OUTPUT_FILE="$REPO_ROOT/v2/pages/06_delegators/token-resources/lpt-exchanges.mdx"
+  if [ -f "$REPO_ROOT/v2/lpt/resources/exchanges.mdx" ]; then
+    OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
+  else
+    OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
+  fi
 fi
 
 # Fetch data from CoinGecko
@@ -230,4 +220,3 @@ console.log(`✅ Updated ${outputFile} with ${sortedExchanges.length} exchanges`
 NODEJS_SCRIPT
 
 echo "Done!"
-

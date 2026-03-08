@@ -93,6 +93,9 @@ export const BlogCard = ({
     maxHeight: 300,
     overflowY: "auto",
   };
+  const contentRegionLabel = title
+    ? `Scrollable content for ${title}`
+    : "Scrollable content";
 
   const scrollHintStyle = {
     fontSize: 11,
@@ -163,6 +166,9 @@ export const BlogCard = ({
       <div style={contentBgStyle} />
       <div
         style={contentContainerStyle}
+        role="region"
+        tabIndex={0}
+        aria-label={contentRegionLabel}
         onScroll={(e) => {
           const el = e.target;
           const atBottom =
@@ -349,6 +355,9 @@ export const PostCard = ({
           maxHeight: 300,
           overflowY: "auto",
         }}
+        role="region"
+        tabIndex={0}
+        aria-label={title ? `Scrollable content for ${title}` : "Scrollable content"}
         onScroll={(e) => {
           const el = e.target;
           const atBottom =
@@ -449,7 +458,7 @@ export const ForumLatestLayout = ({ items = [], limit }) => {
  * @param {number} [limit] - Optional limit on number of announcements to display
  *
  * @example
- * import { discordAnnouncementsData } from 'snippets/automations/discord/discordAnnouncementsData.jsx';
+ * import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx';
  *
  * <DiscordAnnouncements items={discordAnnouncementsData} limit={3} />
  */
@@ -556,7 +565,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
  * @param {string} [type="upcoming"] - Type of events to display: "upcoming", "past", or "all"
  *
  * @example
- * import { lumaEvents } from 'snippets/automations/luma/lumaEventsData.jsx';
+ * import { lumaEvents } from '/snippets/automations/luma/lumaEventsData.jsx';
  *
  * <LumaEvents data={lumaEvents} type="upcoming" limit={5} />
  */

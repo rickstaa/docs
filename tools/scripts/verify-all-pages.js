@@ -1,41 +1,63 @@
 /**
- * @script verify-all-pages
- * @summary Utility script for tools/scripts/verify-all-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/verify-all-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/verify-all-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            verify-all-pages
+ * @category          enforcer
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Page verifier — checks all pages in docs.json resolve to valid files
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/verify-all-pages.js [flags]
  */
 const puppeteer = require('puppeteer');
 
 const BASE_URL = 'http://localhost:3333';
 const PAGES = [
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/display', name: 'Display' },
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/primitives', name: 'Primitives' },
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/content', name: 'Content' },
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/layout', name: 'Layout' },
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/domain', name: 'Domain' },
-  { path: '/v2/pages/07_resources/documentation-guide/component-library/integrations', name: 'Integrations' },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/display',
+      '/v2/resources/documentation-guide/component-library/display'
+    ],
+    name: 'Display'
+  },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/primitives',
+      '/v2/resources/documentation-guide/component-library/primitives'
+    ],
+    name: 'Primitives'
+  },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/content',
+      '/v2/resources/documentation-guide/component-library/content'
+    ],
+    name: 'Content'
+  },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/layout',
+      '/v2/resources/documentation-guide/component-library/layout'
+    ],
+    name: 'Layout'
+  },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/domain',
+      '/v2/resources/documentation-guide/component-library/domain'
+    ],
+    name: 'Domain'
+  },
+  {
+    paths: [
+      '/v2/resources/documentation-guide/component-library/integrations',
+      '/v2/resources/documentation-guide/component-library/integrations'
+    ],
+    name: 'Integrations'
+  },
 ];
 
-async function verifyPage(path, name) {
+async function verifyPage(paths, name) {
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -59,68 +81,67 @@ async function verifyPage(path, name) {
   });
   
   try {
-    const url = `${BASE_URL}${path}`;
     console.log(`\n🔍 Verifying: ${name}`);
-    console.log(`   URL: ${url}`);
-    
-    const response = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-    
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    
-    const title = await page.title().catch(() => '');
-    const bodyText = await page.evaluate(() => {
-      const body = document.body;
-      if (!body) return '';
-      return body.innerText || '';
-    }).catch(() => '');
-    
-    const hasH1 = await page.$('h1') !== null;
-    const hasContent = bodyText.length > 500;
-    const is404 = title.includes('Page Not Found') || bodyText.includes('Page Not Found');
-    const httpStatus = response.status();
-    
-    // Filter out known false positives
-    const realErrors = errors.filter(err => {
-      const lower = err.toLowerCase();
-      return !lower.includes('require is not defined') &&
-             !lower.includes('puppeteer') &&
-             !lower.includes('fs has already been declared') &&
-             !lower.includes('unexpected token \'export\'') &&
-             !lower.includes('identifier \'') &&
-             !lower.includes('appendchild') &&
-             !lower.includes('failed to execute') &&
-             !lower.includes('403') &&
-             !lower.includes('500') &&
-             !lower.includes('favicon');
-    });
-    
-    console.log(`   HTTP Status: ${httpStatus}`);
-    console.log(`   Title: ${title.substring(0, 60)}`);
-    console.log(`   Body Text Length: ${bodyText.length} chars`);
-    console.log(`   Has H1: ${hasH1}`);
-    console.log(`   Has Content: ${hasContent}`);
-    console.log(`   Is 404: ${is404}`);
-    console.log(`   Real Errors: ${realErrors.length}`);
-    
-    if (realErrors.length > 0) {
-      console.log(`   ❌ ERRORS:`);
-      realErrors.slice(0, 5).forEach((err, i) => {
-        console.log(`     ${i+1}. ${err.substring(0, 200)}`);
+    const pathCandidates = Array.isArray(paths) ? paths : [paths];
+    let lastErrors = [];
+
+    for (const pathCandidate of pathCandidates) {
+      const url = `${BASE_URL}${pathCandidate}`;
+      console.log(`   URL: ${url}`);
+
+      const response = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      const title = await page.title().catch(() => '');
+      const bodyText = await page.evaluate(() => {
+        const body = document.body;
+        if (!body) return '';
+        return body.innerText || '';
+      }).catch(() => '');
+
+      const hasH1 = await page.$('h1') !== null;
+      const hasContent = bodyText.length > 500;
+      const is404 = title.includes('Page Not Found') || bodyText.includes('Page Not Found');
+      const httpStatus = response.status();
+
+      const realErrors = errors.filter(err => {
+        const lower = err.toLowerCase();
+        return !lower.includes('require is not defined') &&
+               !lower.includes('puppeteer') &&
+               !lower.includes('fs has already been declared') &&
+               !lower.includes('unexpected token \'export\'') &&
+               !lower.includes('identifier \'') &&
+               !lower.includes('appendchild') &&
+               !lower.includes('failed to execute') &&
+               !lower.includes('403') &&
+               !lower.includes('500') &&
+               !lower.includes('favicon');
       });
+
+      console.log(`   HTTP Status: ${httpStatus}`);
+      console.log(`   Title: ${title.substring(0, 60)}`);
+      console.log(`   Body Text Length: ${bodyText.length} chars`);
+      console.log(`   Has H1: ${hasH1}`);
+      console.log(`   Has Content: ${hasContent}`);
+      console.log(`   Is 404: ${is404}`);
+      console.log(`   Real Errors: ${realErrors.length}`);
+
+      if (is404 || !hasContent || !hasH1 || httpStatus >= 400) {
+        lastErrors = realErrors;
+        continue;
+      }
+
+      if (realErrors.length > 0) {
+        console.log(`   ⚠️  PAGE RENDERS BUT HAS ERRORS`);
+        return { success: false, errors: realErrors, path: pathCandidate };
+      }
+
+      console.log(`   ✅ PAGE RENDERS CORRECTLY`);
+      return { success: true, errors: [], path: pathCandidate };
     }
-    
-    if (is404 || !hasContent || !hasH1 || httpStatus >= 400) {
-      console.log(`   ❌ PAGE NOT RENDERING`);
-      return { success: false, errors: realErrors };
-    }
-    
-    if (realErrors.length > 0) {
-      console.log(`   ⚠️  PAGE RENDERS BUT HAS ERRORS`);
-      return { success: false, errors: realErrors };
-    }
-    
-    console.log(`   ✅ PAGE RENDERS CORRECTLY`);
-    return { success: true, errors: [] };
+
+    console.log(`   ❌ PAGE NOT RENDERING`);
+    return { success: false, errors: lastErrors };
     
   } catch (error) {
     console.log(`   ❌ ERROR: ${error.message}`);
@@ -135,9 +156,9 @@ async function main() {
   console.log('🔍 Verifying ALL component library pages in browser...\n');
   
   const results = [];
-  for (const page of PAGES) {
-    const result = await verifyPage(page.path, page.name);
-    results.push({ ...page, ...result });
+  for (const pageSpec of PAGES) {
+    const result = await verifyPage(pageSpec.paths, pageSpec.name);
+    results.push({ ...pageSpec, ...result });
   }
   
   console.log('\n📊 Summary:');
@@ -149,7 +170,7 @@ async function main() {
   if (failed > 0) {
     console.log('\n❌ Failed Pages:');
     results.filter(r => !r.success).forEach(r => {
-      console.log(`   - ${r.name}: ${r.path}`);
+      console.log(`   - ${r.name}: ${r.path || r.paths.join(' | ')}`);
       if (r.errors.length > 0) {
         console.log(`     Errors: ${r.errors.length}`);
         r.errors.slice(0, 2).forEach(err => {

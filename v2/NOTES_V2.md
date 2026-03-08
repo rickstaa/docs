@@ -47,10 +47,10 @@ About:
 - Protocol: Called Protocol Actors or Network Participants? Both?
 - I am not convinced about the side bar sections.
 
-Removing: "v2/pages/01_about/livepeer-protocol/livepeer-actors/gateways",
-"v2/pages/01_about/livepeer-protocol/livepeer-actors/orchestrators",
-"v2/pages/01_about/livepeer-protocol/livepeer-actors/delegators",
-"v2/pages/01_about/livepeer-protocol/livepeer-actors/end-users"
+Removing: "v2/about/livepeer-protocol/livepeer-actors/gateways",
+"v2/about/livepeer-protocol/livepeer-actors/orchestrators",
+"v2/about/livepeer-protocol/livepeer-actors/delegators",
+"v2/about/livepeer-protocol/livepeer-actors/end-users"
 
 Community
 

@@ -1,20 +1,73 @@
 name: Request Feature (Internal Team)
 description: File a feature (internal team use only)
 title: "[feature] <title>"
-<<<<<<< HEAD
-labels: ["feature", "triage", "team: studio", "docs-v2", "help wanted"]
-=======
-labels: ["feature", "triage", "team: studio"]
->>>>>>> upstream/docs-v2-preview
+labels: ["feature", "triage", "team: studio", "docs-v2", "help wanted", "status: needs-triage", "type: enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for adding a feature request! _Note: this is only for the internal Livepeer team - please use
         [Discussions](https://github.com/livepeer/docs/discussions) if you are not a maintainer of this project._
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Classification
+      description: Select issue severity/impact. This is separate from priority (maintainer scheduling).
+      options:
+        - classification: urgent
+        - classification: high
+        - classification: moderate
+        - classification: minor
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select maintainer scheduling priority (separate from classification severity/impact).
+      options:
+        - priority: critical
+        - priority: high
+        - priority: medium
+        - priority: low
+    validations:
+      required: true
   - type: textarea
+    id: description
     attributes:
       label: Description
       description: A concise description of the feature request.
     validations:
-      required: false
+      required: true
+
+  - type: textarea
+    id: scope_in
+    attributes:
+      label: Scope in (required for Codex implementation)
+      description: List allowed file paths/prefixes to change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_out
+    attributes:
+      label: Scope out (required for Codex implementation)
+      description: List forbidden paths/prefixes, or write "none".
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_checks
+    attributes:
+      label: Acceptance commands (required for Codex implementation)
+      description: List commands expected to pass before merge.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk_flags
+    attributes:
+      label: Risk flags (required for Codex implementation)
+      description: Add zero or more from this set: new-route, navigation, generated-files, ci-impact, force-push-risk.
+    validations:
+      required: true

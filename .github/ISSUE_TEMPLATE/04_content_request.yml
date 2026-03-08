@@ -1,0 +1,193 @@
+name: Content Request (Missing Topic/Tutorial/Reference)
+description: Request new documentation content with audience, outline, and source context.
+title: "[content]: <short summary>"
+labels: ["docs-v2", "help wanted", "status: needs-triage", "type: documentation"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Select the primary area this content request affects.
+      options:
+        - area: home-about
+        - area: community
+        - area: developers
+        - area: gateways
+        - area: orchestrators
+        - area: lpt-governance
+        - area: resources
+        - area: ci-cd
+        - area: structure
+        - area: multiple
+    validations:
+      required: true
+
+  - type: input
+    id: page_or_path
+    attributes:
+      label: Placement hint (URL or file path)
+      description: Optional placement suggestion for where content should live.
+      placeholder: v2/pages/... 
+    validations:
+      required: false
+
+  - type: input
+    id: requested_topic
+    attributes:
+      label: Requested topic title
+      description: Proposed title for the missing content.
+    validations:
+      required: true
+
+  - type: input
+    id: target_audience
+    attributes:
+      label: Target audience
+      description: Who is this content for?
+      placeholder: New orchestrators, gateway operators, SDK builders, delegators
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Problem or use case
+      description: What gap does this content address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_outline
+    attributes:
+      label: Proposed outline
+      description: Provide a bullet outline for requested content.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_refs
+    attributes:
+      label: Source references
+      description: Link source material, specs, repos, and canonical references.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested_action
+    attributes:
+      label: Action requested from maintainers
+      description: What specific action should maintainers take?
+    validations:
+      required: true
+
+  - type: textarea
+    id: done_criteria
+    attributes:
+      label: Done criteria / acceptance check
+      description: Define completion checks for this content request.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_in
+    attributes:
+      label: Scope in (required for Codex implementation)
+      description: List allowed file paths/prefixes to change.
+      placeholder: |
+        v2/community/
+        docs.json
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_out
+    attributes:
+      label: Scope out (required for Codex implementation)
+      description: List forbidden paths/prefixes, or write "none".
+      placeholder: |
+        v1/
+        snippets/components/
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_checks
+    attributes:
+      label: Acceptance commands (required for Codex implementation)
+      description: List commands expected to pass before merge.
+      placeholder: |
+        node tests/run-pr-checks.js --base-ref docs-v2
+        node tests/integration/v2-link-audit.js --files v2/community/foo.mdx --strict
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk_flags
+    attributes:
+      label: Risk flags (required for Codex implementation)
+      description: Add zero or more from this set: new-route, navigation, generated-files, ci-impact, force-push-risk.
+      placeholder: |
+        new-route
+        navigation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Classification
+      description: Select issue severity/impact. This is separate from priority (maintainer scheduling).
+      options:
+        - classification: urgent
+        - classification: high
+        - classification: moderate
+        - classification: minor
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select maintainer scheduling priority (separate from classification severity/impact).
+      options:
+        - priority: critical
+        - priority: high
+        - priority: medium
+        - priority: low
+    validations:
+      required: true
+
+  - type: textarea
+    id: sme_suggestions
+    attributes:
+      label: Reviewer/SME suggestions
+      description: Optional list of people or teams who should review this content.
+    validations:
+      required: false
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline context
+      description: Optional timeline or release dependency.
+      placeholder: Needed before <date> for <launch/event>
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues and did not find an equivalent request.
+          required: true
+        - label: I provided enough detail for maintainers to evaluate and plan this content.
+          required: true

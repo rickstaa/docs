@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-all-pages-comprehensive
- * @summary Utility script for tools/scripts/test-all-pages-comprehensive.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-all-pages-comprehensive.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-all-pages-comprehensive.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-all-pages-comprehensive
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Manual comprehensive test — runs all page validators including slow/network checks
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/test-all-pages-comprehensive.js [flags]
  */
 
 /**
@@ -38,10 +24,10 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 
-const DOCS_JSON_PATH = path.join(__dirname, '..', 'docs.json');
+const DOCS_JSON_PATH = path.join(__dirname, '..', '..', 'docs.json');
 const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000; // 30 seconds per page
-const REPORT_DIR = path.join(__dirname, '..', 'docs', 'PLAN', 'report');
+const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports', 'page-audits');
 
 /**
  * Recursively extract all page paths from navigation structure
@@ -90,7 +76,10 @@ function getV2Pages() {
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  let url = pagePath.replace(/^v2\/pages\//, '');
+  let url = pagePath
+    .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
+    .replace(/\.mdx?$/, '');
   if (url.endsWith('/')) {
     url = url.slice(0, -1);
   }

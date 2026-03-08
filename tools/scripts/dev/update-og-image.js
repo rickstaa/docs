@@ -1,27 +1,13 @@
 /**
- * @script update-og-image
- * @summary Utility script for tools/scripts/dev/update-og-image.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/update-og-image.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/update-og-image.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            update-og-image
+ * @category          remediator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement Single OG image updater — updates og:image for one page
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
+ * @usage             node tools/scripts/dev/update-og-image.js [flags]
  */
 const fs = require('fs');
 const path = require('path');
@@ -29,9 +15,25 @@ const { execSync } = require('child_process');
 
 const NEW_OG_IMAGE = '/snippets/assets/domain/SHARED/LivepeerDocsHero.svg';
 const EXCLUDE_FILES = ['mission-control.mdx'];
+const V2_DOC_ROOTS = [
+  'v2/pages',
+  'v2/home',
+  'v2/solutions',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+].filter((root) => fs.existsSync(root));
 
 // Get all MDX files
-const files = execSync('find v2/pages -name "*.mdx" -type f', { encoding: 'utf8' })
+const files = execSync(`find ${V2_DOC_ROOTS.join(' ')} -name "*.mdx" -type f`, { encoding: 'utf8' })
   .trim()
   .split('\n');
 
@@ -86,4 +88,3 @@ console.log(`Changed: ${changed}`);
 console.log(`Skipped: ${skipped}`);
 console.log(`Errors: ${errors}`);
 console.log(`=============================`);
-

@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-all-pages-browser
- * @summary Utility script for tools/scripts/test-all-pages-browser.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-all-pages-browser.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-all-pages-browser.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-all-pages-browser
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Manual browser test runner — opens all pages in Puppeteer for visual inspection
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/test-all-pages-browser.js [flags]
  */
 /**
  * Test ALL pages from docs.json in browser
@@ -42,7 +28,10 @@ const CONCURRENT = 5; // Test 5 pages at a time
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  let url = pagePath.replace(/^v2\/pages\//, '').replace(/\.mdx$/, '');
+  let url = pagePath
+    .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
+    .replace(/\.mdx$/, '');
   if (url.endsWith('/index')) url = url.replace(/\/index$/, '');
   return `/${url}`;
 }

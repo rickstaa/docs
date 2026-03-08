@@ -1,31 +1,43 @@
 /**
- * @script audit-component-usage
- * @summary Utility script for tools/scripts/audit-component-usage.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/audit-component-usage.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/audit-component-usage.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            audit-component-usage
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Component usage auditor — scans pages for component usage patterns and reports statistics
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/audit-component-usage.js [flags]
  */
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+
+const REPORT_PATH = path.join(__dirname, '..', '..', 'tasks', 'reports', 'repo-ops', 'component-usage-audit.json');
+
+const V2_DOC_ROOTS = [
+  'v2/pages',
+  'v2/home',
+  'v2/solutions',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+].filter((root) => fs.existsSync(root));
+
+function resolveFirstExistingPath(candidates) {
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return candidates[0];
+}
 
 // Get all exported components from snippets/components
 function getAllExportedComponents() {
@@ -95,13 +107,34 @@ function getComponentLibraryComponents() {
   const commented = new Set();
   
   const libFiles = [
-    'v2/pages/07_resources/documentation-guide/component-library.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/primitives.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/display.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/content.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/layout.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/integrations.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/domain.mdx'
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library.mdx',
+      'v2/resources/documentation-guide/component-library.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/primitives.mdx',
+      'v2/resources/documentation-guide/component-library/primitives.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/display.mdx',
+      'v2/resources/documentation-guide/component-library/display.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/content.mdx',
+      'v2/resources/documentation-guide/component-library/content.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/layout.mdx',
+      'v2/resources/documentation-guide/component-library/layout.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/integrations.mdx',
+      'v2/resources/documentation-guide/component-library/integrations.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/domain.mdx',
+      'v2/resources/documentation-guide/component-library/domain.mdx'
+    ])
   ];
   
   libFiles.forEach(file => {
@@ -153,11 +186,12 @@ function getComponentLibraryComponents() {
 // Get components used in v2 pages
 function getV2PageComponents() {
   const used = new Map(); // component -> [files]
-  
-  const v2Files = execSync('find v2/pages -name "*.mdx" -type f', { encoding: 'utf8' })
+  const searchRoots = V2_DOC_ROOTS.length > 0 ? V2_DOC_ROOTS : ['v2/pages'];
+  const findCommand = `find ${searchRoots.join(' ')} -name "*.mdx" -type f`;
+  const v2Files = execSync(findCommand, { encoding: 'utf8' })
     .trim()
     .split('\n')
-    .filter(f => f && !f.includes('component-library'));
+    .filter((f) => f && !f.includes('component-library'));
   
   v2Files.forEach(file => {
     try {
@@ -270,4 +304,5 @@ const report = {
 console.log(JSON.stringify(report, null, 2));
 
 // Also write to file
-fs.writeFileSync('component-usage-audit.json', JSON.stringify(report, null, 2));
+fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
+fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));

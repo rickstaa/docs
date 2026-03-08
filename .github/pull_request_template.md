@@ -2,6 +2,21 @@
 
 <!-- Provide a clear description of what this PR changes and why -->
 
+## Scope
+
+<!-- Required for codex/* PRs: list in-scope files/prefixes and any explicit out-of-scope exclusions -->
+<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+
+## Validation
+
+<!-- Required for codex/* PRs: list exact commands run and notable outcomes -->
+<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+
+## Follow-up Tasks
+
+<!-- Required for codex/* PRs: link follow-up issues, or write "none" -->
+<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+
 ## Type of Change
 
 <!-- Check all that apply -->

@@ -1,52 +1,31 @@
 #!/usr/bin/env node
 /**
- * @script script-docs-test
- * @summary Enforce script header schema, keep group script indexes in sync, and build aggregate script index.
- * @owner docs
- * @scope .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/scripts-index.md
- *
- * @usage
- *   node tests/unit/script-docs.test.js --staged --write --stage --autofill
- *   node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
- *
- * @inputs
- *   --staged Enforce only newly added staged scripts.
- *   --enforce-existing Enforce all scoped scripts.
- *   --autofill Inject placeholder header for brand-new scripts missing the template.
- *   --backfill-existing Inject non-placeholder headers for existing scripts missing the template.
- *   --write Update script-index files and aggregate index.
- *   --rebuild-indexes Rebuild all group indexes regardless of staged scope.
- *   --stage Stage any updated script/index files.
- *
- * @outputs
- *   - .githooks/script-index.md
- *   - .github/script-index.md
- *   - tests/script-index.md
- *   - tools/script-index.md
- *   - tasks/script-index.md
- *   - docs-guide/scripts-index.md
- *
- * @exit-codes
- *   0 = validation passed
- *   1 = template or index validation failed
- *
- * @examples
- *   node tests/unit/script-docs.test.js --staged --write --stage --autofill
- *   node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
- *
- * @notes
- *   Excludes node_modules, .venv, .git, tmp, notion, and backup files matching .bak*.
+ * @script            script-docs-test
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/indexes/scripts-index.mdx
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index
+ * @pipeline          P1 (commit, via run-all)
+ * @dualmode          --check (validator) | --write --rebuild-indexes (generator)
+ * @usage             node tests/unit/script-docs.test.js [flags]
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const {
+  buildGeneratedFrontmatterLines,
+  buildGeneratedHiddenBannerLines,
+  buildGeneratedNoteLines
+} = require('../../tools/lib/generated-file-banners');
 
 const REPO_ROOT = process.cwd();
 const INDEX_START = '{/* SCRIPT-INDEX:START */}';
 const INDEX_END = '{/* SCRIPT-INDEX:END */}';
 
-const REQUIRED_TAGS = [
+const LEGACY_REQUIRED_TAGS = [
   '@script',
   '@summary',
   '@owner',
@@ -59,8 +38,19 @@ const REQUIRED_TAGS = [
   '@notes'
 ];
 
-const INLINE_REQUIRED_TAGS = ['@script', '@summary', '@owner', '@scope'];
-const BLOCK_REQUIRED_TAGS = ['@usage', '@inputs', '@outputs', '@exit-codes', '@examples', '@notes'];
+const LEGACY_INLINE_REQUIRED_TAGS = ['@script', '@summary', '@owner', '@scope'];
+const LEGACY_BLOCK_REQUIRED_TAGS = ['@usage', '@inputs', '@outputs', '@exit-codes', '@examples', '@notes'];
+const FRAMEWORK_REQUIRED_TAGS = [
+  '@script',
+  '@category',
+  '@purpose',
+  '@scope',
+  '@owner',
+  '@needs',
+  '@purpose-statement',
+  '@pipeline'
+];
+const FRAMEWORK_INLINE_REQUIRED_TAGS = FRAMEWORK_REQUIRED_TAGS;
 const PLACEHOLDER_PATTERNS = [
   /^<.*>$/,
   /^todo\b/i,
@@ -81,10 +71,23 @@ const GROUP_INDEX_MAP = [
   { root: '.github/scripts', index: '.github/script-index.md' },
   { root: 'tests', index: 'tests/script-index.md' },
   { root: 'tools/scripts', index: 'tools/script-index.md' },
-  { root: 'tasks/scripts', index: 'tasks/script-index.md' }
+  { root: 'tasks/scripts', index: 'tasks/scripts/script-index.md' }
 ];
 
-const AGGREGATE_INDEX_PATH = 'docs-guide/scripts-index.md';
+const AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.mdx';
+const LEGACY_AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.md';
+const AGGREGATE_FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
+  title: 'Scripts Index',
+  sidebarTitle: 'Scripts Index',
+  description: 'This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.',
+  keywords: ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'scripts']
+});
+const AGGREGATE_DETAILS = {
+  script: 'tests/unit/script-docs.test.js',
+  purpose: 'Enforce script header schema, keep group script indexes in sync, and build aggregate script index.',
+  runWhen: 'Scripts are added, removed, renamed, or script metadata changes in scoped roots.',
+  runCommand: 'node tests/unit/script-docs.test.js --write --rebuild-indexes'
+};
 
 function normalizeRepoPath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -173,6 +176,14 @@ function getHeaderChunk(content) {
   return content.split('\n').slice(0, 160).join('\n');
 }
 
+function hasFrameworkHeaderTags(header) {
+  return header.includes('@category') || header.includes('@purpose') || header.includes('@purpose-statement');
+}
+
+function detectHeaderMode(header) {
+  return hasFrameworkHeaderTags(header) ? 'framework' : 'legacy';
+}
+
 function getTagValue(header, tagName) {
   const re = new RegExp(`\\${tagName}\\s+(.+)`);
   const match = header.match(re);
@@ -211,6 +222,9 @@ function getSectionLines(header, tagName) {
 }
 
 function extractPrimaryUsage(header) {
+  const inlineUsage = getTagValue(header, '@usage');
+  if (inlineUsage && !isPlaceholderValue(inlineUsage)) return inlineUsage;
+
   const lines = getSectionLines(header, '@usage');
   for (const line of lines) {
     if (line && !line.startsWith('@')) return line;
@@ -221,21 +235,38 @@ function extractPrimaryUsage(header) {
 function validateTemplate(repoPath) {
   const content = readFileSafe(repoPath);
   const header = getHeaderChunk(content);
-  const missing = REQUIRED_TAGS.filter((tag) => !header.includes(tag));
+  const mode = detectHeaderMode(header);
+  const requiredTags = mode === 'framework' ? FRAMEWORK_REQUIRED_TAGS : LEGACY_REQUIRED_TAGS;
+  const inlineTags = mode === 'framework' ? FRAMEWORK_INLINE_REQUIRED_TAGS : LEGACY_INLINE_REQUIRED_TAGS;
+  const blockTags = mode === 'framework' ? [] : LEGACY_BLOCK_REQUIRED_TAGS;
+  const missing = requiredTags.filter((tag) => !header.includes(tag));
   const empty = [];
 
-  for (const tag of INLINE_REQUIRED_TAGS) {
+  for (const tag of inlineTags) {
     if (missing.includes(tag)) continue;
     const value = getTagValue(header, tag);
     if (isPlaceholderValue(value)) empty.push(tag);
   }
 
-  for (const tag of BLOCK_REQUIRED_TAGS) {
+  for (const tag of blockTags) {
     if (missing.includes(tag)) continue;
     const sectionLines = getSectionLines(header, tag);
     const meaningful = sectionLines.filter((line) => !isPlaceholderValue(line));
     if (meaningful.length === 0) empty.push(tag);
   }
+
+  // Framework headers encode usage inline; when present, enforce non-placeholder content.
+  if (mode === 'framework' && !missing.includes('@usage')) {
+    const usage = getTagValue(header, '@usage');
+    if (usage && isPlaceholderValue(usage)) empty.push('@usage');
+  }
+
+  const summary =
+    getTagValue(header, '@summary') ||
+    getTagValue(header, '@purpose-statement') ||
+    getTagValue(header, '@purpose') ||
+    '';
+  const usage = extractPrimaryUsage(header) || (mode === 'framework' ? buildUsageDefault(repoPath) : '');
 
   return {
     file: repoPath,
@@ -243,9 +274,9 @@ function validateTemplate(repoPath) {
     missing,
     empty,
     script: getTagValue(header, '@script') || path.basename(repoPath),
-    summary: getTagValue(header, '@summary') || '',
+    summary,
     owner: getTagValue(header, '@owner') || '',
-    usage: extractPrimaryUsage(header)
+    usage
   };
 }
 
@@ -253,6 +284,25 @@ function buildUsageDefault(repoPath) {
   if (repoPath.endsWith('.sh') || repoPath.endsWith('.bash')) return `bash ${repoPath}`;
   if (repoPath.endsWith('.py')) return `python3 ${repoPath}`;
   return `node ${repoPath}`;
+}
+
+function collectFilesFromArgs(args) {
+  const files = [];
+  for (let i = 0; i < args.length; i += 1) {
+    const token = args[i];
+    if (token === '--files' || token === '--file') {
+      const raw = String(args[i + 1] || '').trim();
+      if (raw) {
+        raw
+          .split(',')
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .forEach((part) => files.push(part));
+      }
+      i += 1;
+    }
+  }
+  return [...new Set(files.map(normalizeRepoPath))];
 }
 
 function buildTemplateValues(repoPath, placeholderMode) {
@@ -359,7 +409,7 @@ function injectTemplate(repoPath, placeholderMode) {
   if (!existing) return false;
 
   const header = getHeaderChunk(existing);
-  const hasAnyTag = REQUIRED_TAGS.some((tag) => header.includes(tag));
+  const hasAnyTag = LEGACY_REQUIRED_TAGS.some((tag) => header.includes(tag)) || hasFrameworkHeaderTags(header);
   if (hasAnyTag) return false;
 
   const shebangMatch = existing.match(/^(#![^\n]*\n)/);
@@ -381,35 +431,58 @@ function stageFiles(repoPaths) {
   execSync(`git add ${args}`, { stdio: 'ignore' });
 }
 
+function buildDefaultIndexContent(indexPath) {
+  const title = `# ${path.basename(path.dirname(indexPath) || indexPath)} Script Index`;
+  return `${title}\n\n${INDEX_START}\n## Script Index\n\n_No scripts indexed yet._\n${INDEX_END}\n`;
+}
+
+function applyIndexBlock(existing, body) {
+  const block = `${INDEX_START}\n${body}\n${INDEX_END}`;
+  if (existing.includes(INDEX_START) && existing.includes(INDEX_END)) {
+    const start = escapeRegExp(INDEX_START);
+    const end = escapeRegExp(INDEX_END);
+    return existing.replace(new RegExp(`${start}[\\s\\S]*?${end}`, 'm'), block);
+  }
+  return `${existing.trimEnd()}\n\n${block}\n`;
+}
+
 function ensureIndexFile(indexPath) {
   const fullPath = path.join(REPO_ROOT, indexPath);
   if (fs.existsSync(fullPath)) return;
-  const title = `# ${path.basename(path.dirname(indexPath) || indexPath)} Script Index`;
-  const content = `${title}\n\n${INDEX_START}\n## Script Index\n\n_No scripts indexed yet._\n${INDEX_END}\n`;
   fs.mkdirSync(path.dirname(fullPath), { recursive: true });
-  fs.writeFileSync(fullPath, content);
+  fs.writeFileSync(fullPath, buildDefaultIndexContent(indexPath));
 }
 
 function scriptsForGroup(root) {
   return getAllScopedScripts().filter((file) => file === root || file.startsWith(`${root}/`));
 }
 
-function buildGroupIndexMarkdown(root) {
-  const scripts = scriptsForGroup(root)
+function buildGroupRows(root) {
+  return scriptsForGroup(root)
     .map(validateTemplate)
     .filter((x) => x.valid)
-    .sort((a, b) => a.file.localeCompare(b.file));
+    .sort((a, b) => a.file.localeCompare(b.file))
+    .map((entry) => ({
+      script: entry.file,
+      summary: entry.summary || '',
+      usage: entry.usage || '',
+      owner: entry.owner || ''
+    }));
+}
 
-  if (scripts.length === 0) {
+function buildGroupIndexMarkdown(root) {
+  const rows = buildGroupRows(root);
+
+  if (rows.length === 0) {
     return ['## Script Index', '', '_No scripts indexed yet._'].join('\n');
   }
 
   const lines = ['## Script Index', '', '| Script | Summary | Usage | Owner |', '|---|---|---|---|'];
-  scripts.forEach((s) => {
-    const summary = s.summary.replace(/\|/g, '\\|');
-    const usage = (s.usage || '').replace(/\|/g, '\\|');
-    const owner = (s.owner || '').replace(/\|/g, '\\|');
-    lines.push(`| \`${s.file}\` | ${summary} | \`${usage}\` | ${owner} |`);
+  rows.forEach((row) => {
+    const summary = row.summary.replace(/\|/g, '\\|');
+    const usage = row.usage.replace(/\|/g, '\\|');
+    const owner = row.owner.replace(/\|/g, '\\|');
+    lines.push(`| \`${row.script}\` | ${summary} | \`${usage}\` | ${owner} |`);
   });
   return lines.join('\n');
 }
@@ -418,16 +491,7 @@ function updateIndexFile(indexPath, body) {
   ensureIndexFile(indexPath);
   const fullPath = path.join(REPO_ROOT, indexPath);
   const existing = fs.readFileSync(fullPath, 'utf8');
-  const block = `${INDEX_START}\n${body}\n${INDEX_END}`;
-  let updated;
-
-  if (existing.includes(INDEX_START) && existing.includes(INDEX_END)) {
-    const start = escapeRegExp(INDEX_START);
-    const end = escapeRegExp(INDEX_END);
-    updated = existing.replace(new RegExp(`${start}[\\s\\S]*?${end}`, 'm'), block);
-  } else {
-    updated = `${existing.trimEnd()}\n\n${block}\n`;
-  }
+  const updated = applyIndexBlock(existing, body);
 
   if (updated !== existing) {
     fs.writeFileSync(fullPath, updated);
@@ -436,28 +500,30 @@ function updateIndexFile(indexPath, body) {
   return false;
 }
 
-function parseGroupIndexRows(indexPath) {
-  const content = readFileSafe(indexPath);
-  const lines = content.split('\n');
-  const rows = [];
-  for (const line of lines) {
-    if (!line.startsWith('| `')) continue;
-    const parts = line.split('|').map((p) => p.trim());
-    if (parts.length < 6) continue;
-    rows.push({
-      script: parts[1].replace(/^`|`$/g, ''),
-      summary: parts[2],
-      usage: parts[3].replace(/^`|`$/g, ''),
-      owner: parts[4]
-    });
+function checkIndexFile(indexPath, body) {
+  const fullPath = path.join(REPO_ROOT, indexPath);
+  if (!fs.existsSync(fullPath)) {
+    return { missing: true, changed: true };
   }
-  return rows;
+  const existing = fs.readFileSync(fullPath, 'utf8');
+  const expected = applyIndexBlock(existing || buildDefaultIndexContent(indexPath), body);
+  return {
+    missing: false,
+    changed: existing !== expected
+  };
 }
 
 function buildAggregateMarkdown() {
-  const lines = ['# Script Index', '', 'Aggregate catalog generated from group script indexes.', ''];
+  const lines = [
+    ...AGGREGATE_FRONTMATTER_LINES,
+    '',
+    ...buildGeneratedHiddenBannerLines(AGGREGATE_DETAILS),
+    '',
+    ...buildGeneratedNoteLines(AGGREGATE_DETAILS),
+    ''
+  ];
   for (const group of GROUP_INDEX_MAP) {
-    const rows = parseGroupIndexRows(group.index);
+    const rows = buildGroupRows(group.root);
     lines.push(`## ${group.root}`);
     lines.push('');
     if (rows.length === 0) {
@@ -468,7 +534,10 @@ function buildAggregateMarkdown() {
     lines.push('| Script | Summary | Usage | Owner |');
     lines.push('|---|---|---|---|');
     rows.forEach((row) => {
-      lines.push(`| \`${row.script}\` | ${row.summary} | \`${row.usage}\` | ${row.owner} |`);
+      const summary = row.summary.replace(/\|/g, '\\|');
+      const usage = row.usage.replace(/\|/g, '\\|');
+      const owner = row.owner.replace(/\|/g, '\\|');
+      lines.push(`| \`${row.script}\` | ${summary} | \`${usage}\` | ${owner} |`);
     });
     lines.push('');
   }
@@ -487,14 +556,29 @@ function updateAggregateIndex() {
   return false;
 }
 
+function checkAggregateIndex() {
+  const fullPath = path.join(REPO_ROOT, AGGREGATE_INDEX_PATH);
+  if (!fs.existsSync(fullPath)) {
+    return { missing: true, changed: true };
+  }
+  const existing = fs.readFileSync(fullPath, 'utf8');
+  const expected = buildAggregateMarkdown();
+  return {
+    missing: false,
+    changed: existing !== expected
+  };
+}
+
 function runTests(options = {}) {
   const stagedOnly = Boolean(options.stagedOnly);
   const write = Boolean(options.write);
+  const checkIndexes = Boolean(options.checkIndexes);
   const stage = Boolean(options.stage);
   const autofill = Boolean(options.autofill);
   const backfillExisting = Boolean(options.backfillExisting);
   const enforceExisting = Boolean(options.enforceExisting);
   const rebuildIndexes = Boolean(options.rebuildIndexes);
+  const files = Array.isArray(options.files) ? options.files : [];
 
   const errors = [];
   const warnings = [];
@@ -504,6 +588,9 @@ function runTests(options = {}) {
 
   const scopedScripts = getAllScopedScripts();
   const stagedAddedScripts = getStagedAddedScripts();
+  const explicitTargets = [...new Set(files.map(normalizeRepoPath))]
+    .filter((file) => SCOPED_ROOTS.some((root) => file === root || file.startsWith(`${root}/`)))
+    .filter(isScriptFile);
 
   if (autofill) {
     for (const scriptPath of stagedAddedScripts) {
@@ -517,7 +604,13 @@ function runTests(options = {}) {
     }
   }
 
-  const enforceTargets = enforceExisting ? scopedScripts : stagedOnly ? stagedAddedScripts : [];
+  const enforceTargets = explicitTargets.length > 0
+    ? explicitTargets
+    : enforceExisting
+      ? scopedScripts
+      : stagedOnly
+        ? stagedAddedScripts
+        : [];
   for (const scriptPath of enforceTargets) {
     const result = validateTemplate(scriptPath);
     if (!result.valid) {
@@ -530,8 +623,8 @@ function runTests(options = {}) {
 
   const stagedPaths = [...autofilledScripts, ...backfilledScripts];
 
-  if (write || rebuildIndexes) {
-    const indexTargets = rebuildIndexes
+  if (write || rebuildIndexes || checkIndexes) {
+    const indexTargets = rebuildIndexes || checkIndexes
       ? GROUP_INDEX_MAP
       : GROUP_INDEX_MAP.filter((g) => {
           const candidates = stagedOnly ? stagedAddedScripts : scopedScripts;
@@ -540,13 +633,61 @@ function runTests(options = {}) {
 
     for (const target of indexTargets) {
       const body = buildGroupIndexMarkdown(target.root);
-      if (updateIndexFile(target.index, body)) {
+      if (checkIndexes && !write) {
+        const check = checkIndexFile(target.index, body);
+        if (check.missing) {
+          errors.push({
+            file: target.index,
+            rule: 'Script index freshness',
+            message: 'Missing script index file. Run with --write --rebuild-indexes.',
+            line: 1
+          });
+        } else if (check.changed) {
+          errors.push({
+            file: target.index,
+            rule: 'Script index freshness',
+            message: 'Outdated script index file. Run with --write --rebuild-indexes.',
+            line: 1
+          });
+        }
+      } else if (updateIndexFile(target.index, body)) {
         changedIndexes.push(target.index);
       }
     }
 
-    if (updateAggregateIndex()) {
+    if (checkIndexes && !write) {
+      const aggregateCheck = checkAggregateIndex();
+      if (aggregateCheck.missing) {
+        errors.push({
+          file: AGGREGATE_INDEX_PATH,
+          rule: 'Aggregate script index freshness',
+          message: 'Missing aggregate scripts index. Run with --write --rebuild-indexes.',
+          line: 1
+        });
+      } else if (aggregateCheck.changed) {
+        errors.push({
+          file: AGGREGATE_INDEX_PATH,
+          rule: 'Aggregate script index freshness',
+          message: 'Outdated aggregate scripts index. Run with --write --rebuild-indexes.',
+          line: 1
+        });
+      }
+    } else if (updateAggregateIndex()) {
       changedIndexes.push(AGGREGATE_INDEX_PATH);
+    }
+
+    const legacyAggregatePath = path.join(REPO_ROOT, LEGACY_AGGREGATE_INDEX_PATH);
+    if (checkIndexes && !write && fs.existsSync(legacyAggregatePath)) {
+      errors.push({
+        file: LEGACY_AGGREGATE_INDEX_PATH,
+        rule: 'Legacy aggregate script index',
+        message: 'Legacy scripts-index.md should be removed; use scripts-index.mdx.',
+        line: 1
+      });
+    }
+    if (write && fs.existsSync(legacyAggregatePath)) {
+      fs.unlinkSync(legacyAggregatePath);
+      changedIndexes.push(LEGACY_AGGREGATE_INDEX_PATH);
     }
   }
 
@@ -577,17 +718,32 @@ if (require.main === module) {
   const autofill = args.includes('--autofill');
   const backfillExisting = args.includes('--backfill-existing');
   const enforceExisting = args.includes('--enforce-existing');
+  const checkIndexes = args.includes('--check-indexes');
   const rebuildIndexes = args.includes('--rebuild-indexes');
+  const files = collectFilesFromArgs(args);
 
-  const result = runTests({ stagedOnly, write, stage, autofill, backfillExisting, enforceExisting, rebuildIndexes });
+  const result = runTests({
+    stagedOnly,
+    write,
+    checkIndexes,
+    stage,
+    autofill,
+    backfillExisting,
+    enforceExisting,
+    rebuildIndexes,
+    files
+  });
 
   if (result.errors.length > 0) {
     console.error('\n❌ Script documentation enforcement failed:\n');
     result.errors.forEach((err) => {
       console.error(`  ${err.file}:${err.line} - ${err.message}`);
     });
-    console.error('\nRequired template tags:');
-    console.error(`  ${REQUIRED_TAGS.join(', ')}`);
+    if (result.errors.some((err) => err.rule === 'Script header template')) {
+      console.error('\nRequired template tags:');
+      console.error(`  Legacy: ${LEGACY_REQUIRED_TAGS.join(', ')}`);
+      console.error(`  Framework: ${FRAMEWORK_REQUIRED_TAGS.join(', ')}`);
+    }
   }
 
   if (result.autofilledScripts.length > 0) {

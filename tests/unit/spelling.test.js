@@ -1,36 +1,22 @@
 #!/usr/bin/env node
 /**
- * @script spelling.test
- * @summary Utility script for tests/unit/spelling.test.js.
- * @owner docs
- * @scope tests
- *
- * @usage
- *   node tests/unit/spelling.test.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tests/unit/spelling.test.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            spelling.test
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tests
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Spelling check — validates content against custom dictionary with en-GB rules
+ * @pipeline          P1 (commit, via run-all)
+ * @usage             node tests/unit/spelling.test.js [flags]
  */
 /**
  * UK English spelling validation tests
  */
 
-const path = require('path');
-const { getMdxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
-const { checkSpelling, checkMultipleFiles } = require('../utils/spell-checker');
+const { execSync } = require('child_process');
+const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
+const { checkMultipleFiles, resolveCspellBinary, resolveCspellConfig } = require('../utils/spell-checker');
 
 let errors = [];
 
@@ -71,14 +57,19 @@ async function runTests(options = {}) {
   }
   
   // Check if cspell is available
+  const cspell = resolveCspellBinary();
   try {
-    require('child_process').execSync('npx cspell --version', { stdio: 'ignore' });
+    if (cspell.viaNpx) {
+      execSync('npx cspell --version', { stdio: 'ignore' });
+    } else {
+      execSync(`"${cspell.bin}" --version`, { stdio: 'ignore' });
+    }
   } catch (error) {
     console.warn('⚠️  cspell not available. Install with: npm install');
     return { errors: [], warnings: ['cspell not available'], passed: true, total: testFiles.length };
   }
   
-  const cspellConfig = path.join(process.cwd(), 'cspell.json');
+  const cspellConfig = resolveCspellConfig();
   const results = checkMultipleFiles(testFiles, cspellConfig);
   
   results.forEach(result => {

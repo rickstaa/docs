@@ -1,0 +1,19 @@
+#!/bin/bash
+# LIVEPEER_NOTION_LOCAL_SYNC_HOOK
+set -u
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+RUNNER="$REPO_ROOT/tools/notion/local-post-commit-sync.sh"
+PREVIOUS_HOOK=""
+
+if [ -n "$PREVIOUS_HOOK" ] && [ -x "$PREVIOUS_HOOK" ]; then
+  "$PREVIOUS_HOOK" "$@" || true
+fi
+
+if [ -x "$RUNNER" ]; then
+  "$RUNNER" "$@" || true
+else
+  bash "$RUNNER" "$@" || true
+fi
+
+exit 0

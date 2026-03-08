@@ -1,27 +1,13 @@
 /**
- * @script inspect-video-page
- * @summary Utility script for tools/scripts/inspect-video-page.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/inspect-video-page.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/inspect-video-page.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            inspect-video-page
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Video page inspector — displays video-specific metadata and embed configuration for a page
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/inspect-video-page.js [flags]
  */
 const puppeteer = require('puppeteer');
 

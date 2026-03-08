@@ -1,0 +1,15 @@
+{
+  "required_labels": [
+    "docs-v2"
+  ],
+  "required_label_prefixes": [
+    "type:",
+    "area:",
+    "classification:",
+    "priority:"
+  ],
+  "forbidden_labels": [
+    "status: needs-info"
+  ],
+  "required_state": "open"
+}

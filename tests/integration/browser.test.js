@@ -1,28 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script browser.test
- * @summary Utility script for tests/integration/browser.test.js.
- * @owner docs
- * @scope tests
- *
- * @usage
- *   node tests/integration/browser.test.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tests/integration/browser.test.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            browser.test
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tests
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions
+ * @pipeline          P3 (PR, Track A)
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tests/integration/browser.test.js [flags]
  */
 /**
  * Browser rendering tests
@@ -34,9 +21,9 @@ const fs = require('fs');
 const path = require('path');
 const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
 const { getV2Pages } = require('../../tools/scripts/test-v2-pages');
-const { ensureServerRunning, stopServer } = require('../../.githooks/server-manager');
+const { ensureServerRunning, stopServer, getServerUrl } = require('../../.githooks/server-manager');
 
-const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
+const DEFAULT_BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000;
 
 /**
@@ -72,9 +59,9 @@ function filePathToUrl(filePath) {
  * Test page in browser
  */
 async function testPage(browser, filePath, options = {}) {
-  const { theme = 'dark' } = options;
+  const { theme = 'dark', baseUrl = DEFAULT_BASE_URL } = options;
   const url = filePathToUrl(filePath);
-  const fullUrl = `${BASE_URL}${url}`;
+  const fullUrl = `${baseUrl}${url}`;
   const page = await browser.newPage();
   
   // Set desktop viewport (fixed size - documentation is not responsive)
@@ -88,6 +75,7 @@ async function testPage(browser, filePath, options = {}) {
   }
   
   const errors = [];
+  const consoleErrors = [];
   const warnings = [];
   
   // Listen for console errors
@@ -112,7 +100,10 @@ async function testPage(browser, filePath, options = {}) {
       'await is only valid in async functions'  // Test script artifacts
     ];
     if (type === 'error' && !ignored.some(i => text.toLowerCase().includes(i.toLowerCase()))) {
-      errors.push(`Console: ${text}`);
+      consoleErrors.push({
+        url: page.url() || fullUrl,
+        message: text
+      });
     }
   });
   
@@ -146,6 +137,13 @@ async function testPage(browser, filePath, options = {}) {
     await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: TIMEOUT });
     // Wait for content to render
     await new Promise(resolve => setTimeout(resolve, 2000));
+
+    if (consoleErrors.length > 0) {
+      errors.push(`Console errors (${consoleErrors.length}) detected`);
+      consoleErrors.forEach(consoleError => {
+        errors.push(`Console (${consoleError.url}): ${consoleError.message}`);
+      });
+    }
     
     // Check content
     const bodyText = await page.evaluate(() => document.body.innerText);
@@ -201,12 +199,20 @@ async function testPage(browser, filePath, options = {}) {
       contentLength: bodyText ? bodyText.length : 0
     };
   } catch (error) {
+    const navigationErrors = [`Navigation Error: ${error.message}`];
+    if (consoleErrors.length > 0) {
+      navigationErrors.push(`Console errors (${consoleErrors.length}) detected`);
+      consoleErrors.forEach(consoleError => {
+        navigationErrors.push(`Console (${consoleError.url}): ${consoleError.message}`);
+      });
+    }
+
     return {
       filePath,
       url: fullUrl,
       theme,
       success: false,
-      errors: [`Navigation Error: ${error.message}`],
+      errors: navigationErrors,
       warnings
     };
   } finally {
@@ -245,10 +251,13 @@ async function runTests(options = {}) {
     return {
       errors: [`Failed to start server: ${error.message}`],
       warnings: [],
-      passed: false,
+      passed: 0,
+      failed: 0,
       total: testFiles.length
     };
   }
+  
+  const baseUrl = process.env.MINT_BASE_URL || getServerUrl();
   
   const browser = await puppeteer.launch({ 
     headless: true,
@@ -261,7 +270,7 @@ async function runTests(options = {}) {
   
   for (const file of testFiles) {
     for (const theme of themes) {
-      const result = await testPage(browser, file, { theme });
+      const result = await testPage(browser, file, { theme, baseUrl });
       results.push(result);
       
       if (result.success) {
@@ -295,6 +304,12 @@ if (require.main === module) {
   const themes = args.includes('--light') ? ['light'] : ['dark'];
   
   runTests({ stagedOnly, themes }).then(result => {
+    const infraErrors = Array.isArray(result.errors) ? result.errors : [];
+    if (infraErrors.length > 0) {
+      console.error('\n❌ Browser test infrastructure failed:\n');
+      infraErrors.forEach(err => console.error(`  - ${err}`));
+      process.exit(1);
+    }
     if (result.failed > 0) {
       console.error(`\n❌ ${result.failed} of ${result.total} page test(s) failed:\n`);
       result.results.filter(r => !r.success).forEach(r => {

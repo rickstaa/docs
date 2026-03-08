@@ -26,7 +26,6 @@ Central configuration file containing all path definitions used by scripts.
     "snippetsComponents": "snippets/components",
     "snippetsWikiComponentLibrary": "snippets/snippetsWiki/componentLibrary/index.mdx",
     "docsJson": "docs.json",
-    "docsStatusData": "snippets/docs-status-data.json",
     "v2Pages": "v2/pages",
     "lptExchanges": "v2/pages/06_delegators/token-resources/lpt-exchanges.mdx",
     "aiWorkerApi": "ai/worker/api"
@@ -71,31 +70,6 @@ output-dir/
 
 ---
 
-### generate-docs-status.js
-
-Generates documentation status tables and structure diagrams from `docs.json`.
-
-**What it does:**
-1. Reads `docs.json` navigation structure
-2. Merges with `snippets/docs-status-data.json` for status/priority/notes
-3. Outputs a status table MDX file
-4. Outputs a Mermaid structure diagram MDX file
-
-**Usage:**
-```bash
-node tools/scripts/snippets/generate-docs-status.js
-```
-
-**Output:**
-- `snippets/generated/docs-status-table.mdx` - Table of all pages with status
-- `snippets/generated/docs-structure-diagram.mdx` - Mermaid diagram of docs structure
-
-**When to run:**
-- After modifying `docs.json` navigation
-- After updating page status in `snippets/docs-status-data.json`
-
----
-
 ### generate-seo.js
 
 Automatically generates and updates SEO metadata for MDX documentation pages.
@@ -115,7 +89,7 @@ npm run generate-seo:dry-run
 npm run generate-seo
 
 # Process a single file
-node tools/scripts/snippets/generate-seo.js --file=v2/pages/00_home/mission-control.mdx
+node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 ```
 
 **What gets added:**
@@ -244,7 +218,6 @@ scripts/
 ├── README.mdx                    # This file
 ├── paths.config.json             # Central path configuration
 ├── generate-api-docs.sh          # Generate API docs from OpenAPI
-├── generate-docs-status.js       # Generate docs status tables
 ├── update-component-library.sh   # Update component library index
 ├── fetch-openapi-specs.sh        # Fetch OpenAPI specs
 ├── fetch-external-docs.sh        # Fetch external documentation
